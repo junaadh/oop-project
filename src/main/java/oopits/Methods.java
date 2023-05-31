@@ -24,7 +24,7 @@ public class Methods {
 
     public static boolean isRegistered() {
         boolean isRegistered = false;
-        System.out.println("\nDo you wnat to Login or SignUp");
+        System.out.println("\nDo you want to Login or SignUp");
         String x = Initializer.sc.nextLine();
         if ((x.toLowerCase()).equals("login")) {
             return isRegistered = true;
@@ -33,7 +33,7 @@ public class Methods {
     }
 
     public static void GuestFunc() {
-        //Helper.welcome("public");
+        // Helper.welcome("public");
         // Initializer.status = 0;
         int status = 1;
         while (status == 1) {

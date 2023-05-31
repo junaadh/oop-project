@@ -7,7 +7,6 @@ import java.util.Map;
 public class LogMan {
     public static void userLogin() {
         Map<String, User> user_map = Database.load();
-        System.out.println(user_map);
 
         String username, password;
 
