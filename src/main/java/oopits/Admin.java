@@ -47,6 +47,7 @@ public class Admin extends User{
         } else if (x.equals("m")) {
             Helper.displaySortedByMonth();
         } else if (x.equals("a")) {
+            Helper.clearScreen();
             System.out.println("\nCompany name: ");
             String a = Initializer.sc.nextLine();
             System.out.println("Usage: ");
@@ -57,6 +58,7 @@ public class Admin extends User{
             Initializer.cList[Initializer.cList.length - 1] = new Company(Initializer.cList.length, a, b, c);
 
         } else if (x.equals("!")) {
+            Helper.clearScreen();
             System.out.println("\n-------------------\n<  !!!WARNING!!!  >\n-------------------");
             for(Company a:Initializer.cList){
                 double energyUsage = Double.parseDouble(a.usage.split(" ")[0]);
@@ -67,6 +69,8 @@ public class Admin extends User{
         } else if (x.equals("#")) {
             Helper.clearScreen();
             Admin.suAccess();
+        } else {
+            Helper.clearScreen();
         }
         }
         } else if (level.equals("$")){
@@ -84,6 +88,7 @@ public class Admin extends User{
         } else if (x.equals("m")) {
             Helper.displaySortedByMonth();
         } else if (x.equals("a")) {
+            Helper.clearScreen();
             System.out.println("\nCompany name: ");
             String a = Initializer.sc.nextLine();
             System.out.println("Usage: ");
@@ -94,6 +99,7 @@ public class Admin extends User{
             Initializer.cList[Initializer.cList.length - 1] = new Company(Initializer.cList.length, a, b, c);
 
         } else if (x.equals("!")) {
+            Helper.clearScreen();
             System.out.println("\n-------------------\n<  !!!WARNING!!!  >\n-------------------");
             for(Company a:Initializer.cList){
                 double energyUsage = Double.parseDouble(a.usage.split(" ")[0]);
@@ -104,6 +110,7 @@ public class Admin extends User{
         } 
         }
     }
+
     } 
     
     public static String Auth(){
@@ -235,7 +242,7 @@ public class Admin extends User{
     //private static String[] Super_Admin = {"admin"};
 
     private static void suAccess() {
-                    System.out.println("-------------------------\n| Press\t\t\t|\n| \"AA\" to add admin,\t|\n| or \"D\" to delete user\t|\n-------------------------"); //testing - debig
+                    System.out.println("-------------------------\n| SUPER ADMIN MODE\t|\n|\t\t\t|\n| Press\t\t\t|\n| \"AA\" to add admin,\t|\n| \"D\" to delete user,\t|\n| or \"B\" to go back\t|\n-------------------------"); //testing - debig
                     String input = Initializer.sc.nextLine().toLowerCase();
                     switch (input) {
                         case "aa":
@@ -246,11 +253,11 @@ public class Admin extends User{
                             Helper.clearScreen();
                             Admin.delUser();
                             break;
-                        case "exit":
+                        case "b":
                             Helper.clearScreen();
                             break;
                         default:
-                            System.out.println("command not found");
+                            System.out.println("Command not found");
                     }
                 }
 
