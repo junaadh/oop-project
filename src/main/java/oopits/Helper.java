@@ -8,10 +8,10 @@ public class Helper {
     public static void mainPrompt() {
         System.out.println("\n--------------------------------------------------------------\n| Press \"A\" for admin, \"P\" for public guest, or \"Q\" to quit. |\n--------------------------------------------------------------");
     }
-    public static void funcPrompt(int a) {
-        if (a==1){
+    public static void funcPrompt(String a) {
+        if (a.equals("#")){
             System.out.println("\n-----------------------------\n| Press\t\t\t    |\n| \"A\" to add data,\t    |\n| \"L\" to see list,\t    |\n| \"C\" to search by company, |\n| \"M\" to search by month,   |\n| \"!\" to check bad use,\t    |\n| or \"O\" to log out.\t    |\n-----------------------------");
-        } else if (a==2){
+        } else if (a.equals("")){
             System.out.println("\n-----------------------------\n| Press\t\t\t    |\n| \"L\" to see list,\t    |\n| \"C\" to search by company, |\n| \"M\" to search by month,   |\n| \"!\" to check bad use,\t    |\n| or \"O\" to log out.\t    |\n-----------------------------");
         }
     }

@@ -10,9 +10,9 @@ public class EnergyMonitor{
         if (x.equals("q")){
             Initializer.appStatus=0;
         } else if (x.equals("a")){
-            if(Admin.Auth()){
-                Admin.Func();
-            };
+            Helper.clearScreen();
+            Admin.Func(Admin.Auth());
+
         } else if (x.equals("p")){
             Helper.clearScreen();
             switch (User.publicPrompt()){ 

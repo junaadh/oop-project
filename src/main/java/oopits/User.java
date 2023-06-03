@@ -8,6 +8,8 @@ public class User {
 
     public static int version = 1;
     public String firstName, lastName, userName, password;
+    public String name = "Public Civilians";
+    public static String desc = "The class USER represent all kinds of public user of the system, however, specifically for general people.";
 
     public User(String[] parts) {
         firstName = parts[0];
@@ -18,7 +20,7 @@ public class User {
 
     public static boolean login() {
         Helper.clearScreen();
-        Map<String, User> user_map = FileHandler.load();
+        Map<String, User> user_map = FileHandler.loadUser();
         String username, password;
 
         System.out.println("\nEnter Username:");
@@ -29,15 +31,14 @@ public class User {
             return false;
         }
 
-        System.out.println("\nEnter password:");
+        System.out.println("Enter password:");
         password = Initializer.sc.nextLine();
 
         User un = user_map.get(username);
 
         if ((un.password).equals(password)) {
             Helper.clearScreen();
-            System.out.println("\nSuccessfully logged in");
-            System.out.println("\nWelcome, " + un.firstName + " " + un.lastName + "");
+            Welcome(un.firstName, un.lastName);
             return true;
         } else {
             System.out.println("\nIncorrect Password");
@@ -101,9 +102,6 @@ public class User {
         return 0;
     }
 
-    public String name = "Public Civilians";
-    public static String desc = "The class USER represent all kinds of public user of the system, however, specifically for general people.";
-
     /*
      * private static void Welcome() {
      * System.out.println("\nWelcome, public guest.");
@@ -113,7 +111,7 @@ public class User {
         // Initializer.status = 0;
         int status = 1;
         while (status == 1) {
-            Helper.funcPrompt(2);
+            Helper.funcPrompt("");
             String x = Initializer.sc.nextLine().toLowerCase();
             switch (x) {
                 case "o":
@@ -150,6 +148,10 @@ public class User {
 
     public String getDesc() {
         return desc;
+    }
+
+    private static void Welcome( String firstName, String lastName ){
+        System.out.println("\nSuccessful login.\nWelcome, " + firstName + " " + lastName + ".");
     }
 
     public void setDesc(String a) {
