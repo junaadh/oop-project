@@ -178,7 +178,6 @@ public class Admin extends User{
                     writer.write(line);
                 }
                 writer.newLine();
-                line = Initializer.sc.nextLine();
 
                 writer.close();
                 reader.close();
