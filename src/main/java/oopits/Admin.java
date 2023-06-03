@@ -28,14 +28,14 @@ public class Admin extends User{
     private static void Welcome( String firstName, String lastName ){
         System.out.println("\nSuccessful login.\nWelcome, " + firstName + " " + lastName + ".");
     }
-    
+
     public static void Func(String level) {
         //Welcome(); //runs within login fuction
         // Initializer.status = 0;
         if(level.equals("#")){
         int status = 1;
         while (status==1){
-        Helper.funcPrompt("#");
+        Helper.funcPrompt(level);
         String x = Initializer.sc.nextLine().toLowerCase();
         if (x.equals("o")) {
             status = 0;
@@ -64,10 +64,44 @@ public class Admin extends User{
                 if(energyUsage>100 && wattUsed.equals("Gigawatt")){
                     Helper.exceedList(a);}
             }
-        } else if (x.equals("su")) {
+        } else if (x.equals("addAdmin")) {
             Helper.clearScreen();
-            Admin.suAdminAccess();
+            Admin.suAdminRegistration();
         }
+        }
+    } else if (level.equals("$")){
+        int status = 1;
+        while (status==1){
+        Helper.funcPrompt(level);
+        String x = Initializer.sc.nextLine().toLowerCase();
+        if (x.equals("o")) {
+            status = 0;
+            System.out.println("\nLogged Out");
+        } else if (x.equals("l")) {
+            Helper.displayTableList();
+        } else if (x.equals("c")) {
+            Helper.displaySortedByComp();
+        } else if (x.equals("m")) {
+            Helper.displaySortedByMonth();
+        } else if (x.equals("a")) {
+            System.out.println("\nCompany name: ");
+            String a = Initializer.sc.nextLine();
+            System.out.println("Usage: ");
+            String b = Initializer.sc.nextLine();
+            System.out.println("Month: ");
+            String c = Initializer.sc.nextLine();
+            Initializer.cList = Arrays.copyOf(Initializer.cList, Initializer.cList.length + 1);
+            Initializer.cList[Initializer.cList.length - 1] = new Company(Initializer.cList.length, a, b, c);
+
+        } else if (x.equals("!")) {
+            System.out.println("\n-------------------\n<  !!!WARNING!!!  >\n-------------------");
+            for(Company a:Initializer.cList){
+                double energyUsage = Double.parseDouble(a.usage.split(" ")[0]);
+                String wattUsed = a.usage.split(" ")[1];
+                if(energyUsage>100 && wattUsed.equals("Gigawatt")){
+                    Helper.exceedList(a);}
+            }
+        } 
         }
     }
     } 
@@ -231,7 +265,7 @@ public class Admin extends User{
                     
                         case "exit":
                             Helper.clearScreen();
-                            Admin.Func();
+                            Admin.Func("#");
 
                         default:
                             System.out.println("command not found");
@@ -244,7 +278,7 @@ public class Admin extends User{
         } else {
         Helper.clearScreen();
         System.out.println("\nIncorrect password. SU command will now be exiting");
-        Admin.Func();
+        Admin.Func("#");;
         }
     }
 
