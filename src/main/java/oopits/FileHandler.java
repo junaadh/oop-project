@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class FileHandler {
-    public static Map<String, User> load() {
+    public static Map<String, User> loadUser() {
         Map<String, User> user_map = new HashMap<String, User>();
         try {
             Scanner data_store = new Scanner(new File("src/main/java/oopits/userData.txt"));

@@ -24,15 +24,18 @@ public class Admin extends User{
     public static int version = 1;
     public String name = "Government";
     public static String desc = "The class ADMIN represent user of the system with higher level of privilege and control over the datas.";
+    
     private static void Welcome( String firstName, String lastName ){
         System.out.println("\nSuccessful login.\nWelcome, " + firstName + " " + lastName + ".");
     }
-    public static void Func() {
+    
+    public static void Func(String level) {
         //Welcome(); //runs within login fuction
         // Initializer.status = 0;
+        if(level.equals("#")){
         int status = 1;
         while (status==1){
-        Helper.funcPrompt(1);
+        Helper.funcPrompt("#");
         String x = Initializer.sc.nextLine().toLowerCase();
         if (x.equals("o")) {
             status = 0;
@@ -63,12 +66,14 @@ public class Admin extends User{
             }
         } else if (x.equals("su")) {
             Helper.clearScreen();
-            Admin.superAdminAccess();
+            Admin.suAdminAccess();
+        }
         }
     }
     } 
-    public static boolean Auth(){
-        boolean isOK = false;
+    
+    public static String Auth(){
+        String isOK = "";
         System.out.println("\nEnter Username:");
         String userName = Initializer.sc.nextLine();
         /*for(Entry<String, String> m : Initializer.adminMap.entrySet()){
@@ -91,7 +96,7 @@ public class Admin extends User{
         Admin mod = mod_map.get(userName);
 
         if ((mod.password).equals(password)) {
-            isOK = true;
+            isOK = mod.accessLevel;
             Welcome(mod.firstName, mod.lastName);
             return isOK;
         } else {
@@ -103,31 +108,31 @@ public class Admin extends User{
     private static void suAdminRegistration() {
         String firstName, lastName, userName, password, accessLevel, adminInfo;
 
-        System.out.println("\nWarning! You are trying to add users as admins. \nType in first name of employee");
+        System.out.println("\nCaution! You are trying to add an admin!\n\nType in first name:");
         firstName = Initializer.sc.nextLine();
 
-        System.out.println("\nType in last name of employee");
+        System.out.println("\nLast name:");
         lastName = Initializer.sc.nextLine();
 
-        System.out.println("\nAssign a username for user");
+        System.out.println("\nAssign a username:");
         userName = Initializer.sc.nextLine();
 
-        System.out.println("\nAssign a password for user: " + userName);
+        System.out.println("\nAssign a password for admin " + userName+":");
         password = Initializer.sc.nextLine();
 
         
-        System.out.println("\nSet an access level for user: " + userName + ".\n\"#\" for SuperAdmin / \"$\" for Admin");
+        System.out.println("\n\"#\"SuperAdmin\n\"$\" for Admin\nEnter access level for admin " + userName + ":");
         accessLevel = Initializer.sc.nextLine();
-                
-        switch (accessLevel) {
-            case "$":
-            case "#":
-                break;
-        
-            default:
-                System.out.println("\nEnter a correct symbol for access for " + userName + "\n\"#\" for SuperAdmin / \"$\" for Admin");
-                accessLevel = Initializer.sc.nextLine();     
+        while (!accessLevel.equals("$") && !accessLevel.equals("#")){
+            System.out.println("\n\"#\"SuperAdmin\n\"$\" for Admin\nEnter correct access level for admin " + userName + ":");
+                accessLevel = Initializer.sc.nextLine();   
         }
+                
+        // switch (accessLevel) {
+        //     case "$":
+        //     case "#":
+        //         break;   
+        // }
             
 
         adminInfo = firstName + "," + lastName + "," + userName + "," + password + "," + accessLevel;
@@ -146,7 +151,7 @@ public class Admin extends User{
     }
 
     public static void delUser() {
-        Map<String, User> user_map = FileHandler.load();
+        Map<String, User> user_map = FileHandler.loadUser();
         String firstName, lastName, userName, password, userInfo;
 
         System.out.println("\nWarning! You are trying to delete users. \nTHIS IS A PERMENANT OPERATION  \nEnter username of user to delete");
@@ -197,7 +202,7 @@ public class Admin extends User{
 
     //private static String[] Super_Admin = {"admin"};
 
-    private static void superAdminAccess() {
+    private static void suAdminAccess() {
         Map<String, Admin> mod_map = FileHandler.loadMod();
         String userName, password;
         String Access = "#";
