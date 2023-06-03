@@ -73,6 +73,12 @@ public class User {
 
         }
 
+        System.out.println("\nDo you agree with the Terms and Condition Agreement? (Y/N)");
+        String in = Initializer.sc.nextLine().toLowerCase();
+        if (in.equals("n")){
+            return;
+        }
+
         userInfo = firstName + "," + lastName + "," + userName + "," + password;
         Helper.clearScreen();
         System.out.println("\nCongratulations! You have successfully signed-up as " + firstName + " " + lastName

@@ -155,7 +155,7 @@ public class Admin extends User{
         System.out.println("\nAssign a password for admin " + userName+":");
         password = Initializer.sc.nextLine();
         
-        System.out.println("Are you sure to add "+userName+"?(Y/N)");
+        System.out.println("\nAre you sure to add "+userName+"? (Y/N)");
         String in = Initializer.sc.nextLine().toLowerCase();
         if (in.equals("n")){
             return;
