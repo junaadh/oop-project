@@ -69,7 +69,7 @@ public class Admin extends User{
             Admin.suAccess();
         }
         }
-    } else if (level.equals("$")){
+        } else if (level.equals("$")){
         int status = 1;
         while (status==1){
         Helper.funcPrompt(level);
@@ -140,7 +140,8 @@ public class Admin extends User{
     } 
 
     private static void suAdminRegistration() {
-        String firstName, lastName, userName, password, accessLevel, adminInfo;
+        String firstName, lastName, userName, password, adminInfo;
+        String accessLevel = "$";
 
         System.out.println("\nCaution! You are trying to add an admin!\n\nType in first name:");
         firstName = Initializer.sc.nextLine();
@@ -153,15 +154,12 @@ public class Admin extends User{
 
         System.out.println("\nAssign a password for admin " + userName+":");
         password = Initializer.sc.nextLine();
-
         
-        System.out.println("\n\"#\" for SuperAdmin\n\"$\" for Admin\nEnter access level for admin " + userName + ":");
-        accessLevel = Initializer.sc.nextLine();
-        while (!accessLevel.equals("$") && !accessLevel.equals("#")){
-            System.out.println("\n\"#\" for SuperAdmin\n\"$\" for Admin\nEnter correct access level for admin " + userName + ":");
-                accessLevel = Initializer.sc.nextLine();   
+        System.out.println("Are you sure to add "+userName+"?(Y/N)");
+        String in = Initializer.sc.nextLine().toLowerCase();
+        if (in.equals("n")){
+            return;
         }
-                
         // switch (accessLevel) {
         //     case "$":
         //     case "#":
@@ -243,14 +241,14 @@ public class Admin extends User{
                         case "aa":
                             Helper.clearScreen();
                             Admin.suAdminRegistration();
-
+                            break;
                         case "d":
                             Helper.clearScreen();
                             Admin.delUser();
-                    
+                            break;
                         case "exit":
                             Helper.clearScreen();
-
+                            break;
                         default:
                             System.out.println("command not found");
                     }
