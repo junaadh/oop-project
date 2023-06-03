@@ -169,7 +169,7 @@ public class Admin extends User{
 
         adminInfo = firstName + "," + lastName + "," + userName + "," + password + "," + accessLevel;
         Helper.clearScreen();
-        System.out.println(firstName + " " + lastName + " has been successfully as an admin with access level " + accessLevel);
+        System.out.println(firstName + " " + lastName + " has successfully become admin.");
 
         try {
             FileWriter fileWriter = new FileWriter("src/main/java/oopits/modData.txt", true);
@@ -235,7 +235,7 @@ public class Admin extends User{
     //private static String[] Super_Admin = {"admin"};
 
     private static void suAccess() {
-                    System.out.println("\"AA\" to add Admin, \"D to delete\""); //testing - debig
+                    System.out.println("-------------------------\n| Press\t\t\t|\n| \"AA\" to add admin,\t|\n| or \"D\" to delete user\t|\n-------------------------"); //testing - debig
                     String input = Initializer.sc.nextLine().toLowerCase();
                     switch (input) {
                         case "aa":
