@@ -64,9 +64,9 @@ public class Admin extends User{
                 if(energyUsage>100 && wattUsed.equals("Gigawatt")){
                     Helper.exceedList(a);}
             }
-        } else if (x.equals("addAdmin")) {
+        } else if (x.equals("#")) {
             Helper.clearScreen();
-            Admin.suAdminRegistration();
+            Admin.suAccess();
         }
         }
     } else if (level.equals("$")){
@@ -155,10 +155,10 @@ public class Admin extends User{
         password = Initializer.sc.nextLine();
 
         
-        System.out.println("\n\"#\"SuperAdmin\n\"$\" for Admin\nEnter access level for admin " + userName + ":");
+        System.out.println("\n\"#\" for SuperAdmin\n\"$\" for Admin\nEnter access level for admin " + userName + ":");
         accessLevel = Initializer.sc.nextLine();
         while (!accessLevel.equals("$") && !accessLevel.equals("#")){
-            System.out.println("\n\"#\"SuperAdmin\n\"$\" for Admin\nEnter correct access level for admin " + userName + ":");
+            System.out.println("\n\"#\" for SuperAdmin\n\"$\" for Admin\nEnter correct access level for admin " + userName + ":");
                 accessLevel = Initializer.sc.nextLine();   
         }
                 
@@ -236,51 +236,25 @@ public class Admin extends User{
 
     //private static String[] Super_Admin = {"admin"};
 
-    private static void suAdminAccess() {
-        Map<String, Admin> mod_map = FileHandler.loadMod();
-        String userName, password;
-        String Access = "#";
-
-        System.out.println("\nTo elevate access to SuperUser \nType your username");
-        userName = Initializer.sc.nextLine();
-
-        Admin mod = mod_map.get(userName);
-        
-        if (((mod.userName).equals(userName)) && ((mod.accessLevel).equals(Access))) {
-            System.out.println("\nType your password");
-            password = Initializer.sc.nextLine();
-
-            try {
-                if ((mod.password).equals(password)) {
-                    System.out.println("working"); //testing - debig
-                    String input = Initializer.sc.nextLine();
+    private static void suAccess() {
+                    System.out.println("\"AA\" to add Admin, \"D to delete\""); //testing - debig
+                    String input = Initializer.sc.nextLine().toLowerCase();
                     switch (input) {
-                        case "addAdmin":
+                        case "aa":
                             Helper.clearScreen();
                             Admin.suAdminRegistration();
 
-                        case "delUser":
+                        case "d":
                             Helper.clearScreen();
                             Admin.delUser();
                     
                         case "exit":
                             Helper.clearScreen();
-                            Admin.Func("#");
 
                         default:
                             System.out.println("command not found");
                     }
                 }
-            } catch (Exception e) {
-                System.err.println("Please check if the admin has enough privilages");
-                e.getMessage();
-            }
-        } else {
-        Helper.clearScreen();
-        System.out.println("\nIncorrect password. SU command will now be exiting");
-        Admin.Func("#");;
-        }
-    }
 
     
 }

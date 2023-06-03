@@ -10,7 +10,7 @@ public class Helper {
     }
     public static void funcPrompt(String a) {
         if (a.equals("#")){
-            System.out.println("\n-----------------------------\n| Press\t\t\t    |\n| \"A\" to add data,\t    |\n| \"L\" to see list,\t    |\n| \"C\" to search by company, |\n| \"M\" to search by month,   |\n| \"!\" to check bad use,\t    |\n| \"AA\" to add Admin,\t    |\n| or \"O\" to log out.\t    |\n-----------------------------");
+            System.out.println("\n-----------------------------\n| Press\t\t\t    |\n| \"A\" to add data,\t    |\n| \"L\" to see list,\t    |\n| \"C\" to search by company, |\n| \"M\" to search by month,   |\n| \"!\" to check bad use,\t    |\n| \"#\" for SuperAdmin mode,  |\n| or \"O\" to log out.\t    |\n-----------------------------");
         } else if (a.equals("$")){
             System.out.println("\n-----------------------------\n| Press\t\t\t    |\n| \"A\" to add data,\t    |\n| \"L\" to see list,\t    |\n| \"C\" to search by company, |\n| \"M\" to search by month,   |\n| \"!\" to check bad use,\t    |\n| or \"O\" to log out.\t    |\n-----------------------------");
         } else if (a.equals("")){
