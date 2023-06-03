@@ -1,26 +1,33 @@
-package oopits;
+/*
+ * This class file would contain every methods 
+ * for doing CRUD (CREATE , READ, UPDATE, DELETE) 
+ * company and other relevant informations 
+ * to a database. 
+ * 
+ * Server needs to established before it can receive or send request 
+ * from the backend system. The backend operation itself would be in 
+ * these files.
+ * 
+ * For example, in Golang, this is a snippet of code 
+ * for getting clients data from PostgreSQL database
+ * 
+ * func GetAllClients(db *sql.DB) (err error, results []structs.Client) {
+	sql := `SELECT *FROM client`
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+	rows, err := db.Query(sql)
+	CheckErr(err)
+	defer rows.Close()
 
-public class Database {
-    public static Map<String, User> load() {
-        Map<String, User> user_map = new HashMap<String, User>();
-        try {
-            Scanner data_store = new Scanner(new File("src/main/java/oopits/assets/database.txt"));
+	for rows.Next() {
+		var b = structs.Client{}
 
-            while (data_store.hasNextLine()) {
-                String[] splitString = data_store.nextLine().split(",");
-                User u = new User(splitString);
-                user_map.put(u.userName, u);
-            }
-        } catch (FileNotFoundException e) {
-            // TODO: handle exception
-            System.out.println(e.getMessage());
-        }
-        return user_map;
-    }
+		err = rows.Scan(&b.ID, &b.Name, &b.Description, &b.CreateDate, &b.UpdateDate, &b.City, &b.Province, &b.AddressID)
+		CheckErr(err)
+		results = append(results, b)
+
+	}
+	return
+
 }
+ */
+

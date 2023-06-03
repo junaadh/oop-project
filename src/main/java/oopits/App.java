@@ -2,6 +2,7 @@ package oopits;
 
 public class App{
     public static void main(String[] args) {
-        EnergyMonitor.main();
+        Helper.clearScreen();
+        EnergyMonitor.StartEngine();
     }
 }
