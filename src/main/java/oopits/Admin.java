@@ -1,9 +1,17 @@
 package oopits;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
 import java.util.Arrays;
 import java.util.Map;
+import java.util.Scanner;
 
 public class Admin extends User{
 
@@ -127,7 +135,7 @@ public class Admin extends User{
         System.out.println(firstName + " " + lastName + " has been successfully as an admin with access level " + accessLevel);
 
         try {
-            FileWriter fileWriter = new FileWriter("./modData.txt", true);
+            FileWriter fileWriter = new FileWriter("src/main/java/oopits/modData.txt", true);
             fileWriter.write(adminInfo + "\n");
             fileWriter.close();
         } catch (IOException e) {
@@ -136,6 +144,58 @@ public class Admin extends User{
         }
 
     }
+
+    public static void delUser() {
+        Map<String, User> user_map = FileHandler.load();
+        String firstName, lastName, userName, password, userInfo;
+
+        System.out.println("\nWarning! You are trying to delete users. \nTHIS IS A PERMENANT OPERATION  \nEnter username of user to delete");
+        userName = Initializer.sc.nextLine();
+
+        if (!user_map.containsKey(userName)) {
+            System.out.println("User not found");
+            return;
+            
+        }
+        User un = user_map.get(userName);
+        firstName = un.firstName;
+        lastName = un.lastName;
+        password = un.password;
+        userInfo = firstName + "," + lastName + "," + userName + "," + password;
+
+        try {
+            Path inputPath = Path.of("src/main/java/oopits/userData.txt");
+            Path tempPath = Path.of("src/main/java/oopits/temp.txt");
+
+            BufferedReader reader = new BufferedReader(new FileReader(inputPath.toFile()));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(tempPath.toFile()));
+
+            String line = reader.readLine();
+            while (line != null) {
+                if (line.equals(userInfo)) {
+                    writer.write("");
+                } else {
+                    writer.write(line);
+                }
+                writer.newLine();
+                line = Initializer.sc.nextLine();
+
+                writer.close();
+                reader.close();
+
+                Files.delete(inputPath);
+                Files.move(tempPath, inputPath, StandardCopyOption.REPLACE_EXISTING);
+                System.out.println("\nUser deleted successfully");
+            }
+            
+
+        } catch (IOException e) {
+            System.err.println("Error:" + e.getMessage());
+        }
+        return;
+
+    }
+
     //private static String[] Super_Admin = {"admin"};
 
     private static void superAdminAccess() {
@@ -160,9 +220,17 @@ public class Admin extends User{
                         case "addAdmin":
                             Helper.clearScreen();
                             Admin.suAdminRegistration();
+
+                        case "delUser":
+                            Helper.clearScreen();
+                            Admin.delUser();
                     
+                        case "exit":
+                            Helper.clearScreen();
+                            Admin.Func();
+
                         default:
-                            break;
+                            System.out.println("command not found");
                     }
                 }
             } catch (Exception e) {
