@@ -204,42 +204,49 @@ public class Admin extends User{
         System.out.println("\nTo elevate access to SuperUser \nType your username");
         userName = Initializer.sc.nextLine();
 
-        Admin mod = mod_map.get(userName);
         
-        if (((mod.userName).equals(userName)) && ((mod.accessLevel).equals(Access))) {
-            System.out.println("\nType your password");
-            password = Initializer.sc.nextLine();
+        if ((mod_map.containsKey(userName))) {
+            Admin mod = mod_map.get(userName);
+            
+            if ((mod.accessLevel).equals(Access)) {
+                System.out.println("\nType your password");
+                password = Initializer.sc.nextLine();
+            
 
-            try {
-                if ((mod.password).equals(password)) {
-                    System.out.println("working"); //testing - debig
-                    String input = Initializer.sc.nextLine();
-                    switch (input) {
-                        case "addAdmin":
-                            Helper.clearScreen();
-                            Admin.suAdminRegistration();
+                try {
+                    if ((mod.password).equals(password)) {
+                        System.out.println("working"); //testing - debig
+                       String input = Initializer.sc.nextLine();
+                        switch (input) {
+                            case "addAdmin":
+                                Helper.clearScreen();
+                                Admin.suAdminRegistration();
 
-                        case "delUser":
-                            Helper.clearScreen();
-                            Admin.delUser();
+                            case "delUser":
+                                Helper.clearScreen();
+                                Admin.delUser();
                     
-                        case "exit":
-                            Helper.clearScreen();
-                            Admin.Func();
+                            case "exit":
+                                Helper.clearScreen();
+                               return;
 
-                        default:
-                            System.out.println("command not found");
+                            default:
+                                System.out.println("command not found");
+                        }
                     }
                 }
-            } catch (Exception e) {
-                System.err.println("Please check if the admin has enough privilages");
+                catch (Exception e) {
+                System.out.println("Incorrect password");
                 e.getMessage();
+                }
             }
+
         } else {
         Helper.clearScreen();
-        System.out.println("\nIncorrect password. SU command will now be exiting");
-        Admin.Func();
+        System.out.println("\nNot enough privelage. SU command will now be exiting");
+        return;
         }
+    
     }
 
     
