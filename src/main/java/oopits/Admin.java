@@ -213,16 +213,17 @@ public class Admin extends User{
             Path tempPath = Path.of("src/main/java/oopits/temp.txt");
 
             Scanner reader = new Scanner( new File("src/main/java/oopits/userData.txt"));
-            StringBuffer buffer = new StringBuffer();
-            while (reader.hasNextLine()) {
-                buffer.append(reader.nextLine() + "\n");
-            }
-            String filecontents = buffer.toString();
-            filecontents.replaceAll(userInfo, "");
-            reader.close();
-
             FileWriter writer = new FileWriter("src/main/java/oopits/temp.txt");
-            writer.append(filecontents);
+            String line;
+
+            while (reader.hasNextLine()) {
+                line = reader.nextLine();
+                if (!line.equals(userInfo)) {
+                    writer.write(line + "\n");
+                } 
+            }
+
+            reader.close();
             writer.flush();
             writer.close();
 
