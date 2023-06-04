@@ -1,3 +1,4 @@
+//FUTURE IMAGPLEMENTATION (COMMENTED OUT)
 /*
  * This class file would contain every methods 
  * for doing CRUD (CREATE , READ, UPDATE, DELETE) 
@@ -32,18 +33,9 @@
  */
 
 
- /*
-  * 
 
 
 
 
 
-
-  1aeraer
-  2
-  3
-  4
-  5
-  */
 

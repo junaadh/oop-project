@@ -68,7 +68,13 @@ public class Helper {
     public static void exceedList(Company a) {
         System.out.printf("# Company %s has exceeded green energy limit on %s!\n", a.name,a.month);
     }
-
+    public static void NoKey(String a) {
+        if (a.equals("")){
+            System.out.println("\nKeyword" + a + " doesn't exist!");
+            return ;
+        } 
+        System.out.println("\nKeyword " + a + " doesn't exist!");
+    }
     
     public static void clearScreen() {
         try {

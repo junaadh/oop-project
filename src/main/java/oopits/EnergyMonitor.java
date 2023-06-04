@@ -28,7 +28,7 @@ public class EnergyMonitor{
         } /*else if(x.equals("api")){
             API.main();
         } */else {
-            System.out.println("\nKeyword " + x + " doesn't exist!");
+            Helper.NoKey(x);
         }
     } while (Initializer.appStatus == 1);
     Initializer.sc.close();

@@ -37,41 +37,42 @@ public class Admin extends User{
         while (status==1){
         Helper.funcPrompt(level);
         String x = Initializer.sc.nextLine().toLowerCase();
-        if (x.equals("o")) {
-            status = 0;
-            System.out.println("\nLogged Out");
-        } else if (x.equals("l")) {
-            Helper.displayTableList();
-        } else if (x.equals("c")) {
-            Helper.displaySortedByComp();
-        } else if (x.equals("m")) {
-            Helper.displaySortedByMonth();
-        } else if (x.equals("a")) {
-            Helper.clearScreen();
-            System.out.println("\nCompany name: ");
-            String a = Initializer.sc.nextLine();
-            System.out.println("Usage: ");
-            String b = Initializer.sc.nextLine();
-            System.out.println("Month: ");
-            String c = Initializer.sc.nextLine();
-            Initializer.cList = Arrays.copyOf(Initializer.cList, Initializer.cList.length + 1);
-            Initializer.cList[Initializer.cList.length - 1] = new Company(Initializer.cList.length, a, b, c);
+            if (x.equals("o")) {
+                status = 0;
+                System.out.println("\nLogged Out");
+            } else if (x.equals("l")) {
+                Helper.displayTableList();
+            } else if (x.equals("c")) {
+                Helper.displaySortedByComp();
+            } else if (x.equals("m")) {
+                Helper.displaySortedByMonth();
+            } else if (x.equals("a")) {
+                Helper.clearScreen();
+                System.out.println("\nCompany name: ");
+                String a = Initializer.sc.nextLine();
+                System.out.println("Usage: ");
+                String b = Initializer.sc.nextLine();
+                System.out.println("Month: ");
+                String c = Initializer.sc.nextLine();
+                Initializer.cList = Arrays.copyOf(Initializer.cList, Initializer.cList.length + 1);
+                Initializer.cList[Initializer.cList.length - 1] = new Company(Initializer.cList.length, a, b, c);
 
-        } else if (x.equals("!")) {
-            Helper.clearScreen();
-            System.out.println("\n-------------------\n<  !!!WARNING!!!  >\n-------------------");
-            for(Company a:Initializer.cList){
-                double energyUsage = Double.parseDouble(a.usage.split(" ")[0]);
-                String wattUsed = a.usage.split(" ")[1];
-                if(energyUsage>100 && wattUsed.equals("Gigawatt")){
-                    Helper.exceedList(a);}
+            } else if (x.equals("!")) {
+                Helper.clearScreen();
+                System.out.println("\n-------------------\n<  !!!WARNING!!!  >\n-------------------");
+                for(Company a:Initializer.cList){
+                    double energyUsage = Double.parseDouble(a.usage.split(" ")[0]);
+                    String wattUsed = a.usage.split(" ")[1];
+                    if(energyUsage>100 && wattUsed.equals("Gigawatt")){
+                        Helper.exceedList(a);}
+                }
+            } else if (x.equals("#")) {
+                Helper.clearScreen();
+                Admin.suAccess();
+            } else {
+                Helper.clearScreen();
+                Helper.NoKey(x);
             }
-        } else if (x.equals("#")) {
-            Helper.clearScreen();
-            Admin.suAccess();
-        } else {
-            Helper.clearScreen();
-        }
         }
         } else if (level.equals("$")){
         int status = 1;
@@ -107,6 +108,9 @@ public class Admin extends User{
                 if(energyUsage>100 && wattUsed.equals("Gigawatt")){
                     Helper.exceedList(a);}
             }
+        } else {
+            Helper.clearScreen();
+            Helper.NoKey(x);
         } 
         }
     }
@@ -127,7 +131,7 @@ public class Admin extends User{
         Map<String, Admin> mod_map = FileHandler.loadMod();
 
         if (!mod_map.containsKey(userName)) {
-            System.out.println("\nUsername not found");
+            System.out.println("\nThat username doesn't exist!");
             return isOK;
         }
 
@@ -141,7 +145,7 @@ public class Admin extends User{
             Welcome(mod.firstName, mod.lastName);
             return isOK;
         } else {
-            System.out.println("\nIncorrect Password");
+            System.out.println("\nIncorrect Password!");
             return isOK;
         }
     } 
@@ -257,7 +261,7 @@ public class Admin extends User{
                             Helper.clearScreen();
                             break;
                         default:
-                            System.out.println("Command not found");
+                        Helper.NoKey(input);
                     }
                 }
 

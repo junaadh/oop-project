@@ -41,7 +41,7 @@ public class User {
             Welcome(un.firstName, un.lastName);
             return true;
         } else {
-            System.out.println("\nIncorrect Password");
+            System.out.println("\nIncorrect Password!");
             return false;
         }
     }
@@ -147,7 +147,9 @@ public class User {
                             Helper.exceedList(a);
                         }
                     }
-            }
+                default :
+                Helper.NoKey(x);
+                }
 
         }
     }
