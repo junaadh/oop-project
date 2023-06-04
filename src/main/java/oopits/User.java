@@ -41,7 +41,7 @@ public class User {
             Welcome(un.firstName, un.lastName);
             return true;
         } else {
-            System.out.println("\nIncorrect Password");
+            System.out.println("\nIncorrect Password!");
             return false;
         }
     }
@@ -71,6 +71,12 @@ public class User {
             System.out.println("\nRetype password:");
             confirmation = Initializer.sc.nextLine();
 
+        }
+
+        System.out.println("\nDo you agree with the Terms and Condition Agreement? (Y/N)");
+        String in = Initializer.sc.nextLine().toLowerCase();
+        if (in.equals("n")){
+            return;
         }
 
         userInfo = firstName + "," + lastName + "," + userName + "," + password;
@@ -132,16 +138,18 @@ public class User {
                     Helper.displaySortedByMonth();
                     break;
                 case "!":
+                Helper.clearScreen();
                     System.out.println("\n-------------------\n<  !!!WARNING!!!  >\n-------------------");
                     for (Company a : Initializer.cList) {
                         double energyUsage = Double.parseDouble(a.usage.split(" ")[0]);
                         String wattUsed = a.usage.split(" ")[1];
                         if (energyUsage > 100 && wattUsed.equals("Gigawatt")) {
-                            Helper.clearScreen();
                             Helper.exceedList(a);
                         }
                     }
-            }
+                default :
+                Helper.NoKey(x);
+                }
 
         }
     }

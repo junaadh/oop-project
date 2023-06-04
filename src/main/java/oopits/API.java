@@ -1,5 +1,4 @@
-//TESTING PHASE
-//File commented out
+//FUTURE IMAGPLEMENTATION (COMMENTED OUT)
 /*
 
 import java.io.BufferedReader;

@@ -10,6 +10,8 @@ public class Helper {
     }
     public static void funcPrompt(String a) {
         if (a.equals("#")){
+            System.out.println("\n-----------------------------\n| Press\t\t\t    |\n| \"A\" to add data,\t    |\n| \"L\" to see list,\t    |\n| \"C\" to search by company, |\n| \"M\" to search by month,   |\n| \"!\" to check bad use,\t    |\n| \"#\" for SUPERADMIN mode,  |\n| or \"O\" to log out.\t    |\n-----------------------------");
+        } else if (a.equals("$")){
             System.out.println("\n-----------------------------\n| Press\t\t\t    |\n| \"A\" to add data,\t    |\n| \"L\" to see list,\t    |\n| \"C\" to search by company, |\n| \"M\" to search by month,   |\n| \"!\" to check bad use,\t    |\n| or \"O\" to log out.\t    |\n-----------------------------");
         } else if (a.equals("")){
             System.out.println("\n-----------------------------\n| Press\t\t\t    |\n| \"L\" to see list,\t    |\n| \"C\" to search by company, |\n| \"M\" to search by month,   |\n| \"!\" to check bad use,\t    |\n| or \"O\" to log out.\t    |\n-----------------------------");
@@ -66,7 +68,13 @@ public class Helper {
     public static void exceedList(Company a) {
         System.out.printf("# Company %s has exceeded green energy limit on %s!\n", a.name,a.month);
     }
-
+    public static void NoKey(String a) {
+        if (a.equals("")){
+            System.out.println("\nKeyword" + a + " doesn't exist!");
+            return ;
+        } 
+        System.out.println("\nKeyword " + a + " doesn't exist!");
+    }
     
     public static void clearScreen() {
         try {
