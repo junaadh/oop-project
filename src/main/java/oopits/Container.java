@@ -12,7 +12,7 @@ import javax.swing.JPanel;
 
 public class Container {
 
-    public static void windowHandler() {
+    public static void registerHandler() {
         ImageIcon image = new ImageIcon("src/main/java/oopits/assets/logo.png");
         JLabel iamgeLabel = new JLabel(image);
         iamgeLabel.setVerticalAlignment(0);
@@ -134,5 +134,9 @@ public class Container {
         frame.add(content);
         frame.setLayout(null);
 
+    }
+
+    public static void loginHandler() {
+        
     }
 }

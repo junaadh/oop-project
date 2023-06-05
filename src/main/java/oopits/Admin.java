@@ -1,5 +1,6 @@
 package oopits;
 
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -10,10 +11,12 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.Scanner;
 
+/**
+ *
+ * @author Sheridan
+ */
 public class Admin extends User{
-
     private String accessLevel; // # for superuser and $ for normal admin
-
     public Admin(String[] parts) {
         super(parts);
         accessLevel = parts[4];
@@ -22,27 +25,24 @@ public class Admin extends User{
     public String name = "Government";
     public static String desc = "The class ADMIN represent user of the system with higher level of privilege and control over the datas.";
     
-    private static void Welcome( String firstName, String lastName ){
-        System.out.println("\nSuccessful login.\nWelcome, " + firstName + " " + lastName + ".");
-    }
-
     public static void Func(String level) {
-        //Welcome(); //runs within login fuction
-        // Initializer.status = 0;
+
         if(level.equals("#")){
         int status = 1;
         while (status==1){
+        boolean mode = Initializer.isEnergy;
         Helper.funcPrompt(level);
         String x = Initializer.sc.nextLine().toLowerCase();
             if (x.equals("o")) {
                 status = 0;
+                Helper.clearScreen();
                 System.out.println("\nLogged Out");
             } else if (x.equals("l")) {
-                Helper.displayTableList();
+                Helper.displayTableList(mode);
             } else if (x.equals("c")) {
-                Helper.displaySortedByComp();
+                Helper.displaySortedByComp(mode);
             } else if (x.equals("m")) {
-                Helper.displaySortedByMonth();
+                Helper.displaySortedByMonth(mode);
             } else if (x.equals("a")) {
                 Helper.clearScreen();
                 System.out.println("\nCompany name: ");
@@ -65,8 +65,11 @@ public class Admin extends User{
                 }
             } else if (x.equals("#")) {
                 Helper.clearScreen();
-                Admin.suAccess();
-            } else {
+                Admin.suAdminFunc();
+            } else if (x.equals("t")){
+                Helper.toggleMode();
+            }
+            else {
                 Helper.clearScreen();
                 Helper.NoKey(x);
             }
@@ -74,17 +77,19 @@ public class Admin extends User{
         } else if (level.equals("$")){
         int status = 1;
         while (status==1){
+        boolean mode = Initializer.isEnergy;
         Helper.funcPrompt(level);
         String x = Initializer.sc.nextLine().toLowerCase();
         if (x.equals("o")) {
             status = 0;
+            Helper.clearScreen();
             System.out.println("\nLogged Out");
         } else if (x.equals("l")) {
-            Helper.displayTableList();
+            Helper.displayTableList(mode);
         } else if (x.equals("c")) {
-            Helper.displaySortedByComp();
+            Helper.displaySortedByComp(mode);
         } else if (x.equals("m")) {
-            Helper.displaySortedByMonth();
+            Helper.displaySortedByMonth(mode);
         } else if (x.equals("a")) {
             Helper.clearScreen();
             System.out.println("\nCompany name: ");
@@ -118,20 +123,13 @@ public class Admin extends User{
         String isOK = "";
         System.out.println("\nEnter Username:");
         String userName = Initializer.sc.nextLine();
-        /*for(Entry<String, String> m : Initializer.adminMap.entrySet()){
-            if (m.getKey().equals(y) && m.getValue().equals(z)){
-                isOK=true;
-                break;
-            } 
-        }
-        */
-        Map<String, Admin> mod_map = FileHandler.loadMod();
-
+        Map<String, Admin> mod_map = FileHandler.loadAdmin();
+        
         if (!mod_map.containsKey(userName)) {
             System.out.println("\nThat username doesn't exist!");
             return isOK;
         }
-
+        
         System.out.println("Enter Password:");
         String password = Initializer.sc.nextLine();
 
@@ -145,9 +143,30 @@ public class Admin extends User{
             System.out.println("\nIncorrect Password!");
             return isOK;
         }
-    } 
+    
+    }  
 
-    private static void suAdminRegistration() {
+    private static void suAdminFunc() {
+                    System.out.println("-------------------------\n| SUPER ADMIN MODE\t|\n|\t\t\t|\n| Press\t\t\t|\n| \"AA\" to add admin,\t|\n| \"D\" to delete user,\t|\n| or \"B\" to go back.\t|\n-------------------------"); //testing - debig
+                    String input = Initializer.sc.nextLine().toLowerCase();
+                    switch (input) {
+                        case "aa":
+                            Helper.clearScreen();
+                            Admin.addAdmin();
+                            break;
+                        case "d":
+                            Helper.clearScreen();
+                            Admin.delUser();
+                            break;
+                        case "b":
+                            Helper.clearScreen();
+                            break;
+                        default:
+                        Helper.NoKey(input);
+                    }
+                }
+
+    private static void addAdmin() {
         String firstName, lastName, userName, password, adminInfo;
         String accessLevel = "$";
 
@@ -180,7 +199,7 @@ public class Admin extends User{
         System.out.println(firstName + " " + lastName + " has successfully become admin.");
 
         try {
-            FileWriter fileWriter = new FileWriter("src/main/java/oopits/modData.txt", true);
+            FileWriter fileWriter = new FileWriter("src/main/java/oopits/adminData.txt", true);
             fileWriter.write(adminInfo + "\n");
             fileWriter.close();
         } catch (IOException e) {
@@ -189,7 +208,7 @@ public class Admin extends User{
         }
 
     }
-
+    
     public static void delUser() {
         Map<String, User> user_map = FileHandler.loadUser();
         String firstName, lastName, userName, password, userInfo;
@@ -238,28 +257,6 @@ public class Admin extends User{
 
     }
 
-    //private static String[] Super_Admin = {"admin"};
+    }
 
 
-    private static void suAccess() {
-                    System.out.println("-------------------------\n| SUPER ADMIN MODE\t|\n|\t\t\t|\n| Press\t\t\t|\n| \"AA\" to add admin,\t|\n| \"D\" to delete user,\t|\n| or \"B\" to go back\t|\n-------------------------"); //testing - debig
-                    String input = Initializer.sc.nextLine().toLowerCase();
-                    switch (input) {
-                        case "aa":
-                            Helper.clearScreen();
-                            Admin.suAdminRegistration();
-                            break;
-                        case "d":
-                            Helper.clearScreen();
-                            Admin.delUser();
-                            break;
-                        case "b":
-                            Helper.clearScreen();
-                            break;
-                        default:
-                        Helper.NoKey(input);
-                    }
-                }
-
-    
-}

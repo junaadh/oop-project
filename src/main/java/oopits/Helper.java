@@ -8,6 +8,7 @@ public class Helper {
     public static void mainPrompt() {
         System.out.println("\n--------------------------------------------------------------\n| Press \"A\" for admin, \"P\" for public guest, or \"Q\" to quit. |\n--------------------------------------------------------------");
     }
+    
     public static void funcPrompt(String a) {
         if (a.equals("#")){
             System.out.println("\n-----------------------------\n| Press\t\t\t    |\n| \"A\" to add data,\t    |\n| \"L\" to see list,\t    |\n| \"C\" to search by company, |\n| \"M\" to search by month,   |\n| \"!\" to check bad use,\t    |\n| \"#\" for SUPERADMIN mode,  |\n| or \"O\" to log out.\t    |\n-----------------------------");
@@ -17,57 +18,78 @@ public class Helper {
             System.out.println("\n-----------------------------\n| Press\t\t\t    |\n| \"L\" to see list,\t    |\n| \"C\" to search by company, |\n| \"M\" to search by month,   |\n| \"!\" to check bad use,\t    |\n| or \"O\" to log out.\t    |\n-----------------------------");
         }
     }
-    public static void usageTitle() {
-        System.out.println("\n----------------\n| Energy Usage |\n----------------");
+    
+    public static void usageTitle(boolean a) {
+        if (a) {
+            System.out.println("\n---------------------\n| Energy Usage |\n---------------------");
+        } else {
+            System.out.println("\n-----------------\n| Water Usage |\n-----------------");
+        }
     }
+    
+    public static void usageList(String[] a, boolean b) {
+        if (b) {
+            System.out.printf("| Company: %s\tUsage: %s\tMonth: %s\t|\n", a[0],a[1],a[2]);
+        } else {
+            System.out.printf("| Company: %s\tConsumption: %s\tMonth: %s\t|\n", a[0],a[1],a[2]);
+        }
+    }
+    
     public static void tableLine() {
         System.out.println("----------------------------------------------------------------------------------");
     }
-    public static void usageList(String[] a) {
-        System.out.printf("| Company: %s\tUsage: %s\tMonth: %s\t|\n", a[0],a[1],a[2]);
+
+    public static void toggleMode() {
+        Initializer.isEnergy = !Initializer.isEnergy;
     }
-    public static void fillAdminMapnWelcome() {
+
+    public static void BigWelcome() {
     //Initializer.adminMap.put("Admin", "Admin");
     //Initializer.adminMap.put("Arell", "IsCool");
     //Initializer.adminMap.put("Ahmad", "IsNotCool");
     // System.out.println("\n-------------------------------------------------\n|\tWelcome to Climate Change Monitor\t|\n-------------------------------------------------");
     System.out.println("\n\n\n\n#################################################\n#                                               #\n#\tWelcome to Climate Change Monitor\t#\n#                                               #\n#################################################\n\n\n");
     }
-    public static void displayTableList() {
-        usageTitle();
+    
+    public static void displayTableList(boolean a) {
+        usageTitle(a);
         tableLine();
         for(Company x:Initializer.cList){
             x.usageInfo();
         }
         tableLine();
     } 
-    public static void displaySortedByComp() {
+    
+    public static void displaySortedByComp(boolean a) {
         System.out.println("\nCompany name: ");
             String b = Initializer.sc.nextLine();
-            usageTitle();
+            usageTitle(a);
             tableLine();
-            for(Company a:Initializer.cList){
-                if(a.name.equals(b)){
-                a.usageInfo();
+            for(Company x:Initializer.cList){
+                if(x.getName().equals(b)){
+                x.usageInfo();
                 }
             }   
             tableLine();
     }
-    public static void displaySortedByMonth() {
+    
+    public static void displaySortedByMonth(boolean a) {
         System.out.println("\nMonth: ");
             String b = Initializer.sc.nextLine();
-            usageTitle();
+            usageTitle(a);
             tableLine();
-            for(Company a:Initializer.cList){
-                if(a.month.equals(b)){
-                a.usageInfo();
+            for(Company x:Initializer.cList){
+                if(x.month.equals(b)){
+                x.usageInfo();
                 }
             }
             tableLine();
     }
+    
     public static void exceedList(Company a) {
-        System.out.printf("# Company %s has exceeded green energy limit on %s!\n", a.name,a.month);
+        System.out.printf("# Company %s has exceeded green energy limit on %s!\n", a.getName(),a.month);
     }
+    
     public static void NoKey(String a) {
         if (a.equals("")){
             System.out.println("\nKeyword" + a + " doesn't exist!");

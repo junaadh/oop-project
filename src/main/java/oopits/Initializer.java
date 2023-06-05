@@ -7,6 +7,7 @@ public class Initializer {
     public static int appStatus = 1;
     //public static HashMap<String,String> adminMap = new HashMap<String,String>();
     public static Scanner sc = new Scanner(System.in);
+    public static boolean isEnergy = true;
 
     public static Company[] cList = {
         new Company(1, "Apple Inc.", "350 Megawatt", "January"),

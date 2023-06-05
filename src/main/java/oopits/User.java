@@ -107,17 +107,13 @@ public class User {
         }
         return 0;
     }
-
-    /*
-     * private static void Welcome() {
-     * System.out.println("\nWelcome, public guest.");
-     * }
-     */
+   
     public static void Func() {
         // Initializer.status = 0;
         int status = 1;
         while (status == 1) {
             Helper.funcPrompt("");
+            boolean mode = Initializer.isEnergy;
             String x = Initializer.sc.nextLine().toLowerCase();
             switch (x) {
                 case "o":
@@ -127,15 +123,15 @@ public class User {
                     break;
                 case "l":
                     Helper.clearScreen();
-                    Helper.displayTableList();
+                    Helper.displayTableList(mode);
                     break;
                 case "c":
                     Helper.clearScreen();
-                    Helper.displaySortedByComp();
+                    Helper.displaySortedByComp(mode);
                     break;
                 case "m":
                     Helper.clearScreen();
-                    Helper.displaySortedByMonth();
+                    Helper.displaySortedByMonth(mode);
                     break;
                 case "!":
                 Helper.clearScreen();
@@ -147,6 +143,10 @@ public class User {
                             Helper.exceedList(a);
                         }
                     }
+                break;
+                case "t":
+                Helper.toggleMode();
+                break;
                 default :
                 Helper.NoKey(x);
                 }
@@ -158,7 +158,7 @@ public class User {
         return desc;
     }
 
-    private static void Welcome( String firstName, String lastName ){
+    public static void Welcome( String firstName, String lastName ){
         System.out.println("\nSuccessful login.\nWelcome, " + firstName + " " + lastName + ".");
     }
 

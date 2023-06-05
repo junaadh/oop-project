@@ -3,7 +3,7 @@ package oopits;
 public class EnergyMonitor{
 
     public static void StartEngine() {
-    Helper.fillAdminMapnWelcome();
+    Helper.BigWelcome();
     do {
         Helper.mainPrompt();
         String x = Initializer.sc.nextLine().toLowerCase();
@@ -25,9 +25,8 @@ public class EnergyMonitor{
                 case 2:
                     User.register();
                     break;}
-        } /*else if(x.equals("api")){
-            API.main();
-        } */else {
+        } /*else if(x.equals("api")){API.main(); } */
+        else {
             Helper.NoKey(x);
         }
     } while (Initializer.appStatus == 1);
