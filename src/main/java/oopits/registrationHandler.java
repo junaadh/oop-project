@@ -1,18 +1,30 @@
 package oopits;
 
+// created by @junaadh at 20230606 05:33.
+
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 
-public class Container {
+public class registrationHandler extends JFrame implements ActionListener{
+    
+    
+    JButton register = new JButton();
+    JTextField fnameIn = new JTextField();
+    JTextField lnameIn = new JTextField();
+    JTextField unameIn = new JTextField();
+    JTextField passIn = new JTextField();
 
-    public static void registerHandler() {
+    public registrationHandler() {
         ImageIcon image = new ImageIcon("src/main/java/oopits/assets/logo.png");
         JLabel iamgeLabel = new JLabel(image);
         iamgeLabel.setVerticalAlignment(0);
@@ -25,10 +37,6 @@ public class Container {
         registerText.setBounds(10, 133, 591, 84);
         registerText.setFont(new Font("Poppins", Font.BOLD, 56));
 
-        //Rounded name = new Rounded(4);
-        //name.setBackground(Color.decode("#514B96"));
-        //name.setPreferredSize(new Dimension(229, 46));
-
         JLabel fnameText = new JLabel();
         fnameText.setText("First Name");
         fnameText.setForeground(Color.WHITE);
@@ -36,6 +44,12 @@ public class Container {
         fnameText.setBounds(18, 7, 100, 12);
         fnameText.setFont(new Font("Poppins", Font.PLAIN, 11));
         fnameText.setFocusable(false);
+        
+        fnameIn.setBounds(20, 22, 235, 21);
+        fnameIn.setBackground(Color.decode("#514B96"));
+        fnameIn.setForeground(Color.GRAY);
+        fnameIn.setOpaque(true);
+        fnameIn.setBorder(null);
 
         JPanel fname = new JPanel();
         fname.setLayout(null);
@@ -43,6 +57,7 @@ public class Container {
         fname.setBackground(Color.decode("#514B96"));
         fname.setOpaque(true); 
         fname.add(fnameText);
+        fname.add(fnameIn);
 
         JLabel lnameText = new JLabel();
         lnameText.setText("Last Name");
@@ -52,12 +67,19 @@ public class Container {
         lnameText.setFont(new Font("Poppins", Font.PLAIN, 11));
         lnameText.setFocusable(false);
 
+        lnameIn.setBounds(20, 22, 235, 21);
+        lnameIn.setBackground(Color.decode("#514B96"));
+        lnameIn.setForeground(Color.GRAY);
+        lnameIn.setOpaque(true);
+        lnameIn.setBorder(null);
+        
         JPanel lname = new JPanel();
         lname.setLayout(null);
         lname.setBounds(280, 254, 250, 46);
         lname.setBackground(Color.decode("#514B96"));
         lname.setOpaque(true);
         lname.add(lnameText);
+        lname.add(lnameIn);
 
         JLabel unameText = new JLabel();
         unameText.setText("Username");
@@ -66,6 +88,12 @@ public class Container {
         unameText.setBounds(18, 7, 100, 12);
         unameText.setFont(new Font("Poppins", Font.PLAIN, 11));
         unameText.setFocusable(false);
+        
+        unameIn.setBounds(20, 22, 495, 21);
+        unameIn.setBackground(Color.decode("#514B96"));
+        unameIn.setForeground(Color.GRAY);
+        unameIn.setOpaque(true);
+        unameIn.setBorder(null);
 
         JPanel uname = new JPanel();
         uname.setLayout(null);
@@ -73,6 +101,7 @@ public class Container {
         uname.setBackground(Color.decode("#514B96"));
         uname.setOpaque(true);
         uname.add(unameText);
+        uname.add(unameIn);
 
         JLabel passText = new JLabel();
         passText.setText("Password");
@@ -82,19 +111,26 @@ public class Container {
         passText.setFont(new Font("Poppins", Font.PLAIN, 11));
         passText.setFocusable(false);
 
+        passIn.setBounds(20, 22, 495, 21);
+        passIn.setBackground(Color.decode("#514B96"));
+        passIn.setForeground(Color.GRAY);
+        passIn.setOpaque(true);
+        passIn.setBorder(null);
+
         JPanel pass = new JPanel();
         pass.setLayout(null);
         pass.setBounds(10, 374, 520, 46);
         pass.setBackground(Color.decode("#514B96"));
         pass.setOpaque(true);
         pass.add(passText);
+        pass.add(passIn);
 
-        JButton register = new JButton();
         register.setText("Create Account");
         register.setFont(new Font("Poppins-SemiBold", Font.PLAIN, 16));
         register.setBackground(Color.decode("#47458"));
         register.setBounds(10, 474, 520, 46);
         register.setForeground(Color.BLACK);
+        register.addActionListener(this);
 
         JLabel text = new JLabel();
         text.setText("Already A User? ");
@@ -119,24 +155,30 @@ public class Container {
         content.add(register);
         content.add(text);
         content.add(login);
-        
 
-
-        JFrame frame = new JFrame(); 
-        frame.setTitle("Energy Monitor");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setResizable(false);
-        frame.setSize(1420, 720);
-        frame.setVisible(true);
-        //frame.setIconImage(image.getImage());
-        frame.getContentPane().setBackground(Color.decode("#4E498D"));
-        frame.setOpacity(1);
-        frame.add(content);
-        frame.setLayout(null);
+        this.setTitle("Energy Monitor");
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setVisible(true);
+        this.setResizable(false);
+        this.setSize(1420, 720);
+        this.getContentPane().setBackground(Color.decode("#4E498D"));
+        this.setOpacity(1);
+        this.setLayout(null);
+        this.add(content);
 
     }
 
-    public static void loginHandler() {
-        
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource()==register) {
+            if (guiHelper.checkNoFieldsEmpty(fnameIn, lnameIn, unameIn, passIn)) {
+                User.register(fnameIn.getText() + "," +  lnameIn.getText() + "," +  unameIn.getText() + "," +  passIn.getText() + "\n");
+                
+            }
+        }
     }
+
+        
+    
 }

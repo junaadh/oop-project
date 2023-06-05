@@ -46,9 +46,10 @@ public class User {
         }
     }
 
-    public static void register() {
+    public static void register( String userInfo ) {
         Helper.clearScreen();
-        String firstName, lastName, userName, password, confirmation, userInfo;
+        /*
+        String firstName, lastName, userName, password, confirmation;
 
         System.out.println("\nWelcome to registration. \n\nEnter first name:");
         firstName = Initializer.sc.nextLine();
@@ -77,16 +78,17 @@ public class User {
         String in = Initializer.sc.nextLine().toLowerCase();
         if (in.equals("n")){
             return;
-        }
-
+            
         userInfo = firstName + "," + lastName + "," + userName + "," + password;
         Helper.clearScreen();
+        }
         System.out.println("\nCongratulations! You have successfully signed-up as " + firstName + " " + lastName
-                + ". \nYou may continue to login as a user now.");
+        + ". \nYou may continue to login as a user now.");
+        */
 
         try {
             FileWriter fileWriter = new FileWriter("src/main/java/oopits/userData.txt", true);
-            fileWriter.write(userInfo + "\n");
+            fileWriter.write(userInfo);
             fileWriter.close();
 
         } catch (IOException e) {

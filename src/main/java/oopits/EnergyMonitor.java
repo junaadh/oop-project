@@ -23,7 +23,7 @@ public class EnergyMonitor{
                     }  
                     break;
                 case 2:
-                    User.register();
+                    //User.register();
                     break;}
         } /*else if(x.equals("api")){API.main(); } */
         else {
