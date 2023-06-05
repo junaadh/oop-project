@@ -4,7 +4,7 @@ public class App{
     public static void main(String[] args) {
         //Helper.clearScreen();
         //EnergyMonitor.StartEngine();
-        Container.windowHandler();
+        Container.registerHandler();
 
     }
 }
