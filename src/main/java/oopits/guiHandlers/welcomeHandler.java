@@ -32,9 +32,6 @@ public class welcomeHandler extends JFrame implements ActionListener{
         ImageIcon usericn = new ImageIcon("src/main/java/oopits/assets/user.png");
         ImageIcon usericon = guiHelper.resizeIcon(usericn, 40, 40);
 
-        ImageIcon companyicn = new ImageIcon("src/main/java/oopits/assets/company.png");
-        ImageIcon companyicon = guiHelper.resizeIcon(companyicn, 40, 40);
-
         ImageIcon governmenticn = new ImageIcon("src/main/java/oopits/assets/government.png");
         ImageIcon governmenticon = guiHelper.resizeIcon(governmenticn, 40, 40);
 
@@ -44,12 +41,12 @@ public class welcomeHandler extends JFrame implements ActionListener{
         JLabel helloText = new JLabel("Hello");
         helloText.setFont(new Font("Inter", Font.BOLD, 80));
         helloText.setForeground(Color.MAGENTA);
-        helloText.setBounds(509, 200, 225, 100);
+        helloText.setBounds(520, 200, 230, 100);
 
         user.setIcon(usericon);
         user.addActionListener(this);
         user.setBorder(null);
-        user.setBounds(455, 516, 40, 40);
+        user.setBounds(450, 516, 40, 40);
         user.setToolTipText("");
         user.addMouseListener(new MouseAdapter() {
             public void mouseEntered(MouseEvent a){
@@ -63,7 +60,7 @@ public class welcomeHandler extends JFrame implements ActionListener{
         government.setIcon(governmenticon);
         government.addActionListener(this);
         government.setBorder(null);
-        government.setBounds(568, 516, 40, 40);
+        government.setBounds(770, 516, 40, 40);
         government.setToolTipText("");
         government.addMouseListener(new MouseAdapter() {
             public void mouseEntered(MouseEvent a){
@@ -74,24 +71,10 @@ public class welcomeHandler extends JFrame implements ActionListener{
             }
         });
 
-        company.setIcon(companyicon);
-        //company.addActionListener();
-        company.setBorder(null);
-        company.setBounds(681, 516, 40, 40);
-        company.setToolTipText("");
-        company.addMouseListener(new MouseAdapter() {
-            public void mouseEntered(MouseEvent a){
-                company.setToolTipText("Company Login");
-            }
-            public void mouseExited(MouseEvent a){
-                company.setToolTipText("");
-            }
-        });
-
         credits.setIcon(creditsicon);
         //credits.addActionListener();
         credits.setBorder(null);
-        credits.setBounds(790, 516, 40, 40);
+        credits.setBounds(610, 516, 40, 40);
         credits.setToolTipText("");
         credits.addMouseListener(new MouseAdapter() {
             public void mouseEntered(MouseEvent a){
