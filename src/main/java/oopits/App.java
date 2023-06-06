@@ -8,7 +8,7 @@ public class App{
         // EnergyMonitor.StartEngine();
         // new GUI();
         //new registrationHandler();
-        new loginHandler();
+        new loginHandler("user");
         
     }
 }

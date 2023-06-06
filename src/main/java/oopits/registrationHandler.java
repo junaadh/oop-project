@@ -153,7 +153,7 @@ public class registrationHandler extends myFrame implements ActionListener{
             @Override
             public void mouseClicked(MouseEvent a) {
                 dispose();
-                new loginHandler();
+                new loginHandler("user");
             }   
         });
 

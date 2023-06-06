@@ -20,9 +20,12 @@ public class loginHandler extends myFrame implements ActionListener {
     JPasswordField passIn = new JPasswordField();
     JButton login = new JButton("Log In");
     JPanel loginPanel = new JPanel();
+    JLabel register = new JLabel("Register");
+    JLabel text = new JLabel();
+    protected String type;
 
 
-    loginHandler() {
+    loginHandler( String type ) {
 
         JLabel registerText = new JLabel();
         registerText.setText("Log In");
@@ -81,12 +84,10 @@ public class loginHandler extends myFrame implements ActionListener {
         login.setForeground(Color.BLACK);
         login.addActionListener(this);
 
-        JLabel text = new JLabel();
         text.setText("Dont have an account yet? ");
         text.setBounds(18, 534, 216, 25);
         text.setFont(new Font("Poppins", Font.PLAIN, 16));
 
-        JLabel register = new JLabel("Register");
         register.setBounds(225, 534, 100, 25);
         register.setForeground(Color.BLUE);
         register.setFont(new Font("Poppins", Font.PLAIN, 16));
@@ -118,7 +119,19 @@ public class loginHandler extends myFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == login) {
             if (guiHelper.checkNoFieldsEmpty(unameIn, passIn)) {
-                System.out.println(User.login(unameIn.getText(), String.valueOf(passIn.getPassword())));
+                switch (type) {
+                    case "user":
+                        System.out.println(User.guiLogin(unameIn.getText(), String.valueOf(passIn.getPassword())));
+                        break;
+                    
+                    case "admin":
+                        register.setVisible(false);
+                        text.setVisible(false);
+                        break;
+                
+                    default:
+                        break;
+                }
             }
         }
     }
