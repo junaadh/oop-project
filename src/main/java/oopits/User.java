@@ -9,7 +9,7 @@ public class User {
     public static int version = 1;
     public String firstName, lastName, userName, password;
     public String name = "Public Civilians";
-    public static String desc = "The class USER represent all kinds of public user of the system, however, specifically for general people.";
+    private static String desc = "The class USER represent all kinds of public user of the system, however, specifically for general people.";
 
     public User(String[] parts) {
         firstName = parts[0];
@@ -46,9 +46,8 @@ public class User {
         }
     }
 
-    public static void register( String userInfo ) {
+    public static void register() {
         Helper.clearScreen();
-        /*
         String firstName, lastName, userName, password, confirmation;
 
         System.out.println("\nWelcome to registration. \n\nEnter first name:");
@@ -78,16 +77,28 @@ public class User {
         String in = Initializer.sc.nextLine().toLowerCase();
         if (in.equals("n")){
             return;
-            
-        userInfo = firstName + "," + lastName + "," + userName + "," + password;
-        Helper.clearScreen();
         }
-        System.out.println("\nCongratulations! You have successfully signed-up as " + firstName + " " + lastName
-        + ". \nYou may continue to login as a user now.");
-        */
-
+        String userInfo = firstName + "," + lastName + "," + userName + "," + password;
+        Helper.clearScreen();
+        
+        
         try {
-            FileWriter fileWriter = new FileWriter("src/main/java/oopits/userData.txt", true);
+            FileWriter fileWriter = new FileWriter("src/main/java/oopits/data/userData.txt", true);
+            fileWriter.write(userInfo);
+            fileWriter.close();
+            System.out.println("\nCongratulations! You have successfully signed-up as " + firstName + " " + lastName
+            + ". \nYou may continue to login as a user now.");
+            
+        } catch (IOException e) {
+            System.err.println("An error occured while writing to this file");
+            e.printStackTrace();
+        }
+        
+    }
+
+    public static void guiRegister( String userInfo) {
+        try {
+            FileWriter fileWriter = new FileWriter("src/main/java/oopits/data/userData.txt", true);
             fileWriter.write(userInfo);
             fileWriter.close();
 
@@ -95,7 +106,6 @@ public class User {
             System.err.println("An error occured while writing to this file");
             e.printStackTrace();
         }
-
     }
 
     public static int publicPrompt() {

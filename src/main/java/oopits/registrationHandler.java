@@ -25,10 +25,11 @@ public class registrationHandler extends JFrame implements ActionListener{
     JTextField passIn = new JTextField();
 
     public registrationHandler() {
-        ImageIcon image = new ImageIcon("src/main/java/oopits/assets/logo.png");
-        JLabel iamgeLabel = new JLabel(image);
-        iamgeLabel.setVerticalAlignment(0);
-        iamgeLabel.setSize(100, 100);
+        ImageIcon image = new ImageIcon("src/main/java/oopits/assets/c.png");
+        JLabel imageLabel = new JLabel();
+        imageLabel.setIcon(image);
+        imageLabel.setBounds(720, 100,500,500);
+        
 
         JLabel registerText = new JLabel();
         registerText.setText("Create new account");
@@ -143,10 +144,11 @@ public class registrationHandler extends JFrame implements ActionListener{
 
         JPanel content = new JPanel();
         content.setLayout(null);
-        content.setBounds(65, 65, 593, 563);
+        // content.setBounds(65, 65, 593, 563);
+        content.setBounds(50, 0, 593, 563);
         //content.setBackground(Color.cyan);
         content.setOpaque(false);
-        content.add(iamgeLabel);
+        // content.add(imageLabel);
         content.add(registerText);
         content.add(fname);
         content.add(lname);
@@ -160,11 +162,13 @@ public class registrationHandler extends JFrame implements ActionListener{
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
         this.setResizable(false);
-        this.setSize(1420, 720);
+        // this.setSize(1420, 720);
+        this.setBounds(300, 200, 1220,720);
         this.getContentPane().setBackground(Color.decode("#4E498D"));
         this.setOpacity(1);
         this.setLayout(null);
         this.add(content);
+        this.add(imageLabel);
 
     }
 
@@ -173,7 +177,7 @@ public class registrationHandler extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         if (e.getSource()==register) {
             if (guiHelper.checkNoFieldsEmpty(fnameIn, lnameIn, unameIn, passIn)) {
-                User.register(fnameIn.getText() + "," +  lnameIn.getText() + "," +  unameIn.getText() + "," +  passIn.getText() + "\n");
+                User.guiRegister(fnameIn.getText() + "," +  lnameIn.getText() + "," +  unameIn.getText() + "," +  passIn.getText() + "\n");
                 
             }
         }

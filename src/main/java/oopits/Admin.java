@@ -199,7 +199,7 @@ public class Admin extends User{
         System.out.println(firstName + " " + lastName + " has successfully become admin.");
 
         try {
-            FileWriter fileWriter = new FileWriter("src/main/java/oopits/adminData.txt", true);
+            FileWriter fileWriter = new FileWriter("src/main/java/oopits/data/adminData.txt", true);
             fileWriter.write(adminInfo + "\n");
             fileWriter.close();
         } catch (IOException e) {
@@ -228,11 +228,11 @@ public class Admin extends User{
         userInfo = firstName + "," + lastName + "," + userName + "," + password;
 
         try {
-            Path inputPath = Path.of("src/main/java/oopits/userData.txt");
-            Path tempPath = Path.of("src/main/java/oopits/temp.txt");
+            Path inputPath = Path.of("src/main/java/oopits/data/userData.txt");
+            Path tempPath = Path.of("src/main/java/oopits/data/temp.txt");
 
-            Scanner reader = new Scanner( new File("src/main/java/oopits/userData.txt"));
-            FileWriter writer = new FileWriter("src/main/java/oopits/temp.txt");
+            Scanner reader = new Scanner( new File("src/main/java/oopits/data/userData.txt"));
+            FileWriter writer = new FileWriter("src/main/java/oopits/data/temp.txt");
             String line;
 
             while (reader.hasNextLine()) {

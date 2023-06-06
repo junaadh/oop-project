@@ -5,3 +5,4 @@ johnathan,tan,johnjoe,123456,#
 Arell,Arell,Arell,Arell,$
 Admin,Admin,aDm,aw,$
 Awe,awe,awe,awe,$
+Arell,Pramono,Wowow,Wowol,$
