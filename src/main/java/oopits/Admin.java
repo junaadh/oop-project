@@ -146,6 +146,25 @@ public class Admin extends User{
     
     }  
 
+    public static String guiAuth( String userName, String password) {
+        String isOK = "";
+        Map<String, Admin> mod_map = FileHandler.loadAdmin();
+
+        if (!mod_map.containsKey(userName)) {
+            prompts.wrongUsername();
+            return isOK;
+        }
+        Admin mod = mod_map.get(userName);
+
+        if ((mod.password).equals(password)) {
+            isOK = mod.accessLevel;
+            return isOK;
+        } else {
+            prompts.wrongPasssword();
+            return isOK;
+        }
+    }
+
     private static void suAdminFunc() {
                     System.out.println("-------------------------\n| SUPER ADMIN MODE\t|\n|\t\t\t|\n| Press\t\t\t|\n| \"AA\" to add admin,\t|\n| \"D\" to delete user,\t|\n| or \"B\" to go back.\t|\n-------------------------"); //testing - debig
                     String input = Initializer.sc.nextLine().toLowerCase();

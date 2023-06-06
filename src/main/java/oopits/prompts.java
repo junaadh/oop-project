@@ -21,4 +21,14 @@ public class prompts {
         String title = "Registration Error";
         JOptionPane.showMessageDialog(null, text, title, JOptionPane.ERROR_MESSAGE);
     }
+
+    public static void wrongUsername() {
+        String title = "Invalid Username";
+        JOptionPane.showMessageDialog(null, "Username entered not found. \nTry Again!", title, JOptionPane.ERROR_MESSAGE);
+    }
+
+    public static void wrongPasssword() {
+        String title = "Invalid Password";
+        JOptionPane.showMessageDialog(null, "Password entered is invalid. \nTry Again!", title, JOptionPane.ERROR_MESSAGE);
+    }
 }

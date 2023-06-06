@@ -1,4 +1,4 @@
-package oopits;
+package oopits.guiHandlers;
 
 // created by @junaadh at 20230606 05:33.
 
@@ -17,12 +17,17 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import oopits.User;
+import oopits.guiHelper;
+import oopits.prompts;
+
 
 
 public class registrationHandler extends myFrame implements ActionListener{
     
     
     JButton register = new JButton();
+    JButton back = new JButton();
     JTextField fnameIn = new JTextField();
     JTextField lnameIn = new JTextField();
     JTextField unameIn = new JTextField();
@@ -135,9 +140,16 @@ public class registrationHandler extends myFrame implements ActionListener{
         register.setText("Create Account");
         register.setFont(new Font("Poppins-SemiBold", Font.PLAIN, 16));
         register.setBackground(Color.decode("#47458"));
-        register.setBounds(10, 474, 520, 46);
+        register.setBounds(10, 474, 250, 46);
         register.setForeground(Color.BLACK);
         register.addActionListener(this);
+
+        back.setText("Main Menu");
+        back.setFont(new Font("Poppins-SemiBold", Font.PLAIN, 16));
+        back.setBackground(Color.decode("#47458"));
+        back.setBounds(280, 474, 250, 46);
+        back.setForeground(Color.BLACK);
+        back.addActionListener(this);
 
         JLabel text = new JLabel();
         text.setText("Already A User? ");
@@ -153,7 +165,7 @@ public class registrationHandler extends myFrame implements ActionListener{
             @Override
             public void mouseClicked(MouseEvent a) {
                 dispose();
-                new loginHandler("user");
+                new userLoginHandler();
             }   
         });
 
@@ -169,6 +181,7 @@ public class registrationHandler extends myFrame implements ActionListener{
         registrationPanel.add(uname);
         registrationPanel.add(pass);
         registrationPanel.add(register);
+        registrationPanel.add(back);
         registrationPanel.add(text);
         registrationPanel.add(login);
 
@@ -190,6 +203,9 @@ public class registrationHandler extends myFrame implements ActionListener{
                 }
                 
             }
+        } else if (e.getSource() == back ) {
+            dispose();
+            new welcomeHandler();
         }
     }
 

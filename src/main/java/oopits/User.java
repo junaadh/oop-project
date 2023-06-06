@@ -49,6 +49,7 @@ public class User {
     public static boolean guiLogin(String username, String password) {
         Map<String, User> user_map = FileHandler.loadUser();
         if (!user_map.containsKey(username)) {
+            prompts.wrongUsername();
             return false;
         }
         
@@ -59,7 +60,7 @@ public class User {
             //Welcome(un.firstName, un.lastName);
             return true;
         } else {
-            System.out.println("\nIncorrect Password!");
+            prompts.wrongPasssword();
             return false;
         }
     }

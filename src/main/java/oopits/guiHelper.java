@@ -1,5 +1,9 @@
 package oopits;
 
+import java.awt.Image;
+
+import javax.swing.ImageIcon;
+
 // created by @junaadh at 20230606 05:33.
 
 import javax.swing.JTextField;
@@ -26,5 +30,11 @@ public class guiHelper {
         }
         return false;
     }  
+
+    public static ImageIcon resizeIcon(ImageIcon icon, int width, int height) {
+        Image originalImage = icon.getImage();
+        Image resizedImage = originalImage.getScaledInstance(width, height, Image.SCALE_SMOOTH);
+        return new ImageIcon(resizedImage);
+    }
 
 }

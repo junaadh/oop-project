@@ -1,31 +1,30 @@
-package oopits;
+package oopits.guiHandlers;
 
 import java.awt.Color;
-import java.awt.Cursor;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-public class loginHandler extends myFrame implements ActionListener {
+import oopits.Admin;
+import oopits.guiHelper;
+
+public class adminLoginHandler extends myFrame implements ActionListener {
 
     JTextField unameIn = new JTextField();
     JPasswordField passIn = new JPasswordField();
-    JButton login = new JButton("Log In");
+    JButton adminlogin = new JButton("Log In");
+    JButton back = new JButton("Main Menu");
     JPanel loginPanel = new JPanel();
-    JLabel register = new JLabel("Register");
-    JLabel text = new JLabel();
+
     protected String type;
 
 
-    loginHandler( String type ) {
+    public adminLoginHandler() {
 
         JLabel registerText = new JLabel();
         registerText.setText("Log In");
@@ -78,28 +77,17 @@ public class loginHandler extends myFrame implements ActionListener {
         pass.add(passText);
         pass.add(passIn);
 
-        login.setFont(new Font("Poppins-SemiBold", Font.PLAIN, 16));
-        login.setBackground(Color.decode("#47458"));
-        login.setBounds(10, 474, 520, 46);
-        login.setForeground(Color.BLACK);
-        login.addActionListener(this);
+        adminlogin.setFont(new Font("Poppins-SemiBold", Font.PLAIN, 16));
+        adminlogin.setBackground(Color.decode("#47458"));
+        adminlogin.setBounds(10, 474, 250, 46);
+        adminlogin.setForeground(Color.BLACK);
+        adminlogin.addActionListener(this);
 
-        text.setText("Dont have an account yet? ");
-        text.setBounds(18, 534, 216, 25);
-        text.setFont(new Font("Poppins", Font.PLAIN, 16));
-
-        register.setBounds(225, 534, 100, 25);
-        register.setForeground(Color.BLUE);
-        register.setFont(new Font("Poppins", Font.PLAIN, 16));
-        register.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        register.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent a) {
-                dispose();
-                new registrationHandler();
-            
-            }   
-        });
+        back.setFont(new Font("Poppins-SemiBold", Font.PLAIN, 16));
+        back.setBackground(Color.decode("#47458"));
+        back.setBounds(280, 474, 250, 46);
+        back.setForeground(Color.BLACK);
+        back.addActionListener(this);
 
         loginPanel.setLayout(null);
         loginPanel.setBounds(50, 0, 593, 563);
@@ -107,9 +95,8 @@ public class loginHandler extends myFrame implements ActionListener {
         loginPanel.add(registerText);
         loginPanel.add(uname);
         loginPanel.add(pass);
-        loginPanel.add(login);
-        loginPanel.add(text);
-        loginPanel.add(register);
+        loginPanel.add(adminlogin);
+        loginPanel.add(back);
 
         this.add(loginPanel);
         
@@ -117,22 +104,15 @@ public class loginHandler extends myFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == login) {
+        if (e.getSource() == adminlogin) {
             if (guiHelper.checkNoFieldsEmpty(unameIn, passIn)) {
-                switch (type) {
-                    case "user":
-                        System.out.println(User.guiLogin(unameIn.getText(), String.valueOf(passIn.getPassword())));
-                        break;
-                    
-                    case "admin":
-                        register.setVisible(false);
-                        text.setVisible(false);
-                        break;
-                
-                    default:
-                        break;
-                }
+                System.out.println(Admin.guiAuth(unameIn.getText(), String.valueOf(passIn.getPassword())));
+                 
             }
+        } else if (e.getSource() == back) {
+            dispose();
+            new welcomeHandler();
         }
     }
+
 }
