@@ -7,7 +7,8 @@ public class App{
         Helper.clearScreen();
         // EnergyMonitor.StartEngine();
         // new GUI();
-        new registrationHandler();
+        //new registrationHandler();
+        new loginHandler();
         
     }
 }

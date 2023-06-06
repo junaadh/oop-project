@@ -17,10 +17,10 @@ public class EnergyMonitor{
             Helper.clearScreen();
             switch (User.publicPrompt()){ 
                 case 1:
-                    if(User.login()){
+                    //if(User.login()){
                     User.Func();
                     Helper.clearScreen();
-                    }  
+                    //}  
                     break;
                 case 2:
                     //User.register();

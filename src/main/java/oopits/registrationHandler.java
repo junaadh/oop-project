@@ -3,26 +3,32 @@ package oopits;
 // created by @junaadh at 20230606 05:33.
 
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 
-public class registrationHandler extends JFrame implements ActionListener{
+
+public class registrationHandler extends myFrame implements ActionListener{
     
     
     JButton register = new JButton();
     JTextField fnameIn = new JTextField();
     JTextField lnameIn = new JTextField();
     JTextField unameIn = new JTextField();
-    JTextField passIn = new JTextField();
+    JPasswordField passIn = new JPasswordField("");
+    JPanel registrationPanel = new JPanel();
+
 
     public registrationHandler() {
         ImageIcon image = new ImageIcon("src/main/java/oopits/assets/c.png");
@@ -141,33 +147,32 @@ public class registrationHandler extends JFrame implements ActionListener{
         JLabel login = new JLabel("Log In");
         login.setBounds(145, 534, 100, 25);
         login.setFont(new Font("Poppins", Font.PLAIN, 16));
+        login.setForeground(Color.BLUE);
+        login.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        login.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent a) {
+                dispose();
+                new loginHandler();
+            }   
+        });
 
-        JPanel content = new JPanel();
-        content.setLayout(null);
-        // content.setBounds(65, 65, 593, 563);
-        content.setBounds(50, 0, 593, 563);
-        //content.setBackground(Color.cyan);
-        content.setOpaque(false);
-        // content.add(imageLabel);
-        content.add(registerText);
-        content.add(fname);
-        content.add(lname);
-        content.add(uname);
-        content.add(pass);
-        content.add(register);
-        content.add(text);
-        content.add(login);
+        registrationPanel.setLayout(null);
+        // registrationPanel.setBounds(65, 65, 593, 563);
+        registrationPanel.setBounds(50, 0, 593, 563);
+        //registrationPanel.setBackground(Color.cyan);
+        registrationPanel.setOpaque(false);
+        // registrationPanel.add(imageLabel);
+        registrationPanel.add(registerText);
+        registrationPanel.add(fname);
+        registrationPanel.add(lname);
+        registrationPanel.add(uname);
+        registrationPanel.add(pass);
+        registrationPanel.add(register);
+        registrationPanel.add(text);
+        registrationPanel.add(login);
 
-        this.setTitle("Energy Monitor");
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setVisible(true);
-        this.setResizable(false);
-        // this.setSize(1420, 720);
-        this.setBounds(300, 200, 1220,720);
-        this.getContentPane().setBackground(Color.decode("#4E498D"));
-        this.setOpacity(1);
-        this.setLayout(null);
-        this.add(content);
+        this.add(registrationPanel);
         this.add(imageLabel);
 
     }
@@ -177,7 +182,12 @@ public class registrationHandler extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         if (e.getSource()==register) {
             if (guiHelper.checkNoFieldsEmpty(fnameIn, lnameIn, unameIn, passIn)) {
-                User.guiRegister(fnameIn.getText() + "," +  lnameIn.getText() + "," +  unameIn.getText() + "," +  passIn.getText() + "\n");
+                if (prompts.terms()) {
+                    User.guiRegister(fnameIn.getText() + "," +  lnameIn.getText() + "," +  unameIn.getText() + "," +  String.valueOf(passIn.getPassword()) + "\n");
+                    
+                } else {
+                    prompts.registrationFail("Please agree to the terms and conditions");
+                }
                 
             }
         }

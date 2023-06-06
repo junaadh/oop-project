@@ -18,27 +18,29 @@ public class User {
         password = parts[3];
     }
 
-    public static boolean login() {
+    public static boolean login( String username, String password ) {
         Helper.clearScreen();
         Map<String, User> user_map = FileHandler.loadUser();
+        /*
         String username, password;
 
         System.out.println("\nEnter Username:");
         username = Initializer.sc.nextLine();
 
-        if (!user_map.containsKey(username)) {
-            System.out.println("\nThat username doesn't exist!");
-            return false;
-        }
-
+        
         System.out.println("Enter password:");
         password = Initializer.sc.nextLine();
+        */
 
+        if (!user_map.containsKey(username)) {
+            return false;
+        }
+        
         User un = user_map.get(username);
 
         if ((un.password).equals(password)) {
-            Helper.clearScreen();
-            Welcome(un.firstName, un.lastName);
+            //Helper.clearScreen();
+            //Welcome(un.firstName, un.lastName);
             return true;
         } else {
             System.out.println("\nIncorrect Password!");
