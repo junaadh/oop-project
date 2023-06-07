@@ -47,12 +47,13 @@ public class userLoginHandler extends adminLoginHandler{
         this.loginPanel.add(text);
         this.loginPanel.add(register);
         this.remove(adminlogin);
+        this.add(userLogin);
         
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == adminlogin) {
+        if (e.getSource() == userLogin) {
             if (guiHelper.checkNoFieldsEmpty(unameIn, passIn)) {
                 System.out.println(User.guiLogin(unameIn.getText(), String.valueOf(passIn.getPassword())));
                  
