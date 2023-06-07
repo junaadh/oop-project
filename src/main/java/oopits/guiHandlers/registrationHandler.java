@@ -205,6 +205,8 @@ public class registrationHandler extends myFrame implements ActionListener{
             if (guiHelper.checkNoFieldsEmpty(fnameIn, lnameIn, unameIn, passIn)) {
                 if (prompts.terms()) {
                     User.guiRegister(fnameIn.getText() + "," +  lnameIn.getText() + "," +  unameIn.getText() + "," +  String.valueOf(passIn.getPassword()) + "\n");
+                    dispose();
+                    new userLoginHandler();
                     
                 } else {
                     prompts.registrationFail("Please agree to the terms and conditions");

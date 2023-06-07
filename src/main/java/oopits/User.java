@@ -46,22 +46,20 @@ public class User {
         }
     }
 
-    public static boolean guiLogin(String username, String password) {
+    public static String guiLogin(String username, String password) {
         Map<String, User> user_map = FileHandler.loadUser();
         if (!user_map.containsKey(username)) {
             prompts.wrongUsername();
-            return false;
+            return "false";
         }
         
         User un = user_map.get(username);
 
         if ((un.password).equals(password)) {
-            //Helper.clearScreen();
-            //Welcome(un.firstName, un.lastName);
-            return true;
+            return username;
         } else {
             prompts.wrongPasssword();
-            return false;
+            return "false";
         }
     }
 
