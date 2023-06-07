@@ -33,6 +33,7 @@ public class registrationHandler extends myFrame implements ActionListener{
     JTextField unameIn = new JTextField();
     JPasswordField passIn = new JPasswordField("");
     JPanel registrationPanel = new JPanel();
+    JLabel errorMessage;
 
 
     public registrationHandler() {
@@ -137,6 +138,12 @@ public class registrationHandler extends myFrame implements ActionListener{
         pass.add(passText);
         pass.add(passIn);
 
+        errorMessage = new JLabel();
+        errorMessage.setText("*All information required must be entered.");
+        errorMessage.setForeground(Color.RED);
+        errorMessage.setBounds(18, 404, 350, 80);
+        errorMessage.setVisible(false);
+
         register.setText("Create Account");
         register.setFont(new Font("Poppins-SemiBold", Font.PLAIN, 16));
         register.setBackground(Color.decode("#47458"));
@@ -180,6 +187,7 @@ public class registrationHandler extends myFrame implements ActionListener{
         registrationPanel.add(lname);
         registrationPanel.add(uname);
         registrationPanel.add(pass);
+        registrationPanel.add(errorMessage);
         registrationPanel.add(register);
         registrationPanel.add(back);
         registrationPanel.add(text);
@@ -201,7 +209,8 @@ public class registrationHandler extends myFrame implements ActionListener{
                 } else {
                     prompts.registrationFail("Please agree to the terms and conditions");
                 }
-                
+            } else {
+                errorMessage.setVisible(true);
             }
         } else if (e.getSource() == back ) {
             dispose();

@@ -1,6 +1,8 @@
 package oopits;
 
-//import oopits.guiHandlers.loginHandler;
+import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
+
 import oopits.guiHandlers.welcomeHandler;
 
 //commented out version to test regitrationHandler
@@ -11,8 +13,20 @@ public class App{
         // EnergyMonitor.StartEngine();
         // new GUI();
         //new registrationHandler();
-        //new loginHandler("user");
-        new welcomeHandler();
+        //new creditsHandler();
+        // new welcomeHandler();
         
+        try {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                new welcomeHandler();
+            }
+        });
+
     }
 }

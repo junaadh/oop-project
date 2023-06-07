@@ -14,6 +14,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
 import java.awt.event.MouseEvent;
 
@@ -38,15 +39,23 @@ public class welcomeHandler extends JFrame implements ActionListener{
         ImageIcon creditsicn = new ImageIcon("src/main/java/oopits/assets/credits.png");
         ImageIcon creditsicon = guiHelper.resizeIcon(creditsicn, 40, 40);
 
+        ImageIcon worldIcon = new ImageIcon("src/main/java/oopits/assets/world.png");
+
+        JLabel world = new JLabel(worldIcon);
+        world.setHorizontalAlignment(SwingConstants.CENTER);
+        world.setBounds(535, 250, 150, 150);
+
         JLabel helloText = new JLabel("Hello");
-        helloText.setFont(new Font("Inter", Font.BOLD, 80));
+        helloText.setFont(new Font("Inter", Font.BOLD, 100));
         helloText.setForeground(Color.MAGENTA);
-        helloText.setBounds(520, 200, 230, 100);
+        helloText.setBounds(445, 100, 330, 200);
+        helloText.setHorizontalAlignment(SwingConstants.CENTER);
 
         user.setIcon(usericon);
         user.addActionListener(this);
         user.setBorder(null);
-        user.setBounds(450, 516, 40, 40);
+        user.setBounds(430, 515, 40, 40);
+        user.setHorizontalAlignment(SwingConstants.CENTER);
         user.setToolTipText("");
         user.addMouseListener(new MouseAdapter() {
             public void mouseEntered(MouseEvent a){
@@ -60,7 +69,8 @@ public class welcomeHandler extends JFrame implements ActionListener{
         government.setIcon(governmenticon);
         government.addActionListener(this);
         government.setBorder(null);
-        government.setBounds(770, 516, 40, 40);
+        government.setBounds(750, 515, 40, 40);
+        government.setHorizontalAlignment(SwingConstants.CENTER);
         government.setToolTipText("");
         government.addMouseListener(new MouseAdapter() {
             public void mouseEntered(MouseEvent a){
@@ -72,9 +82,10 @@ public class welcomeHandler extends JFrame implements ActionListener{
         });
 
         credits.setIcon(creditsicon);
-        //credits.addActionListener();
+        credits.addActionListener(this);
         credits.setBorder(null);
-        credits.setBounds(610, 516, 40, 40);
+        credits.setBounds(590, 515, 40, 40);
+        credits.setHorizontalAlignment(SwingConstants.CENTER);
         credits.setToolTipText("");
         credits.addMouseListener(new MouseAdapter() {
             public void mouseEntered(MouseEvent a){
@@ -90,6 +101,7 @@ public class welcomeHandler extends JFrame implements ActionListener{
         panel.setLayout(null);
         panel.setSize(1220, 720);
         panel.setBackground((new Color(0x4AA7BE)));
+        panel.add(world);
         panel.add(helloText);
         panel.add(user);        
         panel.add(government);
@@ -117,9 +129,12 @@ public class welcomeHandler extends JFrame implements ActionListener{
         } else if (e.getSource() == government) {
             dispose();
             new adminLoginHandler();
-        }{
-            
+        } else if (e.getSource() == credits) {
+            dispose();
+            new creditsHandler();
         }
+            
+        
     }
     
 }

@@ -15,7 +15,7 @@ import oopits.guiHelper;
 
 public class userLoginHandler extends adminLoginHandler{
 
-    JButton userLogin = new JButton();
+    JButton userLogin = new JButton("Log In");
     
     userLoginHandler() {
 
@@ -44,10 +44,11 @@ public class userLoginHandler extends adminLoginHandler{
             }   
         });
 
+        this.adminlogin.setVisible(false);
+        this.loginPanel.add(userLogin);
         this.loginPanel.add(text);
         this.loginPanel.add(register);
-        this.remove(adminlogin);
-        this.add(userLogin);
+        //this.remove(adminlogin);
         
     }
 
@@ -57,10 +58,14 @@ public class userLoginHandler extends adminLoginHandler{
             if (guiHelper.checkNoFieldsEmpty(unameIn, passIn)) {
                 System.out.println(User.guiLogin(unameIn.getText(), String.valueOf(passIn.getPassword())));
                  
+            } else {
+                errorMessage.setVisible(true);
             }
         } else if (e.getSource() == back) {
             dispose();
             new welcomeHandler();
+        } else {
+            return;
         }
     }
     

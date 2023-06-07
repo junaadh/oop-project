@@ -20,6 +20,7 @@ public class adminLoginHandler extends myFrame implements ActionListener {
     JButton adminlogin = new JButton("Log In");
     JButton back = new JButton("Main Menu");
     JPanel loginPanel = new JPanel();
+    JLabel errorMessage;
 
     protected String type;
 
@@ -77,6 +78,13 @@ public class adminLoginHandler extends myFrame implements ActionListener {
         pass.add(passText);
         pass.add(passIn);
 
+        errorMessage = new JLabel();
+        errorMessage.setText("*Both username and password must be entered.");
+        errorMessage.setForeground(Color.RED);
+        errorMessage.setBounds(18, 404, 350, 80);
+        errorMessage.setVisible(false);
+        
+
         adminlogin.setFont(new Font("Poppins-SemiBold", Font.PLAIN, 16));
         adminlogin.setBackground(Color.decode("#47458"));
         adminlogin.setBounds(10, 474, 250, 46);
@@ -95,6 +103,7 @@ public class adminLoginHandler extends myFrame implements ActionListener {
         loginPanel.add(registerText);
         loginPanel.add(uname);
         loginPanel.add(pass);
+        loginPanel.add(errorMessage);
         loginPanel.add(adminlogin);
         loginPanel.add(back);
 
@@ -108,6 +117,8 @@ public class adminLoginHandler extends myFrame implements ActionListener {
             if (guiHelper.checkNoFieldsEmpty(unameIn, passIn)) {
                 System.out.println(Admin.guiAuth(unameIn.getText(), String.valueOf(passIn.getPassword())));
                  
+            } else {
+                errorMessage.setVisible(true);
             }
         } else if (e.getSource() == back) {
             dispose();
