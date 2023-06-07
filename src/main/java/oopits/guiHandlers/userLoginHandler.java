@@ -56,7 +56,8 @@ public class userLoginHandler extends adminLoginHandler{
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == userLogin) {
             if (guiHelper.checkNoFieldsEmpty(unameIn, passIn)) {
-                System.out.println(User.guiLogin(unameIn.getText(), String.valueOf(passIn.getPassword())));
+                dispose();
+                new userHandler(User.guiLogin(unameIn.getText(), String.valueOf(passIn.getPassword())));
                  
             } else {
                 errorMessage.setVisible(true);
