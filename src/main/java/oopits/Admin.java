@@ -45,16 +45,14 @@ public class Admin extends User {
                 } else if (x.equals("m")) {
                     Helper.displaySortedByMonth(mode);
                 } else if (x.equals("a")) {
-                    Helper.clearScreen();
-                    System.out.println("\nCompany name: ");
-                    String a = Initializer.sc.nextLine();
-                    System.out.println("Usage: ");
-                    String b = Initializer.sc.nextLine();
-                    System.out.println("Month: ");
-                    String c = Initializer.sc.nextLine();
-                    Initializer.cList = Arrays.copyOf(Initializer.cList, Initializer.cList.length + 1);
-                    Initializer.cList[Initializer.cList.length - 1] = new Company(Initializer.cList.length, a, b, c);
+                    addCompany();
 
+                } else if (x.equals("u")){
+                    updateCompany();
+                
+                } else if (x.equals("d")){
+                    deleteCompany();
+                
                 } else if (x.equals("!")) {
                     Helper.clearScreen();
                     System.out.println("\n-------------------\n<  !!!WARNING!!!  >\n-------------------");
@@ -101,16 +99,15 @@ public class Admin extends User {
                 } else if (x.equals("m")) {
                     Helper.displaySortedByMonth(mode);
                 } else if (x.equals("a")) {
-                    Helper.clearScreen();
-                    System.out.println("\nCompany name: ");
-                    String a = Initializer.sc.nextLine();
-                    System.out.println("Usage: ");
-                    String b = Initializer.sc.nextLine();
-                    System.out.println("Month: ");
-                    String c = Initializer.sc.nextLine();
-                    Initializer.cList = Arrays.copyOf(Initializer.cList, Initializer.cList.length + 1);
-                    Initializer.cList[Initializer.cList.length - 1] = new Company(Initializer.cList.length, a, b, c);
+                addCompany();
 
+
+                } else if (x.equals("u")){
+                    updateCompany();
+                
+                } else if (x.equals("d")){
+                    deleteCompany();
+                
                 } else if (x.equals("!")) {
                     Helper.clearScreen();
                     System.out.println("\n-------------------\n<  !!!WARNING!!!  >\n-------------------");
@@ -127,13 +124,13 @@ public class Admin extends User {
                                 }
 
                             }
-                        } else if (x.equals("?")) {
-                            About.Func();;
-                        } else {
-                            Helper.clearScreen();
-                            Helper.NoKey(x);
                         }
                     }
+                } else if (x.equals("?")) {
+                    About.Func();
+                } else {
+                    Helper.clearScreen();
+                    Helper.NoKey(x);
                 }
             }
         }
@@ -298,4 +295,56 @@ public class Admin extends User {
         }
     }
 
+    public static void addCompany() {
+                    Helper.clearScreen();
+                    System.out.println("\nCompany name: ");
+                    String a = Initializer.sc.nextLine();
+                    System.out.println("Usage: ");
+                    String b = Initializer.sc.nextLine();
+                    System.out.println("Month: ");
+                    String c = Initializer.sc.nextLine();
+                    Initializer.cList = Arrays.copyOf(Initializer.cList, Initializer.cList.length + 1);
+                    Initializer.cList[Initializer.cList.length - 1] = new Company(Initializer.cList.length, a, b, c);
+    }
+
+    public static void updateCompany(){
+        System.out.println("Input ID of company for which data want to be updated:");
+        int a = Initializer.sc.nextInt();
+        System.out.println("\nCompany name:");
+        String y = Initializer.sc.nextLine();
+        y = Initializer.sc.nextLine();
+        System.out.println("\nEnergy usage:");
+        String c = Initializer.sc.nextLine();
+        System.out.println("\nMonth:");
+        String d = Initializer.sc.nextLine();
+        for (Company x : Initializer.cList){
+            if (a == x.getID()){
+                x.name= y;
+                x.usage=c;
+                x.month=d;
+            }
+        }
+    }
+
+    public static void deleteCompany() {
+        Helper.clearScreen();
+        int inc = 0;
+        System.out.println("Input ID to delete company:");
+        int x = Initializer.sc.nextInt();
+        Company[] temp = new Company[Initializer.cList.length-1];
+        for (Company y : Initializer.cList){
+            if(y.id<x){
+                temp[inc]= y;
+                inc++;
+            } else if (y.id>x){
+                temp[inc]= y;
+                temp[inc].id = temp[inc].id-1;
+                inc++;
+            }
+        }
+        Initializer.cList=new Company[temp.length];
+        for(int a =0;a<temp.length;a++){
+            Initializer.cList[a]=temp[a];
+        }
+    }
 }

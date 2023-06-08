@@ -5,7 +5,7 @@ package oopits;
  */
 public class Company {
     int id;
-    private String name;
+    String name;
     String usage;
     String month;
     String water;
