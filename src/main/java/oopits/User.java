@@ -1,5 +1,6 @@
 package oopits;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Map;
@@ -46,6 +47,8 @@ public class User {
         }
     }
 
+    public static File tempFile;
+
     public static String guiLogin(String username, String password) {
         Map<String, User> user_map = FileHandler.loadUser();
         if (!user_map.containsKey(username)) {
@@ -56,6 +59,14 @@ public class User {
         User un = user_map.get(username);
 
         if ((un.password).equals(password)) {
+            try {
+                tempFile = File.createTempFile("temp", "txt");
+                FileWriter fileWriter = new FileWriter(tempFile);
+                fileWriter.write(un.userName);
+                fileWriter.close();
+            } catch (IOException e) {
+                System.err.println(e.getMessage());
+            }
             return username;
         } else {
             prompts.wrongPasssword();

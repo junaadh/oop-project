@@ -1,6 +1,8 @@
 package oopits.guiHandlers;
 
-// created by @junaadh at 20230606 05:33.
+/**
+ * @author Junaadh
+ */
 
 import java.awt.Color;
 import java.awt.Cursor;
@@ -193,6 +195,7 @@ public class registrationHandler extends myFrame implements ActionListener{
         registrationPanel.add(text);
         registrationPanel.add(login);
 
+        this.setLayout(null);
         this.add(registrationPanel);
         this.add(imageLabel);
 
@@ -218,8 +221,5 @@ public class registrationHandler extends myFrame implements ActionListener{
             dispose();
             new welcomeHandler();
         }
-    }
-
-        
-    
+    } 
 }

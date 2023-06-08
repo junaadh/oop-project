@@ -1,11 +1,16 @@
 package oopits.guiHandlers;
 
+/**
+ * @author Junaadh
+ */
+
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.IOException;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -49,6 +54,7 @@ public class userLoginHandler extends adminLoginHandler{
         this.loginPanel.add(text);
         this.loginPanel.add(register);
         //this.remove(adminlogin);
+        
         
     }
 

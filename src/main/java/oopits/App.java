@@ -5,7 +5,6 @@ import javax.swing.UIManager;
 
 import oopits.guiHandlers.welcomeHandler;
 
-
 public class App{
     public static void main(String[] args) {
         // Helper.clearScreen();

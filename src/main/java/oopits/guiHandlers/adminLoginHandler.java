@@ -1,5 +1,9 @@
 package oopits.guiHandlers;
 
+/**
+ * @author Junaadh
+ */
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -107,6 +111,7 @@ public class adminLoginHandler extends myFrame implements ActionListener {
         loginPanel.add(adminlogin);
         loginPanel.add(back);
 
+        this.setLayout(null);
         this.add(loginPanel);
         
     }

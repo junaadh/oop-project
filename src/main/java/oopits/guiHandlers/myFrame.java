@@ -1,5 +1,9 @@
 package oopits.guiHandlers;
 
+/**
+ * @author Junaadh
+ */
+
 import java.awt.Color;
 
 import javax.swing.JFrame;
@@ -16,7 +20,6 @@ public class myFrame extends JFrame{
         this.setBounds(300, 200, 1220,720);
         this.getContentPane().setBackground(new Color(0x4AA7BE));
         this.setOpacity(1);
-        this.setLayout(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
     }

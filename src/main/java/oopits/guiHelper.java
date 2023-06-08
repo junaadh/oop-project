@@ -1,11 +1,16 @@
 package oopits;
 
+/**
+ * @author Junaadh
+ */
+
 import java.awt.Image;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.util.Scanner;
 
 import javax.swing.ImageIcon;
-
-// created by @junaadh at 20230606 05:33.
-
 import javax.swing.JTextField;
 
 public class guiHelper {
@@ -37,4 +42,25 @@ public class guiHelper {
         return new ImageIcon(resizedImage);
     }
 
+    public static boolean isFileExists(File file) {
+        if (file != null && file.exists()) {
+            return true;
+        }
+        return false;
+    }
+
+    public static String tempLoginCreds() {
+        if (isFileExists(User.tempFile)) {
+            try {
+                FileReader fileReader = new FileReader(User.tempFile);
+                Scanner reader = new Scanner(fileReader);
+                String userInfo = reader.nextLine();
+                reader.close();
+                return userInfo;
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+        return "err";
+    }
 }

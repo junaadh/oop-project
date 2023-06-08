@@ -1,5 +1,9 @@
 package oopits.guiHandlers;
 
+/**
+ * @author Junaadh
+ */
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -141,7 +145,8 @@ public class userHandler extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == listIcn) {
-            User.guiFunc("l");
+            dispose();
+            new listHandler();
             
         } else if (e.getSource() == companyName) {
             User.guiFunc("c");
@@ -154,6 +159,7 @@ public class userHandler extends JFrame implements ActionListener {
 
         } else if (e.getSource() == logout) {
             User.guiFunc("o");
+            User.tempFile.delete();
             dispose();
             new welcomeHandler();
 

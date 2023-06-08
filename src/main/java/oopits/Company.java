@@ -11,13 +11,6 @@ public class Company {
     String water;
     String month2;
     
-    Company(){
-        this.id=00;
-        this.name="NULL";
-        this.usage="NULL";
-        this.month="NULL";
-        
-    }
     Company(int x, String a, String b, String c){
         this.id= x;
         this.name=a;
@@ -29,6 +22,18 @@ public class Company {
     public String getName(){
         return this.name;
         
+    }
+
+    public int getID() {
+        return this.id;
+    }
+
+    public String getUsage() {
+        return this.usage;
+    }
+
+    public String getMonth() {
+        return this.month;
     }
     
     public void setName(String a) {
