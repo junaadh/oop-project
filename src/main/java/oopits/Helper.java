@@ -1,9 +1,15 @@
 package oopits;
 
+import javax.swing.table.DefaultTableModel;
+
 //import java.io.File;
 //import java.io.IOException;
 
 public class Helper {
+
+    private static DefaultTableModel cTable = new DefaultTableModel(
+        new Object[] {"ID", "Company", "Usage", "Month" }, 0
+    );
 
     public static void mainPrompt() {
         System.out.println("\n--------------------------------------------------------------\n| Press \"A\" for admin, \"P\" for public guest, or \"Q\" to quit. |\n--------------------------------------------------------------");
@@ -59,6 +65,15 @@ public class Helper {
         }
         tableLine();
     } 
+
+    public static DefaultTableModel guiDisplayTableList() {
+        Company companies[] = Initializer.cList;
+
+        for (Company company : companies) {
+            cTable.addRow(new Object[] {company.getID(), company.getName(), company.getUsage(), company.getMonth()});
+        }
+        return cTable;
+    }
     
     public static void displaySortedByComp(boolean a) {
         System.out.println("\nCompany name: ");
@@ -72,6 +87,17 @@ public class Helper {
             }   
             tableLine();
     }
+
+    public static DefaultTableModel guiDisplaySortedByComp( String companyName ) {
+        Company companies[] = Initializer.cList;
+
+        for (Company company : companies) {
+            if(company.getName().equals(companyName)) {
+                cTable.addRow(new Object[] {company.getID(), company.getName(), company.getUsage(), company.getMonth()});
+            }
+        }
+        return cTable;
+    }
     
     public static void displaySortedByMonth(boolean a) {
         System.out.println("\nMonth: ");
@@ -84,6 +110,17 @@ public class Helper {
                 }
             }
             tableLine();
+    }
+
+    public static DefaultTableModel guiDisplaySortedByMonth( String month ) {
+        Company companies[] = Initializer.cList;
+
+        for (Company company : companies) {
+            if(company.getMonth().equals(month)) {
+                cTable.addRow(new Object[] {company.getID(), company.getName(), company.getUsage(), company.getMonth()});
+            }
+        }
+        return cTable;
     }
     
     public static void exceedList(Company a) {

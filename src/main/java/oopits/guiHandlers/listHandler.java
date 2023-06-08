@@ -17,8 +17,7 @@ import javax.swing.JTable;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
 
-import oopits.Company;
-import oopits.Initializer;
+import oopits.Helper;
 import oopits.guiHelper;
 
 public class listHandler extends myFrame implements ActionListener {
@@ -43,16 +42,7 @@ public class listHandler extends myFrame implements ActionListener {
         usageTitle.setAlignmentX(SwingConstants.CENTER);
         usageTitle.setAlignmentY(SwingConstants.CENTER);
 
-        Company companies[] = Initializer.cList;
-
-        DefaultTableModel cTable = new DefaultTableModel(
-            new Object[] {"ID", "Company", "Usage", "Month" }, 0
-            
-        );
-
-        for (Company company : companies) {
-            cTable.addRow(new Object[] {company.getID(), company.getName(), company.getUsage(), company.getMonth()});
-        }
+        DefaultTableModel cTable = Helper.guiDisplayTableList();
 
         JTable table = new JTable(cTable);
         JScrollPane scrollpane = new JScrollPane(table);
