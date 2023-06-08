@@ -1,6 +1,5 @@
 package oopits;
 
-
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -13,123 +12,144 @@ import java.util.Scanner;
 
 /**
  *
- * @author Sheridan
+ * @author Sheridan Sai
  */
-public class Admin extends User{
+public class Admin extends User {
     private String accessLevel; // # for superuser and $ for normal admin
+
     public Admin(String[] parts) {
         super(parts);
         accessLevel = parts[4];
     }
+
     public static int version = 1;
     public String name = "Government";
     public static String desc = "The class ADMIN represent user of the system with higher level of privilege and control over the datas.";
-    
+
     public static void Func(String level) {
 
-        if(level.equals("#")){
-        int status = 1;
-        while (status==1){
-        boolean mode = Initializer.isEnergy;
-        Helper.funcPrompt(level);
-        String x = Initializer.sc.nextLine().toLowerCase();
-            if (x.equals("o")) {
-                status = 0;
-                Helper.clearScreen();
-                System.out.println("\nLogged Out");
-            } else if (x.equals("l")) {
-                Helper.displayTableList(mode);
-            } else if (x.equals("c")) {
-                Helper.displaySortedByComp(mode);
-            } else if (x.equals("m")) {
-                Helper.displaySortedByMonth(mode);
-            } else if (x.equals("a")) {
-                Helper.clearScreen();
-                System.out.println("\nCompany name: ");
-                String a = Initializer.sc.nextLine();
-                System.out.println("Usage: ");
-                String b = Initializer.sc.nextLine();
-                System.out.println("Month: ");
-                String c = Initializer.sc.nextLine();
-                Initializer.cList = Arrays.copyOf(Initializer.cList, Initializer.cList.length + 1);
-                Initializer.cList[Initializer.cList.length - 1] = new Company(Initializer.cList.length, a, b, c);
+        if (level.equals("#")) {
+            int status = 1;
+            while (status == 1) {
+                boolean mode = Initializer.isEnergy;
+                Helper.funcPrompt(level);
+                String x = Initializer.sc.nextLine().toLowerCase();
+                if (x.equals("o")) {
+                    status = 0;
+                    Helper.clearScreen();
+                    System.out.println("\nLogged Out");
+                } else if (x.equals("l")) {
+                    Helper.displayTableList(mode);
+                } else if (x.equals("c")) {
+                    Helper.displaySortedByComp(mode);
+                } else if (x.equals("m")) {
+                    Helper.displaySortedByMonth(mode);
+                } else if (x.equals("a")) {
+                    Helper.clearScreen();
+                    System.out.println("\nCompany name: ");
+                    String a = Initializer.sc.nextLine();
+                    System.out.println("Usage: ");
+                    String b = Initializer.sc.nextLine();
+                    System.out.println("Month: ");
+                    String c = Initializer.sc.nextLine();
+                    Initializer.cList = Arrays.copyOf(Initializer.cList, Initializer.cList.length + 1);
+                    Initializer.cList[Initializer.cList.length - 1] = new Company(Initializer.cList.length, a, b, c);
 
-            } else if (x.equals("!")) {
-                Helper.clearScreen();
-                System.out.println("\n-------------------\n<  !!!WARNING!!!  >\n-------------------");
-                for(Company a:Initializer.cList){
-                    double energyUsage = Double.parseDouble(a.usage.split(" ")[0]);
-                    String wattUsed = a.usage.split(" ")[1];
-                    if(energyUsage>100 && wattUsed.equals("Gigawatt")){
-                        Helper.exceedList(a);}
+                } else if (x.equals("!")) {
+                    Helper.clearScreen();
+                    System.out.println("\n-------------------\n<  !!!WARNING!!!  >\n-------------------");
+                    for (Company a : Initializer.cList) {
+                        if (mode) {
+                            double energyUsage = Double.parseDouble(a.usage.split(" ")[0]);
+                            String wattUsed = a.usage.split(" ")[1];
+                            if (energyUsage > 100 && wattUsed.equals("Gigawatt")) {
+                            } else {
+                                double waterUsage = Double.parseDouble(a.usage.split(" ")[0]);
+                                String gallonUsed = a.usage.split(" ")[1];
+                                if (waterUsage > 100 && gallonUsed.equals("Gallon")) {
+                                    Helper.exceedList(a, mode);
+                                }
+                            }
+                        }
+                    }
+                } else if (x.equals("#")) {
+                    Helper.clearScreen();
+                    Admin.suAdminFunc();
+                } else if (x.equals("t")) {
+                    Helper.toggleMode();
+                } else if (x.equals("?")) {
+                    About.Func();;
+                } else {
+                    Helper.clearScreen();
+                    Helper.NoKey(x);
                 }
-            } else if (x.equals("#")) {
-                Helper.clearScreen();
-                Admin.suAdminFunc();
-            } else if (x.equals("t")){
-                Helper.toggleMode();
             }
-            else {
-                Helper.clearScreen();
-                Helper.NoKey(x);
-            }
-        }
-        } else if (level.equals("$")){
-        int status = 1;
-        while (status==1){
-        boolean mode = Initializer.isEnergy;
-        Helper.funcPrompt(level);
-        String x = Initializer.sc.nextLine().toLowerCase();
-        if (x.equals("o")) {
-            status = 0;
-            Helper.clearScreen();
-            System.out.println("\nLogged Out");
-        } else if (x.equals("l")) {
-            Helper.displayTableList(mode);
-        } else if (x.equals("c")) {
-            Helper.displaySortedByComp(mode);
-        } else if (x.equals("m")) {
-            Helper.displaySortedByMonth(mode);
-        } else if (x.equals("a")) {
-            Helper.clearScreen();
-            System.out.println("\nCompany name: ");
-            String a = Initializer.sc.nextLine();
-            System.out.println("Usage: ");
-            String b = Initializer.sc.nextLine();
-            System.out.println("Month: ");
-            String c = Initializer.sc.nextLine();
-            Initializer.cList = Arrays.copyOf(Initializer.cList, Initializer.cList.length + 1);
-            Initializer.cList[Initializer.cList.length - 1] = new Company(Initializer.cList.length, a, b, c);
+        } else if (level.equals("$")) {
+            int status = 1;
+            while (status == 1) {
+                boolean mode = Initializer.isEnergy;
+                Helper.funcPrompt(level);
+                String x = Initializer.sc.nextLine().toLowerCase();
+                if (x.equals("o")) {
+                    status = 0;
+                    Helper.clearScreen();
+                    System.out.println("\nLogged Out");
+                } else if (x.equals("l")) {
+                    Helper.displayTableList(mode);
+                } else if (x.equals("c")) {
+                    Helper.displaySortedByComp(mode);
+                } else if (x.equals("m")) {
+                    Helper.displaySortedByMonth(mode);
+                } else if (x.equals("a")) {
+                    Helper.clearScreen();
+                    System.out.println("\nCompany name: ");
+                    String a = Initializer.sc.nextLine();
+                    System.out.println("Usage: ");
+                    String b = Initializer.sc.nextLine();
+                    System.out.println("Month: ");
+                    String c = Initializer.sc.nextLine();
+                    Initializer.cList = Arrays.copyOf(Initializer.cList, Initializer.cList.length + 1);
+                    Initializer.cList[Initializer.cList.length - 1] = new Company(Initializer.cList.length, a, b, c);
 
-        } else if (x.equals("!")) {
-            Helper.clearScreen();
-            System.out.println("\n-------------------\n<  !!!WARNING!!!  >\n-------------------");
-            for(Company a:Initializer.cList){
-                double energyUsage = Double.parseDouble(a.usage.split(" ")[0]);
-                String wattUsed = a.usage.split(" ")[1];
-                if(energyUsage>100 && wattUsed.equals("Gigawatt")){
-                    Helper.exceedList(a);}
+                } else if (x.equals("!")) {
+                    Helper.clearScreen();
+                    System.out.println("\n-------------------\n<  !!!WARNING!!!  >\n-------------------");
+                    for (Company a : Initializer.cList) {
+                        if (mode) {
+                            double energyUsage = Double.parseDouble(a.usage.split(" ")[0]);
+                            String wattUsed = a.usage.split(" ")[1];
+                            if (energyUsage > 100 && wattUsed.equals("Gigawatt")) {
+                            } else {
+                                double waterUsage = Double.parseDouble(a.usage.split(" ")[0]);
+                                String gallonUsed = a.usage.split(" ")[1];
+                                if (waterUsage > 100 && gallonUsed.equals("Gallon")) {
+                                    Helper.exceedList(a, mode);
+                                }
+
+                            }
+                        } else if (x.equals("?")) {
+                            About.Func();;
+                        } else {
+                            Helper.clearScreen();
+                            Helper.NoKey(x);
+                        }
+                    }
+                }
             }
-        } else {
-            Helper.clearScreen();
-            Helper.NoKey(x);
-        } 
         }
     }
 
-    } 
-    
-    public static String Auth(){
+    public static String Auth() {
         String isOK = "";
         System.out.println("\nEnter Username:");
         String userName = Initializer.sc.nextLine();
         Map<String, Admin> mod_map = FileHandler.loadAdmin();
-        
+
         if (!mod_map.containsKey(userName)) {
             System.out.println("\nThat username doesn't exist!");
             return isOK;
         }
-        
+
         System.out.println("Enter Password:");
         String password = Initializer.sc.nextLine();
 
@@ -143,47 +163,31 @@ public class Admin extends User{
             System.out.println("\nIncorrect Password!");
             return isOK;
         }
-    
-    }  
 
-    public static String guiAuth( String userName, String password) {
-        String isOK = "";
-        Map<String, Admin> mod_map = FileHandler.loadAdmin();
-
-        if (!mod_map.containsKey(userName)) {
-            prompts.wrongUsername();
-            return isOK;
-        }
-        Admin mod = mod_map.get(userName);
-
-        if ((mod.password).equals(password)) {
-            isOK = mod.accessLevel;
-            return isOK;
-        } else {
-            prompts.wrongPasssword();
-            return isOK;
-        }
     }
 
     private static void suAdminFunc() {
-                    System.out.println("-------------------------\n| SUPER ADMIN MODE\t|\n|\t\t\t|\n| Press\t\t\t|\n| \"AA\" to add admin,\t|\n| \"D\" to delete user,\t|\n| or \"B\" to go back.\t|\n-------------------------"); //testing - debig
-                    String input = Initializer.sc.nextLine().toLowerCase();
-                    switch (input) {
-                        case "aa":
-                            Helper.clearScreen();
-                            Admin.addAdmin();
-                            break;
-                        case "d":
-                            Helper.clearScreen();
-                            Admin.delUser();
-                            break;
-                        case "b":
-                            Helper.clearScreen();
-                            break;
-                        default:
-                        Helper.NoKey(input);
-                    }
-                }
+        System.out.println(
+                "-------------------------\n| SUPER ADMIN MODE\t|\n|\t\t\t|\n| Press\t\t\t|\n| \"AA\" to add admin,\t|\n| \"D\" to delete user,\t|\n| or \"B\" to go back.\t|\n-------------------------"); // testing
+                                                                                                                                                                                                            // -
+                                                                                                                                                                                                            // debig
+        String input = Initializer.sc.nextLine().toLowerCase();
+        switch (input) {
+            case "aa":
+                Helper.clearScreen();
+                Admin.addAdmin();
+                break;
+            case "d":
+                Helper.clearScreen();
+                Admin.delUser();
+                break;
+            case "b":
+                Helper.clearScreen();
+                break;
+            default:
+                Helper.NoKey(input);
+        }
+    }
 
     private static void addAdmin() {
         String firstName, lastName, userName, password, adminInfo;
@@ -198,20 +202,19 @@ public class Admin extends User{
         System.out.println("\nAssign a username:");
         userName = Initializer.sc.nextLine();
 
-        System.out.println("\nAssign a password for admin " + userName+":");
+        System.out.println("\nAssign a password for admin " + userName + ":");
         password = Initializer.sc.nextLine();
-        
-        System.out.println("\nAre you sure to add "+userName+"? (Y/N)");
+
+        System.out.println("\nAre you sure to add " + userName + "? (Y/N)");
         String in = Initializer.sc.nextLine().toLowerCase();
-        if (in.equals("n")){
+        if (in.equals("n")) {
             return;
         }
         // switch (accessLevel) {
-        //     case "$":
-        //     case "#":
-        //         break;   
+        // case "$":
+        // case "#":
+        // break;
         // }
-            
 
         adminInfo = firstName + "," + lastName + "," + userName + "," + password + "," + accessLevel;
         Helper.clearScreen();
@@ -227,7 +230,7 @@ public class Admin extends User{
         }
 
     }
-    
+
     public static void delUser() {
         Map<String, User> user_map = FileHandler.loadUser();
         String firstName, lastName, userName, password, userInfo;
@@ -276,6 +279,23 @@ public class Admin extends User{
 
     }
 
+    public static String guiAuth( String userName, String password) {
+        String isOK = "";
+        Map<String, Admin> mod_map = FileHandler.loadAdmin();
+
+        if (!mod_map.containsKey(userName)) {
+            prompts.wrongUsername();
+            return isOK;
+        }
+        Admin mod = mod_map.get(userName);
+
+        if ((mod.password).equals(password)) {
+            isOK = mod.accessLevel;
+            return isOK;
+        } else {
+            prompts.wrongPasssword();
+            return isOK;
+        }
     }
 
-
+}

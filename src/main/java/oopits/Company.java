@@ -1,7 +1,7 @@
 package oopits;
 /**
  *
- * @author Sheridan
+ * @author Sheridan Sai
  */
 public class Company {
     int id;
@@ -10,6 +10,7 @@ public class Company {
     String month;
     String water;
     String month2;
+        
     
     Company(int x, String a, String b, String c){
         this.id= x;
@@ -40,8 +41,8 @@ public class Company {
         this.name=a;
     }
     
-    public void usageInfo(){
-
+    public void usageInfo(boolean a){
+        if (a){
         if(Integer.toString(id).length()<2){
             if(name.length()<7){
                 System.out.printf("| ID: %d\t\tCompany: %s\t\tUsage: %s\tMonth: %s\t |\n", id, name, usage, month);
@@ -59,8 +60,26 @@ public class Company {
                 
                 
         }
-    }
-}
+        }else{
+            if(Integer.toString(id).length()<2){
+            if(name.length()<7){
+                System.out.printf("| ID: %d\t\tCompany: %s\t\tUsage: %s\tMonth: %s\t |\n", id, name, water, month2);
+            } else {
+                System.out.printf("| ID: %d\t\tCompany: %s\tUsage: %s\tMonth: %s\t |\n", id, name, water, month2);
+            }
+        }else{
+            if(name.length()<7 && month.equals("September")){
+                System.out.printf("| ID: %d \tCompany: %s\t\tUsage: %s\tMonth: %s |\n", id, name, water, month2);
+            } else if(name.length()<7){
+                System.out.printf("| ID: %d \tCompany: %s\t\tUsage: %s\tMonth: %s\t |\n",id, name, water, month2);
+            } else {
+                System.out.printf("| ID: %d\tCompany: %s\tUsage: %s\tMonth: %s\t |\n", id, name, water, month2);
+            }
             
+        }
+        } 
+    }
+
+}   
   
   

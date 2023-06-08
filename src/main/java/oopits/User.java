@@ -180,7 +180,7 @@ public class User {
                         double energyUsage = Double.parseDouble(a.usage.split(" ")[0]);
                         String wattUsed = a.usage.split(" ")[1];
                         if (energyUsage > 100 && wattUsed.equals("Gigawatt")) {
-                            Helper.exceedList(a);
+                            Helper.exceedList(a, mode);
                         }
                     }
                 break;
@@ -218,7 +218,7 @@ public class User {
                         double energyUsage = Double.parseDouble(a.usage.split(" ")[0]);
                         String wattUsed = a.usage.split(" ")[1];
                         if (energyUsage > 100 && wattUsed.equals("Gigawatt")) {
-                            Helper.exceedList(a);
+                            Helper.exceedList(a,mode);
                         }
                     }
                     return;

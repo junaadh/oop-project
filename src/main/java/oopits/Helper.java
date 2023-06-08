@@ -61,7 +61,7 @@ public class Helper {
         usageTitle(a);
         tableLine();
         for(Company x:Initializer.cList){
-            x.usageInfo();
+            x.usageInfo(a);
         }
         tableLine();
     } 
@@ -83,7 +83,7 @@ public class Helper {
             tableLine();
             for(Company x:Initializer.cList){
                 if(x.getName().equals(b)){
-                x.usageInfo();
+                x.usageInfo(a);
                 }
             }   
             tableLine();
@@ -108,7 +108,7 @@ public class Helper {
             tableLine();
             for(Company x:Initializer.cList){
                 if(x.month.equals(b)){
-                x.usageInfo();
+                x.usageInfo(a);
                 }
             }
             tableLine();
@@ -140,7 +140,7 @@ public class Helper {
         return cTable;
     }
     
-    public static void exceedList(Company a) {
+    public static void exceedList(Company a, boolean b) {
         System.out.printf("# Company %s has exceeded green energy limit on %s!\n", a.getName(),a.month);
     }
     
