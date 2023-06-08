@@ -17,11 +17,26 @@ import oopits.User;
 import oopits.guiHelper;
 
 public class userHandler extends JFrame implements ActionListener {
-
+    
     JLabel welcome = new JLabel();
 
-    public userHandler( String username ) {
+    ImageIcon b = new ImageIcon("src/main/java/oopits/assets/list.png");
+    JButton listIcn = new JButton(b);
 
+    ImageIcon a = new ImageIcon("src/main/java/oopits/assets/specificCompany.png");
+    JButton companyName = new JButton(a);
+
+    ImageIcon c = new ImageIcon("src/main/java/oopits/assets/month.png");
+    JButton month = new JButton(c);
+
+    ImageIcon d = new ImageIcon("src/main/java/oopits/assets/danger.png");
+    JButton baduse = new JButton(d);
+
+    ImageIcon e = new ImageIcon("src/main/java/oopits/assets/logout.png");
+    JButton logout = new JButton(e);
+    
+    public userHandler( String username ) {
+        
         ImageIcon usr = new ImageIcon("src/main/java/oopits/assets/userLogin.png");
         ImageIcon usrIcn = guiHelper.resizeIcon(usr, 90, 90);
         JLabel userIcon = new JLabel(usrIcn);
@@ -46,20 +61,17 @@ public class userHandler extends JFrame implements ActionListener {
         text.setHorizontalAlignment(SwingConstants.CENTER);
         text.setVerticalAlignment(SwingConstants.CENTER);
         
-        ImageIcon b = new ImageIcon("src/main/java/oopits/assets/list.png");
-        JButton list = new JButton(b);
-        list.setBounds(286, 486, 80, 105);
-        list.setText("List View");
-        list.setFont(new Font("Calibri", Font.PLAIN, 14));
-        list.setHorizontalTextPosition(SwingConstants.CENTER);
-        list.setVerticalTextPosition(SwingConstants.BOTTOM);
-        list.setForeground(Color.WHITE);
-        list.setHorizontalAlignment(SwingConstants.CENTER);
-        list.setVerticalAlignment(SwingConstants.CENTER);
-        list.setBorder(null);
+        listIcn.setBounds(286, 486, 80, 105);
+        listIcn.setText("List View");
+        listIcn.setFont(new Font("Calibri", Font.PLAIN, 14));
+        listIcn.setHorizontalTextPosition(SwingConstants.CENTER);
+        listIcn.setVerticalTextPosition(SwingConstants.BOTTOM);
+        listIcn.setForeground(Color.WHITE);
+        listIcn.setHorizontalAlignment(SwingConstants.CENTER);
+        listIcn.setVerticalAlignment(SwingConstants.CENTER);
+        listIcn.setBorder(null);
+        listIcn.addActionListener(this);
 
-        ImageIcon a = new ImageIcon("src/main/java/oopits/assets/specificCompany.png");
-        JButton companyName = new JButton(a);
         companyName.setBounds(426, 486, 80, 115);
         companyName.setText("<html>Search By<br>Company</html>");
         companyName.setFont(new Font("Calibri", Font.PLAIN, 14));
@@ -69,9 +81,8 @@ public class userHandler extends JFrame implements ActionListener {
         companyName.setHorizontalAlignment(SwingConstants.CENTER);
         companyName.setVerticalAlignment(SwingConstants.CENTER);
         companyName.setBorder(null);
-
-        ImageIcon c = new ImageIcon("src/main/java/oopits/assets/month.png");
-        JButton month = new JButton(c);
+        companyName.addActionListener(this);
+        
         month.setBounds(570, 486, 80, 115);
         month.setText("<html>Search By<br>Month</html>");
         month.setFont(new Font("Calibri", Font.PLAIN, 14));
@@ -81,9 +92,8 @@ public class userHandler extends JFrame implements ActionListener {
         month.setHorizontalAlignment(SwingConstants.CENTER);
         month.setVerticalAlignment(SwingConstants.CENTER);
         month.setBorder(null);
-
-        ImageIcon d = new ImageIcon("src/main/java/oopits/assets/danger.png");
-        JButton baduse = new JButton(d);
+        month.addActionListener(this);
+        
         baduse.setBounds(712, 486, 80, 115);
         baduse.setText("<html>Over<br>Consumers</html>");
         baduse.setFont(new Font("Calibri", Font.PLAIN, 14));
@@ -93,9 +103,8 @@ public class userHandler extends JFrame implements ActionListener {
         baduse.setHorizontalAlignment(SwingConstants.CENTER);
         baduse.setVerticalAlignment(SwingConstants.CENTER);
         baduse.setBorder(null);
+        baduse.addActionListener(this);
 
-        ImageIcon e = new ImageIcon("src/main/java/oopits/assets/logout.png");
-        JButton logout = new JButton(e);
         logout.setBounds(857, 486, 80, 105);
         logout.setText("Logout");
         logout.setFont(new Font("Calibri", Font.PLAIN, 14));
@@ -105,6 +114,7 @@ public class userHandler extends JFrame implements ActionListener {
         logout.setHorizontalAlignment(SwingConstants.CENTER);
         logout.setVerticalAlignment(SwingConstants.CENTER);
         logout.setBorder(null);
+        logout.addActionListener(this);
 
         JPanel panel = new JPanel();
         panel.setLayout(null);
@@ -113,7 +123,7 @@ public class userHandler extends JFrame implements ActionListener {
         panel.add(userIcon);
         panel.add(welcome);
         panel.add(text);
-        panel.add(list);
+        panel.add(listIcn);
         panel.add(companyName);
         panel.add(month);
         panel.add(baduse);
@@ -130,8 +140,24 @@ public class userHandler extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
+        if (e.getSource() == listIcn) {
+            User.guiFunc("l");
+            
+        } else if (e.getSource() == companyName) {
+            User.guiFunc("c");
+
+        } else if (e.getSource() == month) {
+            User.guiFunc("m");
+
+        } else if (e.getSource() == baduse) {
+            User.guiFunc("!");
+
+        } else if (e.getSource() == logout) {
+            User.guiFunc("o");
+            dispose();
+            new welcomeHandler();
+
+        }
     }
     
 }

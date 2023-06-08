@@ -14,7 +14,7 @@ public class myFrame extends JFrame{
         this.setVisible(true);
         this.setResizable(false);
         this.setBounds(300, 200, 1220,720);
-        this.getContentPane().setBackground(Color.decode("#4E498D"));
+        this.getContentPane().setBackground(new Color(0x4AA7BE));
         this.setOpacity(1);
         this.setLayout(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

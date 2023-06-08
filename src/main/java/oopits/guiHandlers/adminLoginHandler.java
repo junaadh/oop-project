@@ -43,7 +43,7 @@ public class adminLoginHandler extends myFrame implements ActionListener {
         unameText.setFocusable(false);
         
         unameIn.setBounds(20, 22, 495, 21);
-        unameIn.setBackground(Color.decode("#514B96"));
+        unameIn.setBackground(new Color(0x8BC8DB));
         unameIn.setForeground(Color.GRAY);
         unameIn.setOpaque(true);
         unameIn.setBorder(null);
@@ -51,7 +51,7 @@ public class adminLoginHandler extends myFrame implements ActionListener {
         JPanel uname = new JPanel();
         uname.setLayout(null);
         uname.setBounds(10, 314, 520, 46);
-        uname.setBackground(Color.decode("#514B96"));
+        uname.setBackground(new Color(0x8BC8DB));
         uname.setOpaque(true);
         uname.add(unameText);
         uname.add(unameIn);
@@ -65,7 +65,7 @@ public class adminLoginHandler extends myFrame implements ActionListener {
         passText.setFocusable(false);
 
         passIn.setBounds(20, 22, 495, 21);
-        passIn.setBackground(Color.decode("#514B96"));
+        passIn.setBackground(new Color(0x8BC8DB));
         passIn.setForeground(Color.GRAY);
         passIn.setOpaque(true);
         passIn.setBorder(null);
@@ -73,7 +73,7 @@ public class adminLoginHandler extends myFrame implements ActionListener {
         JPanel pass = new JPanel();
         pass.setLayout(null);
         pass.setBounds(10, 374, 520, 46);
-        pass.setBackground(Color.decode("#514B96"));
+        pass.setBackground(new Color(0x8BC8DB));
         pass.setOpaque(true);
         pass.add(passText);
         pass.add(passIn);

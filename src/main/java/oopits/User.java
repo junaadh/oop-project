@@ -37,8 +37,8 @@ public class User {
         User un = user_map.get(username);
 
         if ((un.password).equals(password)) {
-            //Helper.clearScreen();
-            //Welcome(un.firstName, un.lastName);
+            Helper.clearScreen();
+            Welcome(un.firstName, un.lastName);
             return true;
         } else {
             System.out.println("\nIncorrect Password!");
@@ -182,7 +182,42 @@ public class User {
 
         }
     }
-
+    public static void guiFunc(String option) {
+        // Initializer.status = 0;
+        int status = 1;
+        while (status == 1) {
+            boolean mode = Initializer.isEnergy;
+            // String x = Initializer.sc.nextLine().toLowerCase();
+            switch (option) {
+                case "o":
+                    status = 0;
+                    System.out.println("\nLogged Out");
+                    return;
+                case "l":
+                    Helper.displayTableList(mode);
+                    return;
+                case "c":
+                    Helper.displaySortedByComp(mode);
+                    return;
+                case "m":
+                    Helper.displaySortedByMonth(mode);
+                    return;
+                case "!":
+                    for (Company a : Initializer.cList) {
+                        double energyUsage = Double.parseDouble(a.usage.split(" ")[0]);
+                        String wattUsed = a.usage.split(" ")[1];
+                        if (energyUsage > 100 && wattUsed.equals("Gigawatt")) {
+                            Helper.exceedList(a);
+                        }
+                    }
+                    return;
+                case "t":
+                    Helper.toggleMode();
+                    break;
+            }
+        }
+    }
+    
     public String getDesc() {
         return desc;
     }

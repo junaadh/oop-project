@@ -59,7 +59,7 @@ public class registrationHandler extends myFrame implements ActionListener{
         fnameText.setFocusable(false);
         
         fnameIn.setBounds(20, 22, 235, 21);
-        fnameIn.setBackground(Color.decode("#514B96"));
+        fnameIn.setBackground(new Color(0x8BC8DB));
         fnameIn.setForeground(Color.GRAY);
         fnameIn.setOpaque(true);
         fnameIn.setBorder(null);
@@ -67,7 +67,7 @@ public class registrationHandler extends myFrame implements ActionListener{
         JPanel fname = new JPanel();
         fname.setLayout(null);
         fname.setBounds(10, 254, 250, 46);
-        fname.setBackground(Color.decode("#514B96"));
+        fname.setBackground(new Color(0x8BC8DB));
         fname.setOpaque(true); 
         fname.add(fnameText);
         fname.add(fnameIn);
@@ -81,7 +81,7 @@ public class registrationHandler extends myFrame implements ActionListener{
         lnameText.setFocusable(false);
 
         lnameIn.setBounds(20, 22, 235, 21);
-        lnameIn.setBackground(Color.decode("#514B96"));
+        lnameIn.setBackground(new Color(0x8BC8DB));
         lnameIn.setForeground(Color.GRAY);
         lnameIn.setOpaque(true);
         lnameIn.setBorder(null);
@@ -89,7 +89,7 @@ public class registrationHandler extends myFrame implements ActionListener{
         JPanel lname = new JPanel();
         lname.setLayout(null);
         lname.setBounds(280, 254, 250, 46);
-        lname.setBackground(Color.decode("#514B96"));
+        lname.setBackground(new Color(0x8BC8DB));
         lname.setOpaque(true);
         lname.add(lnameText);
         lname.add(lnameIn);
@@ -103,7 +103,7 @@ public class registrationHandler extends myFrame implements ActionListener{
         unameText.setFocusable(false);
         
         unameIn.setBounds(20, 22, 495, 21);
-        unameIn.setBackground(Color.decode("#514B96"));
+        unameIn.setBackground(new Color(0x8BC8DB));
         unameIn.setForeground(Color.GRAY);
         unameIn.setOpaque(true);
         unameIn.setBorder(null);
@@ -111,7 +111,7 @@ public class registrationHandler extends myFrame implements ActionListener{
         JPanel uname = new JPanel();
         uname.setLayout(null);
         uname.setBounds(10, 314, 520, 46);
-        uname.setBackground(Color.decode("#514B96"));
+        uname.setBackground(new Color(0x8BC8DB));
         uname.setOpaque(true);
         uname.add(unameText);
         uname.add(unameIn);
@@ -125,7 +125,7 @@ public class registrationHandler extends myFrame implements ActionListener{
         passText.setFocusable(false);
 
         passIn.setBounds(20, 22, 495, 21);
-        passIn.setBackground(Color.decode("#514B96"));
+        passIn.setBackground(new Color(0x8BC8DB));
         passIn.setForeground(Color.GRAY);
         passIn.setOpaque(true);
         passIn.setBorder(null);
@@ -133,7 +133,7 @@ public class registrationHandler extends myFrame implements ActionListener{
         JPanel pass = new JPanel();
         pass.setLayout(null);
         pass.setBounds(10, 374, 520, 46);
-        pass.setBackground(Color.decode("#514B96"));
+        pass.setBackground(new Color(0x8BC8DB));
         pass.setOpaque(true);
         pass.add(passText);
         pass.add(passIn);

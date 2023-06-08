@@ -71,7 +71,7 @@ public class creditsHandler extends JFrame{
         JPanel panel = new JPanel();
         panel.setLayout(null);
         panel.setSize(1220, 720);
-        panel.setBackground((new Color(192,192,192)));
+        panel.setBackground(new Color(0x7E939D));
         panel.add(menu);
         panel.add(about);
         panel.add(members);
