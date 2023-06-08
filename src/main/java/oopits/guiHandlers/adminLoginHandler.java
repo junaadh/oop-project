@@ -25,20 +25,23 @@ public class adminLoginHandler extends myFrame implements ActionListener {
     JButton back = new JButton("Main Menu");
     JPanel loginPanel = new JPanel();
     JLabel errorMessage;
+    JLabel registerText = new JLabel();
+    JLabel unameText = new JLabel();
+    JPanel uname = new JPanel();
+    JLabel passText = new JLabel();
+    JPanel pass = new JPanel();
 
     protected String type;
 
-
+    
     public adminLoginHandler() {
 
-        JLabel registerText = new JLabel();
         registerText.setText("Log In");
         registerText.setForeground(Color.WHITE);
         registerText.setLayout(null);
         registerText.setBounds(10, 133, 591, 84);
         registerText.setFont(new Font("Poppins", Font.BOLD, 56));
-
-        JLabel unameText = new JLabel();
+        
         unameText.setText("Username");
         unameText.setForeground(Color.WHITE);
         unameText.setLayout(null);
@@ -51,8 +54,7 @@ public class adminLoginHandler extends myFrame implements ActionListener {
         unameIn.setForeground(Color.GRAY);
         unameIn.setOpaque(true);
         unameIn.setBorder(null);
-
-        JPanel uname = new JPanel();
+        
         uname.setLayout(null);
         uname.setBounds(10, 314, 520, 46);
         uname.setBackground(new Color(0x8BC8DB));
@@ -60,7 +62,6 @@ public class adminLoginHandler extends myFrame implements ActionListener {
         uname.add(unameText);
         uname.add(unameIn);
 
-        JLabel passText = new JLabel();
         passText.setText("Password");
         passText.setForeground(Color.WHITE);
         passText.setLayout(null);
@@ -74,7 +75,6 @@ public class adminLoginHandler extends myFrame implements ActionListener {
         passIn.setOpaque(true);
         passIn.setBorder(null);
 
-        JPanel pass = new JPanel();
         pass.setLayout(null);
         pass.setBounds(10, 374, 520, 46);
         pass.setBackground(new Color(0x8BC8DB));

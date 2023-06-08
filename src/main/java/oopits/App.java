@@ -3,7 +3,6 @@ package oopits;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 
-// import oopits.guiHandlers.listHandler;
 import oopits.guiHandlers.welcomeHandler;
 
 public class App{
@@ -20,7 +19,6 @@ public class App{
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 new welcomeHandler();
-                // new listHandler();
             }
         });
 

@@ -28,8 +28,27 @@ public class listHandler extends myFrame implements ActionListener {
     ImageIcon back = new ImageIcon("src/main/java/oopits/assets/back.png");
     ImageIcon backIcon = guiHelper.resizeIcon(back, 50, 50);
     JButton menu = new JButton(backIcon);
+    DefaultTableModel cTable;
 
-    public listHandler() {
+    public listHandler( String type, String company, String month ) {
+
+        switch (type) {
+            case "list":
+                cTable = Helper.guiDisplayTableList();
+                break;
+
+            case "company":
+                cTable = Helper.guiDisplaySortedByComp(company);
+                break;
+
+            case "month":
+                cTable = Helper.guiDisplaySortedByMonth(month);
+                break;
+
+            case "baduse":
+                cTable = Helper.guiDisplayMisuse();
+                break;
+        }
 
         menu.setHorizontalAlignment(SwingConstants.CENTER);
         menu.setVerticalAlignment(SwingConstants.CENTER);
@@ -41,8 +60,6 @@ public class listHandler extends myFrame implements ActionListener {
         usageTitle.setBounds(455, 20, 400, 100);
         usageTitle.setAlignmentX(SwingConstants.CENTER);
         usageTitle.setAlignmentY(SwingConstants.CENTER);
-
-        DefaultTableModel cTable = Helper.guiDisplayTableList();
 
         JTable table = new JTable(cTable);
         JScrollPane scrollpane = new JScrollPane(table);

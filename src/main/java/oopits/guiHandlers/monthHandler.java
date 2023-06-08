@@ -12,14 +12,14 @@ import oopits.guiHelper;
  * @author Junaadh
  */
 
- public class companyHandler extends adminLoginHandler {
+ public class monthHandler extends adminLoginHandler {
      
     JLabel text = new JLabel();
     JLabel text2 = new JLabel();
     JButton search = new JButton("Search");
     JButton menu = new JButton("Back");
     
-    public companyHandler() {
+    public monthHandler() {
 
 
         text.setText("Energy Usage");
@@ -28,13 +28,13 @@ import oopits.guiHelper;
         text.setBounds(10, 133, 591, 84);
         text.setFont(new Font("Poppins", Font.BOLD, 45));
 
-        text2.setText("Enter name of company to search");
+        text2.setText("Enter month to see usage");
         text2.setForeground(Color.WHITE);
         text2.setLayout(null);
         text2.setBounds(10, 220, 591, 84);
         text2.setFont(new Font("Poppins", Font.BOLD, 20));
 
-        unameText.setText("Company name");
+        unameText.setText("Month");
         uname.setBounds(10, 394, 520, 46);
 
         errorMessage.setText("*field cannot be empty");
@@ -70,7 +70,7 @@ import oopits.guiHelper;
         if (a.getSource() == search) {
             if (guiHelper.checkNoFieldsEmpty(unameIn)) {
                 dispose();
-                new listHandler("company", unameIn.getText(), null);
+                new listHandler("month", null, unameIn.getText());
             } else {
                 errorMessage.setVisible(true);
             }

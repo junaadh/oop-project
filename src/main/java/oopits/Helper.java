@@ -68,6 +68,7 @@ public class Helper {
 
     public static DefaultTableModel guiDisplayTableList() {
         Company companies[] = Initializer.cList;
+        cTable.setRowCount(0);
 
         for (Company company : companies) {
             cTable.addRow(new Object[] {company.getID(), company.getName(), company.getUsage(), company.getMonth()});
@@ -90,9 +91,10 @@ public class Helper {
 
     public static DefaultTableModel guiDisplaySortedByComp( String companyName ) {
         Company companies[] = Initializer.cList;
+        cTable.setRowCount(0);
 
         for (Company company : companies) {
-            if(company.getName().equals(companyName)) {
+            if(company.getName().equalsIgnoreCase(companyName)) {
                 cTable.addRow(new Object[] {company.getID(), company.getName(), company.getUsage(), company.getMonth()});
             }
         }
@@ -114,9 +116,24 @@ public class Helper {
 
     public static DefaultTableModel guiDisplaySortedByMonth( String month ) {
         Company companies[] = Initializer.cList;
+        cTable.setRowCount(0);
 
         for (Company company : companies) {
-            if(company.getMonth().equals(month)) {
+            if(company.getMonth().equalsIgnoreCase(month)) {
+                cTable.addRow(new Object[] {company.getID(), company.getName(), company.getUsage(), company.getMonth()});
+            }
+        }
+        return cTable;
+    }
+
+    public static DefaultTableModel guiDisplayMisuse() {
+        Company companies[] = Initializer.cList;
+        cTable.setRowCount(0);
+
+        for (Company company : companies) {
+            double energyUsage = Double.parseDouble(company.usage.split(" ")[0]);
+            String wattUsed = company.usage.split(" ")[1];
+            if (energyUsage > 100 && wattUsed.equals("Gigawatt")) {
                 cTable.addRow(new Object[] {company.getID(), company.getName(), company.getUsage(), company.getMonth()});
             }
         }

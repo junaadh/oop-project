@@ -146,16 +146,19 @@ public class userHandler extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == listIcn) {
             dispose();
-            new listHandler();
+            new listHandler("list", null, null);
             
         } else if (e.getSource() == companyName) {
-            User.guiFunc("c");
+            dispose();
+            new companyHandler();
 
         } else if (e.getSource() == month) {
-            User.guiFunc("m");
+            dispose();
+            new monthHandler();
 
         } else if (e.getSource() == baduse) {
-            User.guiFunc("!");
+            dispose();
+            new listHandler("baduse", null, null);
 
         } else if (e.getSource() == logout) {
             User.guiFunc("o");
