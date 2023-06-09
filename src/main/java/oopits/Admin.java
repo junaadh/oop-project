@@ -338,8 +338,9 @@ public class Admin extends User {
         Helper.clearScreen();
         int inc = 0;
         System.out.println("Input ID to delete company:");
-        Scanner scanner = Initializer.sc;
+        Scanner scanner = new Scanner(System.in);
         int x = scanner.nextInt();
+        scanner.close();
         for (Company c:Initializer.cList){
             if (x==c.id){
                 Company[] temp = new Company[Initializer.cList.length-1];
@@ -361,6 +362,6 @@ public class Admin extends User {
                 return;
                 }
             } 
-        System.out.println("No matching ID!");
+            System.out.println("No matching ID!");
         }
     }
