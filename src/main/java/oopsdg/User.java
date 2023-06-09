@@ -22,7 +22,7 @@ public class User {
     public static boolean login() {
         Helper.clearScreen();
         Map<String, User> user_map = FileHandler.loadUser();
-        
+
         String username, password;
 
         System.out.println("\nEnter Username:");
@@ -31,10 +31,10 @@ public class User {
         if (!user_map.containsKey(username)) {
             return false;
         }
-        
+
         System.out.println("Enter password:");
         password = Initializer.sc.nextLine();
-        
+
         User un = user_map.get(username);
 
         if ((un.password).equals(password)) {
@@ -51,9 +51,9 @@ public class User {
         Map<String, User> user_map = FileHandler.loadUser();
         if (!user_map.containsKey(username)) {
             // prompts.wrongUsername();
-            return "false";
+            return "!username";
         }
-        
+
         User un = user_map.get(username);
 
         if ((un.password).equals(password)) {
@@ -68,7 +68,7 @@ public class User {
             return username;
         } else {
             // prompts.wrongPasssword();
-            return "false";
+            return "!password";
         }
     }
 
@@ -101,30 +101,29 @@ public class User {
 
         System.out.println("\nDo you agree with the Terms and Condition Agreement? (Y/N)");
         String in = Initializer.sc.nextLine().toLowerCase();
-        if (in.equals("n")){
+        if (in.equals("n")) {
             return;
         }
         String userInfo = firstName + "," + lastName + "," + userName + "," + password;
         Helper.clearScreen();
-        
-        
+
         try {
-            FileWriter fileWriter = new FileWriter("src/main/java/oopits/data/userData.txt", true);
+            FileWriter fileWriter = new FileWriter("src/main/java/oopsdg/data/userData.txt", true);
             fileWriter.write(userInfo);
             fileWriter.close();
             System.out.println("\nCongratulations! You have successfully signed-up as " + firstName + " " + lastName
-            + ". \nYou may continue to login as a user now.");
-            
+                    + ". \nYou may continue to login as a user now.");
+
         } catch (IOException e) {
             System.err.println("An error occured while writing to this file");
             e.printStackTrace();
         }
-        
+
     }
 
-    public static void guiRegister( String userInfo) {
+    public static void guiRegister(String userInfo) {
         try {
-            FileWriter fileWriter = new FileWriter("src/main/java/oopits/data/userData.txt", true);
+            FileWriter fileWriter = new FileWriter("src/main/java/oopsdg/data/userData.txt", true);
             fileWriter.write(userInfo);
             fileWriter.close();
 
@@ -145,7 +144,7 @@ public class User {
         }
         return 0;
     }
-   
+
     public static void Func() {
         // Initializer.status = 0;
         int status = 1;
@@ -172,7 +171,7 @@ public class User {
                     Helper.displaySortedByMonth(mode);
                     break;
                 case "!":
-                Helper.clearScreen();
+                    Helper.clearScreen();
                     System.out.println("\n-------------------\n<  !!!WARNING!!!  >\n-------------------");
                     for (Company a : Initializer.cList) {
                         double energyUsage = Double.parseDouble(a.usage.split(" ")[0]);
@@ -181,16 +180,17 @@ public class User {
                             Helper.exceedList(a, mode);
                         }
                     }
-                break;
+                    break;
                 case "t":
-                Helper.toggleMode();
-                break;
-                default :
-                Helper.NoKey(x);
-                }
+                    Helper.toggleMode();
+                    break;
+                default:
+                    Helper.NoKey(x);
+            }
 
         }
     }
+
     public static void guiFunc(String option) {
         // Initializer.status = 0;
         int status = 1;
@@ -216,7 +216,7 @@ public class User {
                         double energyUsage = Double.parseDouble(a.usage.split(" ")[0]);
                         String wattUsed = a.usage.split(" ")[1];
                         if (energyUsage > 100 && wattUsed.equals("Gigawatt")) {
-                            Helper.exceedList(a,mode);
+                            Helper.exceedList(a, mode);
                         }
                     }
                     return;
@@ -226,12 +226,12 @@ public class User {
             }
         }
     }
-    
+
     public String getDesc() {
         return desc;
     }
 
-    public static void Welcome( String firstName, String lastName ){
+    public static void Welcome(String firstName, String lastName) {
         System.out.println("\nSuccessful login.\nWelcome, " + firstName + " " + lastName + ".");
     }
 

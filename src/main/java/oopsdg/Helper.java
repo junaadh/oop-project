@@ -1,6 +1,9 @@
 package oopsdg;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.util.Scanner;
 
 //import java.io.File;
 //import java.io.IOException;
@@ -166,5 +169,18 @@ public class Helper {
             e.printStackTrace();
         }
     }   
+
+    public static String tempLoginCreds() {
+            try {
+                FileReader fileReader = new FileReader(Helper.tempFile);
+                Scanner reader = new Scanner(fileReader);
+                String userInfo = reader.nextLine();
+                reader.close();
+                return userInfo;
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        return "err";
+    }
     
 }

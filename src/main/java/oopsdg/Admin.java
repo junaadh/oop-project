@@ -47,12 +47,12 @@ public class Admin extends User {
                 } else if (x.equals("a")) {
                     addCompany();
 
-                } else if (x.equals("u")){
+                } else if (x.equals("u")) {
                     updateCompany();
-                
-                } else if (x.equals("d")){
+
+                } else if (x.equals("d")) {
                     deleteCompany();
-                
+
                 } else if (x.equals("!")) {
                     Helper.clearScreen();
                     System.out.println("\n-------------------\n<  !!!WARNING!!!  >\n-------------------");
@@ -76,7 +76,8 @@ public class Admin extends User {
                 } else if (x.equals("t")) {
                     Helper.toggleMode();
                 } else if (x.equals("?")) {
-                    About.Func();;
+                    About.Func();
+                    ;
                 } else {
                     Helper.clearScreen();
                     Helper.NoKey(x);
@@ -99,13 +100,12 @@ public class Admin extends User {
                 } else if (x.equals("m")) {
                     Helper.displaySortedByMonth(mode);
                 } else if (x.equals("a")) {
-                addCompany();
+                    addCompany();
 
-
-                } else if (x.equals("u")){
+                } else if (x.equals("u")) {
                     updateCompany();
-                
-                } else if (x.equals("d")){
+
+                } else if (x.equals("d")) {
                     deleteCompany();
 
                 } else if (x.equals("!")) {
@@ -218,7 +218,7 @@ public class Admin extends User {
         System.out.println(firstName + " " + lastName + " has successfully become admin.");
 
         try {
-            FileWriter fileWriter = new FileWriter("src/main/java/oopits/data/adminData.txt", true);
+            FileWriter fileWriter = new FileWriter("src/main/java/oopsdg/data/adminData.txt", true);
             fileWriter.write(adminInfo + "\n");
             fileWriter.close();
         } catch (IOException e) {
@@ -232,13 +232,14 @@ public class Admin extends User {
         Map<String, User> user_map = FileHandler.loadUser();
         String firstName, lastName, userName, password, userInfo;
 
-        System.out.println("\nWarning! You are trying to delete users. \nTHIS IS A PERMENANT OPERATION  \nEnter username of user to delete");
+        System.out.println(
+                "\nWarning! You are trying to delete users. \nTHIS IS A PERMENANT OPERATION  \nEnter username of user to delete");
         userName = Initializer.sc.nextLine();
 
         if (!user_map.containsKey(userName)) {
             System.out.println("User not found");
             return;
-            
+
         }
         User un = user_map.get(userName);
         firstName = un.firstName;
@@ -247,18 +248,18 @@ public class Admin extends User {
         userInfo = firstName + "," + lastName + "," + userName + "," + password;
 
         try {
-            Path inputPath = Path.of("src/main/java/oopits/data/userData.txt");
-            Path tempPath = Path.of("src/main/java/oopits/data/temp.txt");
+            Path inputPath = Path.of("src/main/java/oopsdg/data/userData.txt");
+            Path tempPath = Path.of("src/main/java/oopsdg/data/temp.txt");
 
-            Scanner reader = new Scanner( new File("src/main/java/oopits/data/userData.txt"));
-            FileWriter writer = new FileWriter("src/main/java/oopits/data/temp.txt");
+            Scanner reader = new Scanner(new File("src/main/java/oopsdg/data/userData.txt"));
+            FileWriter writer = new FileWriter("src/main/java/oopsdg/data/temp.txt");
             String line;
 
             while (reader.hasNextLine()) {
                 line = reader.nextLine();
                 if (!line.equals(userInfo)) {
                     writer.write(line + "\n");
-                } 
+                }
             }
 
             reader.close();
@@ -268,7 +269,7 @@ public class Admin extends User {
             Files.delete(inputPath);
             Files.move(tempPath, inputPath, StandardCopyOption.REPLACE_EXISTING);
             System.out.println("\nUser deleted successfully");
-            
+
         } catch (IOException e) {
             System.err.println("Error:" + e.getMessage());
         }
@@ -276,7 +277,7 @@ public class Admin extends User {
 
     }
 
-    public static String guiAuth( String userName, String password) {
+    public static String guiAuth(String userName, String password) {
         String isOK = "";
         Map<String, Admin> mod_map = FileHandler.loadAdmin();
 
@@ -304,18 +305,18 @@ public class Admin extends User {
     }
 
     public static void addCompany() {
-                    Helper.clearScreen();
-                    System.out.println("\nCompany name: ");
-                    String a = Initializer.sc.nextLine();
-                    System.out.println("Usage: ");
-                    String b = Initializer.sc.nextLine();
-                    System.out.println("Month: ");
-                    String c = Initializer.sc.nextLine();
-                    Initializer.cList = Arrays.copyOf(Initializer.cList, Initializer.cList.length + 1);
-                    Initializer.cList[Initializer.cList.length - 1] = new Company(Initializer.cList.length, a, b, c);
+        Helper.clearScreen();
+        System.out.println("\nCompany name: ");
+        String a = Initializer.sc.nextLine();
+        System.out.println("Usage: ");
+        String b = Initializer.sc.nextLine();
+        System.out.println("Month: ");
+        String c = Initializer.sc.nextLine();
+        Initializer.cList = Arrays.copyOf(Initializer.cList, Initializer.cList.length + 1);
+        Initializer.cList[Initializer.cList.length - 1] = new Company(Initializer.cList.length, a, b, c);
     }
 
-    public static void updateCompany(){
+    public static void updateCompany() {
         System.out.println("Input ID of company for which data want to be updated:");
         int a = Initializer.sc.nextInt();
         System.out.println("\nCompany name:");
@@ -325,11 +326,11 @@ public class Admin extends User {
         String c = Initializer.sc.nextLine();
         System.out.println("\nMonth:");
         String d = Initializer.sc.nextLine();
-        for (Company x : Initializer.cList){
-            if (a == x.getID()){
-                x.name= y;
-                x.usage=c;
-                x.month=d;
+        for (Company x : Initializer.cList) {
+            if (a == x.getID()) {
+                x.name = y;
+                x.usage = c;
+                x.month = d;
             }
         }
     }
@@ -341,27 +342,27 @@ public class Admin extends User {
         Scanner scanner = new Scanner(System.in);
         int x = scanner.nextInt();
         scanner.close();
-        for (Company c:Initializer.cList){
-            if (x==c.id){
-                Company[] temp = new Company[Initializer.cList.length-1];
-                for (Company y : Initializer.cList){
-                    if(y.id<x){
-                    temp[inc]= y;
-                    inc++;
-                } else if (y.id>x){
-                    temp[inc]= y;
-                    temp[inc].id = temp[inc].id-1;
-                    inc++;
+        for (Company c : Initializer.cList) {
+            if (x == c.id) {
+                Company[] temp = new Company[Initializer.cList.length - 1];
+                for (Company y : Initializer.cList) {
+                    if (y.id < x) {
+                        temp[inc] = y;
+                        inc++;
+                    } else if (y.id > x) {
+                        temp[inc] = y;
+                        temp[inc].id = temp[inc].id - 1;
+                        inc++;
                     }
                 }
-                Initializer.cList=new Company[temp.length];
-                for(int a =0;a<temp.length;a++){
-                    Initializer.cList[a]=temp[a];
+                Initializer.cList = new Company[temp.length];
+                for (int a = 0; a < temp.length; a++) {
+                    Initializer.cList[a] = temp[a];
                 }
                 System.out.println("Successfully deleted.");
                 return;
-                }
-            } 
-            System.out.println("No matching ID!");
+            }
         }
+        System.out.println("No matching ID!");
     }
+}
