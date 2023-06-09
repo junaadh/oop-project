@@ -287,6 +287,14 @@ public class Admin extends User {
         Admin mod = mod_map.get(userName);
 
         if ((mod.password).equals(password)) {
+            try {
+                Helper.tempFile = File.createTempFile("temp", "txt");
+                FileWriter fileWriter = new FileWriter(Helper.tempFile);
+                fileWriter.write(mod.userName);
+                fileWriter.close();
+            } catch (IOException e) {
+                System.err.println(e.getMessage());
+            }
             isOK = mod.accessLevel;
             return isOK;
         } else {
@@ -330,29 +338,29 @@ public class Admin extends User {
         Helper.clearScreen();
         int inc = 0;
         System.out.println("Input ID to delete company:");
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = Initializer.sc;
         int x = scanner.nextInt();
         for (Company c:Initializer.cList){
-        if (x==c.id){
-        Company[] temp = new Company[Initializer.cList.length-1];
-        for (Company y : Initializer.cList){
-            if(y.id<x){
-                temp[inc]= y;
-                inc++;
-            } else if (y.id>x){
-                temp[inc]= y;
-                temp[inc].id = temp[inc].id-1;
-                inc++;
-            }
+            if (x==c.id){
+                Company[] temp = new Company[Initializer.cList.length-1];
+                for (Company y : Initializer.cList){
+                    if(y.id<x){
+                    temp[inc]= y;
+                    inc++;
+                } else if (y.id>x){
+                    temp[inc]= y;
+                    temp[inc].id = temp[inc].id-1;
+                    inc++;
+                    }
+                }
+                Initializer.cList=new Company[temp.length];
+                for(int a =0;a<temp.length;a++){
+                    Initializer.cList[a]=temp[a];
+                }
+                System.out.println("Successfully deleted.");
+                return;
+                }
+            } 
+        System.out.println("No matching ID!");
         }
-        Initializer.cList=new Company[temp.length];
-        for(int a =0;a<temp.length;a++){
-            Initializer.cList[a]=temp[a];
-        }
-        System.out.println("Successfully deleted.");
-        return;
     }
-} 
-System.out.println("No matching ID!");
-    }
-}

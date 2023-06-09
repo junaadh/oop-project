@@ -1,11 +1,15 @@
 package oopits;
 
+import java.io.File;
+
 import javax.swing.table.DefaultTableModel;
 
 //import java.io.File;
 //import java.io.IOException;
 
 public class Helper {
+
+    public static File tempFile;
 
     private static DefaultTableModel cTable = new DefaultTableModel(
         new Object[] {"ID", "Company", "Usage", "Month" }, 0

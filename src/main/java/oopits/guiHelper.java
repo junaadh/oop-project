@@ -50,9 +50,9 @@ public class guiHelper {
     }
 
     public static String tempLoginCreds() {
-        if (isFileExists(User.tempFile)) {
+        if (isFileExists(Helper.tempFile)) {
             try {
-                FileReader fileReader = new FileReader(User.tempFile);
+                FileReader fileReader = new FileReader(Helper.tempFile);
                 Scanner reader = new Scanner(fileReader);
                 String userInfo = reader.nextLine();
                 reader.close();

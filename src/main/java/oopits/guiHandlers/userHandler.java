@@ -17,6 +17,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 import oopits.FileHandler;
+import oopits.Helper;
 import oopits.User;
 import oopits.guiHelper;
 
@@ -162,7 +163,7 @@ public class userHandler extends JFrame implements ActionListener {
 
         } else if (e.getSource() == logout) {
             User.guiFunc("o");
-            User.tempFile.delete();
+            Helper.tempFile.delete();
             dispose();
             new welcomeHandler();
 

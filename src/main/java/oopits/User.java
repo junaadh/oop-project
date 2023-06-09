@@ -47,8 +47,6 @@ public class User {
         }
     }
 
-    public static File tempFile;
-
     public static String guiLogin(String username, String password) {
         Map<String, User> user_map = FileHandler.loadUser();
         if (!user_map.containsKey(username)) {
@@ -60,8 +58,8 @@ public class User {
 
         if ((un.password).equals(password)) {
             try {
-                tempFile = File.createTempFile("temp", "txt");
-                FileWriter fileWriter = new FileWriter(tempFile);
+                Helper.tempFile = File.createTempFile("temp", "txt");
+                FileWriter fileWriter = new FileWriter(Helper.tempFile);
                 fileWriter.write(un.userName);
                 fileWriter.close();
             } catch (IOException e) {
