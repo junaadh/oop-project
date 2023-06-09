@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1220.0" style="-fx-background-color: linear-gradient(from 63.1829% 21.8527% to 73.3967% 84.323%, #4aa7be 0.0%, #7400e9 100.0%);" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Text layoutX="110.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: Bold;" text="Log In">
+         <font>
+            <Font name="Charter Roman" size="56.0" />
+         </font>
+      </Text>
+      <Pane layoutX="110.0" layoutY="300.0" prefHeight="45.0" prefWidth="480.0" style="-fx-background-color: #54a1b2;">
+         <children>
+            <Text layoutX="10.0" layoutY="15.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Text>
+            <TextField fx:id="username" layoutX="12.0" layoutY="17.0" style="-fx-background-color: transparent;" />
+         </children>
+      </Pane>
+      <Pane layoutX="110.0" layoutY="360.0" prefHeight="45.0" prefWidth="480.0" style="-fx-background-color: #54a1b2;">
+         <children>
+            <Text layoutX="10.0" layoutY="15.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Text>
+            <PasswordField fx:id="password" layoutX="12.0" layoutY="17.0" promptText="Enter your password" style="-fx-background-color: transparent;" />
+         </children>
+      </Pane>
+      <Button fx:id="loginButton" layoutX="110.0" layoutY="470.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="230.0" text="Log In">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="menuButton" layoutX="360.0" layoutY="470.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="230.0" text="Main Menu">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+      <Text fx:id="errorMessage" layoutX="110.0" layoutY="450.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="395.8413848876953" />
+      <Text layoutX="110.0" layoutY="555.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Don't have an account yet?" />
+      <Hyperlink fx:id="register" layoutX="270.0" layoutY="540.0" text="Register" />
+   </children>
+</Pane>
