@@ -6,6 +6,17 @@ import java.io.FileReader;
 import java.util.Map;
 import java.util.Scanner;
 
+import javafx.animation.FadeTransition;
+import javafx.application.Platform;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import javafx.util.Duration;
+
 //import java.io.File;
 //import java.io.IOException;
 
@@ -191,5 +202,54 @@ public class Helper {
         String fullname = u.firstName + " " + u.lastName;
         return fullname;
     }
+
+        private static final int TOAST_DURATION = 3000;
+
+    public static void showFloatingToast(Stage ownerStage, String message, String cssStyle) {
+        Stage toastStage = new Stage();
     
+        Platform.setImplicitExit(false);
+
+        toastStage.initOwner(ownerStage);
+        toastStage.setResizable(false);
+        toastStage.setAlwaysOnTop(true);
+        toastStage.setWidth(300);
+
+        Label toastLabel = new Label(message);
+        if (cssStyle != null) {
+            toastLabel.setStyle("-fx-background-color: transparent; -fx-text-fill: white; -fx-padding: 10px;" + null);
+            
+        } else {
+            toastLabel.setStyle("-fx-background-color: transparent; -fx-text-fill: white; -fx-padding: 10px;");
+            
+        }
+        toastLabel.setWrapText(true);
+        toastLabel.setAlignment(Pos.CENTER);
+
+        StackPane root = new StackPane(toastLabel);
+        root.setStyle("-fx-background-color: rgba(0, 0, 0, 0.5); -fx-padding: 10px; -fx-background-radius: 10px;");
+
+        Scene scene = new Scene(root);
+        scene.setFill(Color.TRANSPARENT);
+        toastStage.initStyle(StageStyle.TRANSPARENT);
+        toastStage.setScene(scene);
+
+        toastStage.setOnShown(event -> {
+            FadeTransition fadeIn = new FadeTransition(Duration.millis(500), root);
+            fadeIn.setFromValue(0);
+            fadeIn.setToValue(1);
+
+            FadeTransition fadeOut = new FadeTransition(Duration.millis(500), root);
+            fadeOut.setFromValue(1);
+            fadeOut.setToValue(0);
+            fadeOut.setDelay(Duration.millis(TOAST_DURATION));
+            fadeOut.setOnFinished(e -> toastStage.close());
+
+            fadeIn.play();
+            fadeOut.play();
+        });
+
+        toastStage.show();
+    }
+
 }

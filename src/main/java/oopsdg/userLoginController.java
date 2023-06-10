@@ -32,7 +32,6 @@ public class userLoginController implements Initializable {
     private Scene scene;
 
     private String user;
-    private Alert alert;
 
     @FXML
     private Button loginButton;
@@ -57,13 +56,6 @@ public class userLoginController implements Initializable {
         // Implemented as according to JavaFX Docs;
     }
 
-    private void alert(String header, String content) {
-        alert = new Alert(AlertType.ERROR);
-        alert.setTitle("Error");
-        alert.setHeaderText(header);
-        alert.setContentText(content);
-        alert.show();
-    }
 
     public void switchToUser(ActionEvent e) throws IOException{
         if (username.getText().isEmpty()) {
@@ -73,12 +65,12 @@ public class userLoginController implements Initializable {
         } else {
             switch (User.guiLogin(username.getText(), password.getText())) {
                 case "!username":
-                    alert("Username not found", "Please enter a correct username");
+                    Helper.showFloatingToast(stage, "Please enter a correct username", null);
                     errorMessage.setText("*Invaild username");
                     break;
 
                 case "!password":
-                    alert("Password incorrect", "Please enter the correct password for " + username.getText());
+                    Helper.showFloatingToast(stage, "Please enter the correct password for " + username.getText(), null);
                     errorMessage.setText("*Password entered is incorrect");
                     break;
 
