@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1220.0" style="-fx-background-color: linear-gradient(from 63.1829% 21.8527% to 73.3967% 84.323%, #4aa7be 0.0%, #7400e9 100.0%);" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1220.0" style="-fx-background-color: linear-gradient(from 63.1829% 21.8527% to 73.3967% 84.323%, #4aa7be 0.0%, #7400e9 100.0%);" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oopsdg.UserRegistrationController">
    <children>
       <Text layoutX="110.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: Bold;" text="Create new account">
          <font>
@@ -22,7 +22,7 @@
                   <Font size="12.0" />
                </font>
             </Text>
-            <TextField fx:id="firstName" layoutX="12.0" layoutY="17.0" style="-fx-background-color: transparent;" />
+            <TextField fx:id="firstName" layoutX="12.0" layoutY="17.0" prefHeight="26.0" prefWidth="210.0" style="-fx-background-color: transparent;" />
          </children>
       </Pane>
       <Pane layoutX="360.0" layoutY="280.0" prefHeight="45.0" prefWidth="230.0" style="-fx-background-color: #54a1b2;">
@@ -32,7 +32,7 @@
                   <Font size="12.0" />
                </font>
             </Text>
-            <TextField fx:id="lastName" layoutX="12.0" layoutY="17.0" style="-fx-background-color: transparent;" />
+            <TextField fx:id="lastName" layoutX="12.0" layoutY="17.0" prefHeight="26.0" prefWidth="210.0" style="-fx-background-color: transparent;" />
          </children>
       </Pane>
       <Pane layoutX="110.0" layoutY="340.0" prefHeight="45.0" prefWidth="480.0" style="-fx-background-color: #54a1b2;">
@@ -42,7 +42,7 @@
                   <Font size="12.0" />
                </font>
             </Text>
-            <TextField fx:id="username" layoutX="12.0" layoutY="17.0" style="-fx-background-color: transparent;" />
+            <TextField fx:id="username" layoutX="12.0" layoutY="17.0" prefHeight="26.0" prefWidth="458.0" style="-fx-background-color: transparent;" />
          </children>
       </Pane>
       <Pane layoutX="110.0" layoutY="400.0" prefHeight="45.0" prefWidth="480.0" style="-fx-background-color: #54a1b2;">
@@ -52,21 +52,21 @@
                   <Font size="12.0" />
                </font>
             </Text>
-            <PasswordField fx:id="password" layoutX="12.0" layoutY="17.0" promptText="Enter your password" style="-fx-background-color: transparent;" />
+            <PasswordField fx:id="password" layoutX="12.0" layoutY="17.0" prefHeight="26.0" prefWidth="458.0" promptText="Enter your password" style="-fx-background-color: transparent;" />
          </children>
       </Pane>
-      <Button fx:id="registerButton" layoutX="110.0" layoutY="510.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="230.0" text="Register">
+      <Button fx:id="registerButton" layoutX="110.0" layoutY="510.0" mnemonicParsing="false" onAction="#reegister" prefHeight="45.0" prefWidth="230.0" text="Register">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Button>
-      <Button fx:id="menuButton" layoutX="360.0" layoutY="510.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="230.0" text="Main Menu">
+      <Button fx:id="menuButton" layoutX="360.0" layoutY="510.0" mnemonicParsing="false" onAction="#switchToWelcome" prefHeight="45.0" prefWidth="230.0" text="Main Menu">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Button>
-      <Text fx:id="errorMessage" layoutX="110.0" layoutY="470.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="395.8413848876953" />
+      <Text fx:id="errorMessage" fill="#e41616" layoutX="110.0" layoutY="478.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="395.8413848876953" />
       <Text layoutX="110.0" layoutY="585.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Already have an account?" />
-      <Hyperlink fx:id="login" layoutX="258.0" layoutY="569.0" text="Log In" />
+      <Hyperlink fx:id="login" layoutX="258.0" layoutY="569.0" onAction="#switchToLogin" text="Log In" />
    </children>
 </Pane>

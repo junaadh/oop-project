@@ -121,7 +121,8 @@ public class User {
 
     }
 
-    public static void guiRegister(String userInfo) {
+    public static void guiRegister(String firstName, String lastName, String username, String password) {
+        String userInfo = firstName + "," + lastName + "," + username + "," + password + "\n";
         try {
             FileWriter fileWriter = new FileWriter("src/main/java/oopsdg/data/userData.txt", true);
             fileWriter.write(userInfo);
@@ -130,6 +131,14 @@ public class User {
         } catch (IOException e) {
             System.err.println("An error occured while writing to this file");
             e.printStackTrace();
+        }
+        try {
+            Helper.tempFile = File.createTempFile("temp", "txt");
+            FileWriter fileWriter = new FileWriter(Helper.tempFile);
+            fileWriter.write(username);
+            fileWriter.close();
+        } catch (IOException e) {
+            System.err.println(e.getMessage());
         }
     }
 
