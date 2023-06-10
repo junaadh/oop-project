@@ -1,8 +1,6 @@
 package oopsdg;
 
 import java.io.IOException;
-import java.util.Map;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

@@ -25,8 +25,6 @@ public class userLoginController {
     private Parent root;
     private Scene scene;
 
-    private String user;
-
     @FXML
     private Button loginButton;
 
@@ -64,8 +62,7 @@ public class userLoginController {
                     break;
 
                 default:
-                    user = username.getText();
-                    System.out.println(user);
+                    username.getText();
                     root = FXMLLoader.load(getClass().getResource("user.fxml"));
                     stage = (Stage)((Node) e.getSource()).getScene().getWindow();
                     scene = new Scene(root);
@@ -75,7 +72,7 @@ public class userLoginController {
         }
     }
 
-    public void awitchToWelcome(ActionEvent e) throws IOException {
+    public void switchToWelcome(ActionEvent e) throws IOException {
         root = FXMLLoader.load(getClass().getResource("welcome.fxml"));
         stage = (Stage)((Node) e.getSource()).getScene().getWindow();
         scene = new Scene(root);

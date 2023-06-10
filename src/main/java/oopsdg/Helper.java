@@ -203,7 +203,27 @@ public class Helper {
         return fullname;
     }
 
-        private static final int TOAST_DURATION = 3000;
+    public static String getAdminName( String username ) {
+        Map<String, Admin> admin_map = FileHandler.loadAdmin();
+
+        Admin a = admin_map.get(username);
+        String fullname = a.firstName + " " + a.lastName;
+        return fullname;
+        
+    }
+
+    // public static void storeTempLogin( String username ) {
+    //     try {
+    //         Helper.tempFile = File.createTempFile("temp", "txt");
+    //         FileWriter fileWriter = new FileWriter(Helper.tempFile);
+    //         fileWriter.write(username);
+    //         fileWriter.close();
+    //     } catch (IOException e) {
+    //         System.err.println(e.getMessage());
+    //     }
+    // }
+
+    private static final int TOAST_DURATION = 3000;
 
     public static void showFloatingToast(Stage ownerStage, String message, String cssStyle) {
         Stage toastStage = new Stage();

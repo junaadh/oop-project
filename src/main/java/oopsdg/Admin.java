@@ -282,7 +282,7 @@ public class Admin extends User {
         Map<String, Admin> mod_map = FileHandler.loadAdmin();
 
         if (!mod_map.containsKey(userName)) {
-            // prompts.wrongUsername();
+            isOK = "!username";
             return isOK;
         }
         Admin mod = mod_map.get(userName);
@@ -299,7 +299,7 @@ public class Admin extends User {
             isOK = mod.accessLevel;
             return isOK;
         } else {
-            // prompts.wrongPasssword();
+            isOK = "!password";
             return isOK;
         }
     }
