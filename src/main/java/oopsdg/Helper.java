@@ -3,6 +3,7 @@ package oopsdg;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.util.Map;
 import java.util.Scanner;
 
 //import java.io.File;
@@ -181,6 +182,14 @@ public class Helper {
                 e.printStackTrace();
             }
         return "err";
+    }
+
+    public static String getFullName( String username ) {
+        Map<String, User> user_map = FileHandler.loadUser();
+
+        User u = user_map.get(username);
+        String fullname = u.firstName + " " + u.lastName;
+        return fullname;
     }
     
 }

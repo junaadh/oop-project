@@ -66,9 +66,9 @@ public class userLoginController implements Initializable {
     }
 
     public void switchToUser(ActionEvent e) throws IOException{
-        if (username.getText() == "") {
-            errorMessage.setText("*Username field cannot be emoty");
-        } else if (password.getText() == "") {
+        if (username.getText().isEmpty()) {
+            errorMessage.setText("*Username field cannot be empty");
+        } else if (password.getText().isEmpty()) {
             errorMessage.setText("*Password field cannot be empty");
         } else {
             switch (User.guiLogin(username.getText(), password.getText())) {
@@ -85,12 +85,11 @@ public class userLoginController implements Initializable {
                 default:
                     user = username.getText();
                     System.out.println(user);
-                    // root = FXMLLoader.load(getClass().getResource("user.fxml"));
-                    // stage = (Stage)((Node) e.getSource()).getScene().getWindow();
-                    // scene = new Scene(root);
-                    // stage.setScene(scene);
-                    // stage.show();
-                    //WORK IN PROGRESS
+                    root = FXMLLoader.load(getClass().getResource("user.fxml"));
+                    stage = (Stage)((Node) e.getSource()).getScene().getWindow();
+                    scene = new Scene(root);
+                    stage.setScene(scene);
+                    stage.show();
             }
         }
     }
