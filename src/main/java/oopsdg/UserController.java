@@ -42,8 +42,17 @@ public class UserController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         // Initialized as per JavaFX Docs.
-        String text = "Welcome, " + Helper.getFullName(Helper.tempLoginCreds());
+        String[] username = Helper.tempLoginCreds().split(",");
+        String text = "Welcome, " + Helper.getFullName(username[0]);
         welcomeMessage.setText(text);
+    }
+
+     public void switchToList(ActionEvent e) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("list.fxml"));
+        stage = (Stage) ((Node)e.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
     
     public void switchToWelcome(ActionEvent e) throws IOException {

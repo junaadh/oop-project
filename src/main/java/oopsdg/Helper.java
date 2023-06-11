@@ -5,11 +5,12 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.Map;
 import java.util.Scanner;
-
 import javafx.animation.FadeTransition;
+import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
@@ -82,16 +83,6 @@ public class Helper {
         }
         tableLine();
     } 
-
-    // public static DefaultTableModel guiDisplayTableList() {
-    //     Company companies[] = Initializer.cList;
-    //     cTable.setRowCount(0);
-
-    //     for (Company company : companies) {
-    //         cTable.addRow(new Object[] {company.getID(), company.getName(), company.getUsage(), company.getMonth()});
-    //     }
-    //     return cTable;
-    // }
     
     public static void displaySortedByComp(boolean a) {
         System.out.println("\nCompany name: ");
@@ -272,4 +263,36 @@ public class Helper {
         toastStage.show();
     }
 
+    public static void fadeAndTranslate(Button button, double fadeInDuration, double translateDuration,
+            double translateX, double translateY, double startOpacity, double endOpacity) {
+        // Fade-in animation
+        FadeTransition fadeTransition = new FadeTransition(Duration.millis(fadeInDuration), button);
+        fadeTransition.setFromValue(startOpacity);
+        fadeTransition.setToValue(endOpacity);
+
+        // Translate animation
+        TranslateTransition translateTransition = new TranslateTransition(Duration.millis(translateDuration), button);
+        translateTransition.setByX(translateX);
+        translateTransition.setByY(translateY);
+
+        // Play animations sequentially
+        fadeTransition.setOnFinished(event -> translateTransition.play());
+        fadeTransition.play();
+    }
+    public static void translateAndFade(Button button, double fadeInDuration, double translateDuration,
+            double translateX, double translateY, double startOpacity, double endOpacity) {
+        // Fade-in animation
+        FadeTransition fadeTransition = new FadeTransition(Duration.millis(fadeInDuration), button);
+        fadeTransition.setFromValue(startOpacity);
+        fadeTransition.setToValue(endOpacity);
+
+        // Translate animation
+        TranslateTransition translateTransition = new TranslateTransition(Duration.millis(translateDuration), button);
+        translateTransition.setByX(translateX);
+        translateTransition.setByY(translateY);
+
+        // Play animations sequentially
+        translateTransition.setOnFinished(event -> fadeTransition.play());
+        translateTransition.play();
+    }
 }

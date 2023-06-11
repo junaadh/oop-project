@@ -60,7 +60,7 @@ public class User {
             try {
                 Helper.tempFile = File.createTempFile("temp", "txt");
                 FileWriter fileWriter = new FileWriter(Helper.tempFile);
-                fileWriter.write(un.userName);
+                fileWriter.write(un.userName + ",u");
                 fileWriter.close();
             } catch (IOException e) {
                 System.err.println(e.getMessage());
@@ -135,7 +135,7 @@ public class User {
         try {
             Helper.tempFile = File.createTempFile("temp", "txt");
             FileWriter fileWriter = new FileWriter(Helper.tempFile);
-            fileWriter.write(username);
+            fileWriter.write(username + ",u");
             fileWriter.close();
         } catch (IOException e) {
             System.err.println(e.getMessage());

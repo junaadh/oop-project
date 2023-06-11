@@ -291,7 +291,7 @@ public class Admin extends User {
             try {
                 Helper.tempFile = File.createTempFile("temp", "txt");
                 FileWriter fileWriter = new FileWriter(Helper.tempFile);
-                fileWriter.write(mod.userName);
+                fileWriter.write(mod.userName + "," + mod.accessLevel);
                 fileWriter.close();
             } catch (IOException e) {
                 System.err.println(e.getMessage());
