@@ -41,17 +41,17 @@ public class About {
     }
     
     private static void aboutClimateChange() {
-        System.out.println("\nInformation about Climate Change:");
-        // Add your climate change information here
+        System.out.println("Information about Climate Change:");
+        System.out.println("Climate change refers to long-term shifts in temperature and weather patterns on Earth. It is primarily caused by human activities such as burning fossil fuels, deforestation, and industrial processes. Climate change has significant impacts on ecosystems, weather events, sea levels which in turn cause more harm to the development of society especially at coastal regions and extreme climate locations.");
     }
     
     private static void aboutTheProgram() {
-        System.out.println("\nInformation about the Program:");
-        // Add your program information here
+        System.out.println("Information about the Program:");
+        System.out.println("Our program aims to raise awareness and educate people about the causes, effects, and solutions to climate change. By providing valuable insights and data, the program helps individuals understand the importance of taking action to mitigate climate change and work towards a sustainable future.");
     }
     
     private static void aboutUs() {
-        System.out.println("\nInformation about Us:");
-        // Add your about us information here
+        System.out.println("Information about Us:");
+        System.out.println("We are a team of passionate individuals dedicated to addressing climate change. Our mission is to spread awareness, promote sustainable practices, and encourage collective action. Through this program, we strive to make a positive impact on the environment and inspire others to join the fight against climate change.");
     }
 }
