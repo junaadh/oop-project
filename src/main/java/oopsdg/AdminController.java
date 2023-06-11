@@ -47,6 +47,9 @@ public class AdminController implements Initializable {
     private Button minusDataButton;
 
     @FXML
+    private Button editDataButton;
+
+    @FXML
     private Button suButton;
 
     @FXML
@@ -63,16 +66,19 @@ public class AdminController implements Initializable {
         if (editButton.isSelected()) {
             addDataButton.setDisable(false);
             minusDataButton.setDisable(false);
+            editDataButton.setDisable(false);
             
-            Helper.fadeAndTranslate(addDataButton, 500, 1000, 0.0, -75, 0.0, 1.0);
-            Helper.fadeAndTranslate(minusDataButton, 500, 1000, 0.0, 125, 0.0, 1.0);
+            Helper.fadeAndTranslate(addDataButton, 500, 500, 0.0, -70, 0.0, 1.0);
+            Helper.fadeAndTranslate(minusDataButton, 500, 500, 0.0, 125, 0.0, 1.0);
+            Helper.fadeAndTranslate(editDataButton, 500, 500, 0.0, -135, 0.0, 1.0);
 
         } else {
             addDataButton.setDisable(true);
             minusDataButton.setDisable(true);
             
-            Helper.translateAndFade(addDataButton, 500, 1000, 0.0, 75, 1.0, 0.0);
-            Helper.translateAndFade(minusDataButton, 500, 1000, 0.0, -125, 1.0, 0.0);
+            Helper.translateAndFade(addDataButton, 500, 500, 0.0, 70, 1.0, 0.0);
+            Helper.translateAndFade(minusDataButton, 500, 500, 0.0, -125, 1.0, 0.0);
+            Helper.translateAndFade(editDataButton, 500, 500, 0.0, 135, 1.0, 0.0);
         }
     }
 
@@ -81,7 +87,19 @@ public class AdminController implements Initializable {
     }
 
     public void minusData(ActionEvent e) throws IOException {
-        System.out.println("minus Data");
+        root = FXMLLoader.load(getClass().getResource("minusData.fxml"));
+        stage = (Stage) ((Node)e.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void modifyData(ActionEvent e) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("editData.fxml"));
+        stage = (Stage) ((Node)e.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
     public void switchToListByCompany(ActionEvent e) throws IOException {

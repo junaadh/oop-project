@@ -335,6 +335,16 @@ public class Admin extends User {
         }
     }
 
+    public static void guiUpdateCompany(int ID, String name, String usage, String month) {
+        for (Company x : Initializer.cList) {
+            if (ID == x.getID()) {
+                x.name = name;
+                x.usage = usage;
+                x.month = month;
+            }
+        }
+    }
+
     public static void deleteCompany() {
         Helper.clearScreen();
         int inc = 0;
@@ -364,5 +374,31 @@ public class Admin extends User {
             }
         }
         System.out.println("No matching ID!");
+    }
+
+    public static int guiDeleteCompany(int ID) {
+        int inc = 0, status = 1;
+        for (Company c : Initializer.cList) {
+            if (ID == c.id) {
+                Company[] temp = new Company[Initializer.cList.length - 1];
+                for (Company y : Initializer.cList) {
+                    if (y.id < ID) {
+                        temp[inc] = y;
+                        inc++;
+                    } else if (y.id > ID) {
+                        temp[inc] = y;
+                        temp[inc].id = temp[inc].id - 1;
+                        inc++;
+                    }
+                }
+                Initializer.cList = new Company[temp.length];
+                for (int a = 0; a < temp.length; a++) {
+                    Initializer.cList[a] = temp[a];
+                }
+                status = 0;
+                return status;
+            }
+        }
+        return status;
     }
 }

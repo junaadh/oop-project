@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1220.0" style="-fx-background-color: linear-gradient(from 63.1829% 21.8527% to 73.3967% 84.323%, #4aa7be 0.0%, #7400e9 100.0%);" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oopsdg.MinusDataController">
+   <children>
+      <Text layoutX="-1.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Delete Company Data" textAlignment="CENTER" underline="true" wrappingWidth="1218.1686401367188">
+         <font>
+            <Font name="PT Mono Bold" size="35.0" />
+         </font>
+      </Text>
+      <TableView fx:id="list" layoutX="249.0" layoutY="194.0" prefHeight="457.0" prefWidth="719.0">
+         <columns>
+            <TableColumn fx:id="idColumn" editable="false" prefWidth="83.5" text="ID" />
+            <TableColumn fx:id="nameColumn" prefWidth="236.0" text="Company Name" />
+            <TableColumn fx:id="usageColumn" prefWidth="223.0" text="Usage" />
+            <TableColumn fx:id="monthColumn" prefWidth="170.5" text="Month" />
+         </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <Button fx:id="backButton" layoutX="35.0" layoutY="35.0" mnemonicParsing="false" onAction="#switchBack" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: transparent;">
+         <graphic>
+            <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/back.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <TextField fx:id="name" alignment="CENTER" layoutX="456.0" layoutY="108.0" prefHeight="26.0" prefWidth="251.0" promptText="Enter Company Name To Delete" style="-fx-background-color: #87CEEB;" />
+      <Button fx:id="submitButton" layoutX="725.0" layoutY="108.0" mnemonicParsing="false" onAction="#submit" style="-fx-background-color: #FF8080;" text="Delete" />
+      <Text fx:id="warningMessage" fill="#941616" layoutX="395.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="405.1765240476201">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+   </children>
+</Pane>

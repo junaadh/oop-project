@@ -107,6 +107,15 @@
             </ImageView>
          </graphic>
       </Button>
+      <Button fx:id="editDataButton" alignment="TOP_CENTER" contentDisplay="TOP" disable="true" graphicTextGap="1.0" layoutX="810.0" layoutY="500.0" maxWidth="80.0" minWidth="80.0" mnemonicParsing="false" onAction="#modifyData" opacity="0.0" prefWidth="80.0" style="-fx-background-color: transparent;" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+         <graphic>
+            <ImageView fitHeight="96.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/pen.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
       <ToggleButton fx:id="editButton" contentDisplay="TOP" layoutX="810.0" layoutY="500.0" mnemonicParsing="false" onAction="#editData" prefWidth="80.0" style="-fx-background-color: transparent;" text="Edit Company Data" textAlignment="CENTER" textFill="#f8f8f8" wrapText="true">
          <graphic>
             <ImageView fitHeight="80.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
