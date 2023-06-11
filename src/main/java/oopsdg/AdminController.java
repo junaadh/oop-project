@@ -92,6 +92,22 @@ public class AdminController implements Initializable {
         stage.show();
     }
 
+    public void switchToListByMonth(ActionEvent e) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("month.fxml"));
+        stage = (Stage) ((Node)e.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void switchToBadUse(ActionEvent e) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("baduse.fxml"));
+        stage = (Stage) ((Node)e.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
     public void switchToList(ActionEvent e) throws IOException {
         root = FXMLLoader.load(getClass().getResource("list.fxml"));
         stage = (Stage) ((Node)e.getSource()).getScene().getWindow();

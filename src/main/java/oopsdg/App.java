@@ -20,7 +20,7 @@ public class App extends Application {
         // welcome.initialize();
         
         stage.setResizable(false);
-        stage.setTitle("Energy Monitor");
+        stage.setTitle("JavaApp");
         stage.setScene(welcomeScene);
         stage.show();
 

@@ -310,4 +310,27 @@ public class Helper {
         return filteredList.toArray(new Company[0]);
     }
 
+    // private static String[] months = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+
+    public static Company[] filteredArrayByMonth( Company[] array, String selectedMonth ) {
+        List<Company> filteredList = new ArrayList<>();
+        for (Company company : array) {
+            if (company.getMonth().equals(selectedMonth)) {
+                filteredList.add(company);
+            }
+        }
+        return filteredList.toArray(new Company[0]);
+    }   
+
+    public static Company[] filteredArrayByUsage(Company[] array) {
+        List<Company> filteredList = new ArrayList<>();
+        for (Company company : array) {
+            double usage = Double.parseDouble(company.getUsage().split(" ")[0]);
+            String watt = company.getUsage().split(" ")[1];
+            if (usage > 100 && watt.equals("Gigawatt")) {
+                filteredList.add(company);
+            }
+        }
+        return filteredList.toArray(new Company[0]);
+    }
 }

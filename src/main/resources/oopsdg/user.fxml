@@ -43,7 +43,7 @@
             </RadialGradient>
          </fill>
       </Text>
-      <Button fx:id="monthButton" alignment="BOTTOM_CENTER" contentDisplay="TOP" graphicTextGap="1.0" layoutX="570.0" layoutY="500.0" maxWidth="80.0" minWidth="80.0" mnemonicParsing="false" prefWidth="80.0" style="-fx-background-color: transparent;" text="Search By Month" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+      <Button fx:id="monthButton" alignment="BOTTOM_CENTER" contentDisplay="TOP" graphicTextGap="1.0" layoutX="570.0" layoutY="500.0" maxWidth="80.0" minWidth="80.0" mnemonicParsing="false" onAction="#switchToListByMonth" prefWidth="80.0" style="-fx-background-color: transparent;" text="Search By Month" textAlignment="CENTER" textFill="WHITE" wrapText="true">
          <graphic>
             <ImageView fitHeight="96.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -70,7 +70,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="baduseButton" alignment="BOTTOM_CENTER" contentDisplay="TOP" graphicTextGap="1.0" layoutX="770.0" layoutY="500.0" maxWidth="80.0" minWidth="80.0" mnemonicParsing="false" prefWidth="80.0" style="-fx-background-color: transparent;" text="Over Consumers" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+      <Button fx:id="baduseButton" alignment="BOTTOM_CENTER" contentDisplay="TOP" graphicTextGap="1.0" layoutX="770.0" layoutY="500.0" maxWidth="80.0" minWidth="80.0" mnemonicParsing="false" onAction="#switchToBadUse" prefWidth="80.0" style="-fx-background-color: transparent;" text="Over Consumers" textAlignment="CENTER" textFill="WHITE" wrapText="true">
          <graphic>
             <ImageView fitHeight="96.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
                <image>

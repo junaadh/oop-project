@@ -18,7 +18,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
-public class ListController implements Initializable {
+public class BadUseController implements Initializable {
 
     private Parent root;
     private Scene scene;
@@ -42,10 +42,13 @@ public class ListController implements Initializable {
     @FXML
     private TableColumn<Company, String> monthColumn;
 
+    private static Company[] company = Initializer.cList;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        ObservableList<Company> companies = FXCollections.observableArrayList(Initializer.cList);
+        Company[] filteredList = Helper.filteredArrayByUsage(company);
+        ObservableList<Company> companies = FXCollections.observableArrayList(filteredList);
 
         idColumn.setCellValueFactory(new PropertyValueFactory<>("ID"));
 
@@ -56,7 +59,6 @@ public class ListController implements Initializable {
         monthColumn.setCellValueFactory(new PropertyValueFactory<>("month"));
 
         list.getItems().addAll(companies);
-
     }
 
     public void switchBack(ActionEvent e) throws IOException {
