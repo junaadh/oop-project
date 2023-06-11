@@ -42,7 +42,7 @@ public class EnergyMonitor{
             System.out.println("\n######################\n#       CREDIT       #\n#\t\t     #\n# Special Thanks To: #\n# Arell\t\t     #\n# Zameer\t     #\n# Jonathan\t     #\n# Junaadh\t     #\n# Leron\t\t     #\n# Ahmad\t\t     #\n# Evan\t\t     #\n# Naeema\t     #\n# Michael\t     #\n# Sheridan\t     #\n######################");
         }
         else {
-            Helper.NoKey(x);
+            Helper.noKey(x);
         }
     } while (Initializer.appStatus == 1);
     Initializer.sc.close();

@@ -194,7 +194,7 @@ public class User {
                     Helper.toggleMode();
                     break;
                 default:
-                    Helper.NoKey(x);
+                    Helper.noKey(x);
             }
 
         }

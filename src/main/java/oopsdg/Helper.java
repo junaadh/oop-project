@@ -32,7 +32,7 @@ public class Helper {
     // );
 
     public static void mainPrompt() {
-        System.out.println("\n--------------------------------------------------------------\n| Press \"A\" for admin, \"P\" for public guest, or \"Q\" to quit. |\n--------------------------------------------------------------");
+        System.out.println("\n----------------------------------------------------------------------------------------------\n| Press \"A\" for admin, \"P\" for public guest, \"?\" for about, \"C\" for credits, or \"Q\" to quit. |\n----------------------------------------------------------------------------------------------");
     }
     
     public static void funcPrompt(String a) {
@@ -61,7 +61,7 @@ public class Helper {
         }
     }
     
-    public static void tableLine() {
+    public static void tableLine(boolean a) {
         System.out.println("----------------------------------------------------------------------------------");
     }
 
@@ -79,24 +79,24 @@ public class Helper {
     
     public static void displayTableList(boolean a) {
         usageTitle(a);
-        tableLine();
+        tableLine(a);
         for(Company x:Initializer.cList){
             x.usageInfo(a);
         }
-        tableLine();
+        tableLine(a);
     } 
-    
+
     public static void displaySortedByComp(boolean a) {
         System.out.println("\nCompany name: ");
             String b = Initializer.sc.nextLine();
             usageTitle(a);
-            tableLine();
+            tableLine(a);
             for(Company x:Initializer.cList){
                 if(x.getName().equals(b)){
                 x.usageInfo(a);
                 }
             }   
-            tableLine();
+            tableLine(a);
     }
 
     // public static DefaultTableModel guiDisplaySortedByComp( String companyName ) {
@@ -115,13 +115,13 @@ public class Helper {
         System.out.println("\nMonth: ");
             String b = Initializer.sc.nextLine();
             usageTitle(a);
-            tableLine();
+            tableLine(a);
             for(Company x:Initializer.cList){
                 if(x.month.equals(b)){
                 x.usageInfo(a);
                 }
             }
-            tableLine();
+            tableLine(a);
     }
 
     // public static DefaultTableModel guiDisplaySortedByMonth( String month ) {
@@ -154,7 +154,7 @@ public class Helper {
         System.out.printf("# Company %s has exceeded green energy limit on %s!\n", a.getName(),a.month);
     }
     
-    public static void NoKey(String a) {
+    public static void noKey(String a) {
         if (a.equals("")){
             System.out.println("\nKeyword" + a + " doesn't exist!");
             return ;

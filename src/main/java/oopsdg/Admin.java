@@ -80,7 +80,7 @@ public class Admin extends User {
                     ;
                 } else {
                     Helper.clearScreen();
-                    Helper.NoKey(x);
+                    Helper.noKey(x);
                 }
             }
         } else if (level.equals("$")) {
@@ -126,11 +126,13 @@ public class Admin extends User {
                             }
                         }
                     }
-                } else if (x.equals("?")) {
+                } else if (x.equals("t")) {
+                    Helper.toggleMode();
+                }else if (x.equals("?")) {
                     About.Func();
                 } else {
                     Helper.clearScreen();
-                    Helper.NoKey(x);
+                    Helper.noKey(x);
                 }
             }
         }
@@ -182,7 +184,7 @@ public class Admin extends User {
                 Helper.clearScreen();
                 break;
             default:
-                Helper.NoKey(input);
+                Helper.noKey(input);
         }
     }
 

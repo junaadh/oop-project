@@ -35,7 +35,7 @@ public class About {
                     break;
                 default:
                     Helper.clearScreen();
-                    Helper.NoKey(choice);
+                    Helper.noKey(choice);
             }
         }
     }
