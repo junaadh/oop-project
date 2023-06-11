@@ -84,6 +84,14 @@ public class AdminController implements Initializable {
         System.out.println("minus Data");
     }
 
+    public void switchToListByCompany(ActionEvent e) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("company.fxml"));
+        stage = (Stage) ((Node)e.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
     public void switchToList(ActionEvent e) throws IOException {
         root = FXMLLoader.load(getClass().getResource("list.fxml"));
         stage = (Stage) ((Node)e.getSource()).getScene().getWindow();

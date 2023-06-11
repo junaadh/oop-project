@@ -3,6 +3,8 @@ package oopsdg;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 import javafx.animation.FadeTransition;
@@ -279,6 +281,7 @@ public class Helper {
         fadeTransition.setOnFinished(event -> translateTransition.play());
         fadeTransition.play();
     }
+
     public static void translateAndFade(Button button, double fadeInDuration, double translateDuration,
             double translateX, double translateY, double startOpacity, double endOpacity) {
         // Fade-in animation
@@ -295,4 +298,16 @@ public class Helper {
         translateTransition.setOnFinished(event -> fadeTransition.play());
         translateTransition.play();
     }
+
+    public static Company[] filterArrayByColumnName(Company[] array, String selectedValue) {
+        List<Company> filteredList = new ArrayList<>();
+        for (Company company : array) {
+            String companyName = company.getName();
+            if (companyName.equals(selectedValue)) {
+                filteredList.add(company);
+            }
+        }
+        return filteredList.toArray(new Company[0]);
+    }
+
 }
