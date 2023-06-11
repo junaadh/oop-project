@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1220.0" style="-fx-background-color: linear-gradient(from 63.1829% 21.8527% to 73.3967% 84.323%, #4aa7be 0.0%, #7400e9 100.0%);" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oopsdg.AdminController">
+   <children>
+      <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="560.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/admin.png" />
+         </image>
+      </ImageView>
+      <Text fx:id="welcomeMessage" layoutX="-1219.0" layoutY="345.0" stroke="#00000044" strokeType="OUTSIDE" style="-fx-font-weight: Bold; -fx-text-alignment: center;" textAlignment="CENTER" wrappingWidth="1220.0" x="1220.0">
+         <font>
+            <Font name="Big Caslon Medium" size="30.0" />
+         </font>
+         <fill>
+            <RadialGradient centerX="0.5" centerY="0.5332541567695962" radius="0.5">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.2083333283662796" green="0.566703200340271" blue="0.7894737124443054" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.006711409395973154">
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.8815789222717285" green="0.17141813039779663" blue="0.17141813039779663" />
+                     </color>
+                  </Stop>
+               </stops>
+            </RadialGradient>
+         </fill>
+      </Text>
+      <Button fx:id="baduseButton" alignment="BOTTOM_CENTER" contentDisplay="TOP" graphicTextGap="1.0" layoutX="650.0" layoutY="500.0" maxWidth="80.0" minWidth="80.0" mnemonicParsing="false" prefWidth="80.0" style="-fx-background-color: transparent;" text="Over Consumers" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+         <graphic>
+            <ImageView fitHeight="96.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/danger.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="monthButton" alignment="BOTTOM_CENTER" contentDisplay="TOP" graphicTextGap="1.0" layoutX="490.0" layoutY="500.0" maxWidth="80.0" minWidth="80.0" mnemonicParsing="false" prefWidth="80.0" style="-fx-background-color: transparent;" text="Search By Month" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+         <graphic>
+            <ImageView fitHeight="96.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/month.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="companyButton" alignment="BOTTOM_CENTER" contentDisplay="TOP" graphicTextGap="1.0" layoutX="170.0" layoutY="500.0" maxWidth="80.0" minWidth="80.0" mnemonicParsing="false" prefWidth="80.0" style="-fx-background-color: transparent;" text="List all Companies" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+         <graphic>
+            <ImageView fitHeight="96.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/list.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="editButton" alignment="BOTTOM_CENTER" contentDisplay="TOP" graphicTextGap="1.0" layoutX="810.0" layoutY="500.0" maxWidth="80.0" minWidth="80.0" mnemonicParsing="false" prefWidth="80.0" style="-fx-background-color: transparent;" text="Edit Company Data" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+         <graphic>
+            <ImageView fitHeight="96.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/editor.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="logoutButton" alignment="BOTTOM_CENTER" contentDisplay="TOP" graphicTextGap="1.0" layoutX="970.0" layoutY="500.0" maxWidth="80.0" minWidth="80.0" mnemonicParsing="false" onAction="#logout" prefWidth="80.0" style="-fx-background-color: transparent;" text="Logout" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+         <graphic>
+            <ImageView fitHeight="96.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/logout.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="companyButton" alignment="BOTTOM_CENTER" contentDisplay="TOP" graphicTextGap="1.0" layoutX="330.0" layoutY="500.0" maxWidth="80.0" minWidth="80.0" mnemonicParsing="false" prefWidth="80.0" style="-fx-background-color: transparent;" text="Search By Company" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+         <graphic>
+            <ImageView fitHeight="96.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/specificCompany.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+   </children>
+</Pane>
