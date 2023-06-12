@@ -7,3 +7,4 @@ Admin,Admin,aDm,aw,$
 Awe,awe,awe,awe,$
 Arell,Pramono,Wowow,Wowol,$
 Moosa,Junaadh,user,123456,$
+Moosa,Junaadh,junaadh,123456,$

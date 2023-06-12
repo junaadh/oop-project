@@ -1,6 +1,6 @@
 package oopsdg;
 
- 
+import javafx.application.Platform;
 
 public class EnergyMonitor{
     // made by zameer
@@ -14,6 +14,7 @@ public class EnergyMonitor{
         String x = Initializer.sc.nextLine().toLowerCase();
         if (x.equals("q")){
             Initializer.appStatus=0;
+            Platform.exit();
         } else if (x.equals("a")){
             Helper.clearScreen();
             Admin.Func(Admin.Auth());

@@ -2,7 +2,6 @@ package oopsdg;
 
 import java.io.IOException;
 
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -44,85 +43,35 @@ public class AdminLoginContoller {
 
     }
 
-    // public void login(ActionEvent e) throws IOException {
-    //     if (username.getText().isEmpty()) {
-    //         errorMessage.setText("*Username field cannot be empty");
-    //     } else if (password.getText().isEmpty()) {
-    //         errorMessage.setText("*Password field cannot be empty");
-    //     } else {
-    //         if (Admin.guiAuth(username.getText(), password.getText()).equals("#")) {
-    //             root = FXMLLoader.load(getClass().getResource("suAdmin.fxml"));
-    //             stage = (Stage) ((Node)e.getSource()).getScene().getWindow();
-    //             scene = new Scene(root);
-    //             stage.setScene(scene);
-    //             stage.show();
+    public void login(ActionEvent e) throws IOException {
+        if (username.getText().isEmpty()) {
+            errorMessage.setText("*Username field cannot be empty");
+        } else if (password.getText().isEmpty()) {
+            errorMessage.setText("*Password field cannot be empty");
+        } else {
+            if (Admin.guiAuth(username.getText(), password.getText()).equals("#")) {
+                root = FXMLLoader.load(getClass().getResource("suAdmin.fxml"));
+                stage = (Stage) ((Node)e.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
 
-    //         } else if (Admin.guiAuth(username.getText(), password.getText()).equals("$")) {
-    //             root = FXMLLoader.load(getClass().getResource("admin.fxml"));
-    //             stage = (Stage) ((Node)e.getSource()).getScene().getWindow();
-    //             scene = new Scene(root);
-    //             stage.setScene(scene);
-    //             stage.show();
+            } else if (Admin.guiAuth(username.getText(), password.getText()).equals("$")) {
+                root = FXMLLoader.load(getClass().getResource("admin.fxml"));
+                stage = (Stage) ((Node)e.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
 
-    //         } else if (Admin.guiAuth(username.getText(), password.getText()).equals("!username")) {
-    //             Helper.showFloatingToast(stage, "Please enter a correct username", null);
-    //             errorMessage.setText("*Invaild username");
+            } else if (Admin.guiAuth(username.getText(), password.getText()).equals("!username")) {
+                Helper.showFloatingToast(stage, "Please enter a correct username", null);
+                errorMessage.setText("*Invaild username");
                     
-    //         } else if (Admin.guiAuth(username.getText(), password.getText()).equals("!password")) {
-    //             Helper.showFloatingToast(stage, "Please enter correct password", null);
-    //             errorMessage.setText("*Incorrect password");
+            } else if (Admin.guiAuth(username.getText(), password.getText()).equals("!password")) {
+                Helper.showFloatingToast(stage, "Please enter correct password", null);
+                errorMessage.setText("*Incorrect password");
                     
-    //         } 
-    //     }
-    // }
-
-    public void login(ActionEvent e) {
-    if (username.getText().isEmpty()) {
-        errorMessage.setText("*Username field cannot be empty");
-    } else if (password.getText().isEmpty()) {
-        errorMessage.setText("*Password field cannot be empty");
-    } else {
-        Thread loginThread = new Thread(() -> {
-            String authResult = Admin.guiAuth(username.getText(), password.getText());
-            Platform.runLater(() -> {
-                handleAuthResult(authResult, e);
-            });
-        });
-        loginThread.start();
-    }
-}
-
-private void handleAuthResult(String authResult, ActionEvent e) {
-    if (authResult.equals("#")) {
-        try {
-            root = FXMLLoader.load(getClass().getResource("suAdmin.fxml"));
-            stage = (Stage) ((Node)e.getSource()).getScene().getWindow();
-            scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException ex) {
-            ex.printStackTrace();
+            } 
         }
-
-    } else if (authResult.equals("$")) {
-        try {
-            root = FXMLLoader.load(getClass().getResource("admin.fxml"));
-            stage = (Stage) ((Node)e.getSource()).getScene().getWindow();
-            scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-
-    } else if (authResult.equals("!username")) {
-        Helper.showFloatingToast(stage, "Please enter a correct username", null);
-        errorMessage.setText("*Invalid username");
-
-    } else if (authResult.equals("!password")) {
-        Helper.showFloatingToast(stage, "Please enter correct password", null);
-        errorMessage.setText("*Incorrect password");
     }
-}
-
 }

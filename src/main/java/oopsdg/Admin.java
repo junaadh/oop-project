@@ -295,6 +295,45 @@ public class Admin extends User {
 
     }
 
+    public static void guiDelUser( String username ) {
+        Map<String, User> user_map = FileHandler.loadUser();
+        String userInfo;
+
+        if (!user_map.containsKey(username)) {
+            return;
+        }
+
+        User un = user_map.get(username);
+        userInfo = un.firstName + "," + un.lastName + "," + username + "," + un.password;
+
+        try {
+            Path inputPath = Path.of("src/main/java/oopsdg/data/userData.txt");
+            Path tempPath = Path.of("src/main/java/oopsdg/data/temp.txt");
+
+            Scanner reader = new Scanner(new File("src/main/java/oopsdg/data/userData.txt"));
+            FileWriter writer = new FileWriter("src/main/java/oopsdg/data/temp.txt");
+            String line;
+
+            while (reader.hasNextLine()) {
+                line = reader.nextLine();
+                if (!line.equals(userInfo)) {
+                    writer.write(line + "\n");
+                }
+            }
+
+            reader.close();
+            writer.flush();
+            writer.close();
+
+            Files.delete(inputPath);
+            Files.move(tempPath, inputPath, StandardCopyOption.REPLACE_EXISTING);
+        } catch (IOException e) {
+            System.err.println("Error:" + e.getMessage());
+        }
+        return;
+
+    }
+
     public static String guiAuth(String userName, String password) {
         String isOK = "";
         Map<String, Admin> mod_map = FileHandler.loadAdmin();

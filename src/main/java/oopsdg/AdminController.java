@@ -105,6 +105,23 @@ public class AdminController implements Initializable {
         }
     }
 
+    public void addAdmin(ActionEvent e) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("addAdmin.fxml"));
+        stage = (Stage) ((Node)e.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void deleteUser(ActionEvent e) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("delUser.fxml"));
+        stage = (Stage) ((Node)e.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+
     public void addData(ActionEvent e) throws IOException {
         root = FXMLLoader.load(getClass().getResource("addData.fxml"));
         stage = (Stage) ((Node)e.getSource()).getScene().getWindow();

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1220.0" style="-fx-background-color: linear-gradient(from 63.1829% 21.8527% to 73.3967% 84.323%, #4aa7be 0.0%, #7400e9 100.0%);" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oopsdg.AddAdminController">
+   <children>
+      <Text layoutX="345.0" layoutY="226.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: Bold;" text="Create New Admin">
+         <font>
+            <Font name="Charter Roman" size="56.0" />
+         </font>
+      </Text>
+      <Pane layoutX="345.0" layoutY="300.0" prefHeight="45.0" prefWidth="480.0" style="-fx-background-color: #54a1b2;">
+         <children>
+            <Text layoutX="10.0" layoutY="15.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Text>
+            <TextField fx:id="username" layoutX="12.0" layoutY="17.0" prefHeight="26.0" prefWidth="460.0" style="-fx-background-color: transparent;" />
+            <ImageView fx:id="wrong" fitHeight="35.0" fitWidth="35.0" layoutX="435.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/wrong.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="correct" fitHeight="35.0" fitWidth="35.0" layoutX="435.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/correct.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Button fx:id="addButton" disable="true" layoutX="345.0" layoutY="471.0" mnemonicParsing="false" onAction="#addAdmin" prefHeight="45.0" prefWidth="230.0" style="-fx-background-color: red;" text="Add" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="backButton" layoutX="595.0" layoutY="471.0" mnemonicParsing="false" onAction="#switchBack" prefHeight="45.0" prefWidth="230.0" text="Back">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+      <Pane layoutX="345.0" layoutY="355.0" prefHeight="45.0" prefWidth="230.0" style="-fx-background-color: #54a1b2;">
+         <children>
+            <Text layoutX="10.0" layoutY="15.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Text>
+            <TextField fx:id="firstname" layoutX="12.0" layoutY="17.0" prefHeight="26.0" prefWidth="210.0" style="-fx-background-color: transparent;" />
+         </children>
+      </Pane>
+      <Pane layoutX="595.0" layoutY="355.0" prefHeight="45.0" prefWidth="230.0" style="-fx-background-color: #54a1b2;">
+         <children>
+            <Text layoutX="10.0" layoutY="15.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Text>
+            <TextField fx:id="lastname" layoutX="12.0" layoutY="17.0" prefHeight="26.0" prefWidth="210.0" style="-fx-background-color: transparent;" />
+         </children>
+      </Pane>
+      <Pane layoutX="345.0" layoutY="410.0" prefHeight="45.0" prefWidth="480.0" style="-fx-background-color: #54a1b2;">
+         <children>
+            <Text layoutX="10.0" layoutY="15.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Text>
+            <PasswordField fx:id="password" layoutX="12.0" layoutY="17.0" prefHeight="26.0" prefWidth="458.0" promptText="Enter your password" style="-fx-background-color: transparent;" />
+         </children>
+      </Pane>
+   </children>
+</Pane>
