@@ -74,7 +74,7 @@ public class AddDataController implements Initializable, Runnable {
     }
 
     public void addData() {
-        Admin.guiAddCompany(name.getText(), usage.getText(), month.getText());
+        Admin.guiAddCompany(name.getText(), usage.getText(), month.getText(), water.getText());
         Helper.showFloatingToast(stage, name.getText() + " has been added as company", null);
         // list.getItems().clear();
         // list.getItems().addAll(companies);

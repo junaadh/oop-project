@@ -12,11 +12,12 @@ public class Company {
     String month2;
         
     
-    Company(int x, String a, String b, String c){
+    Company(int x, String a, String b, String c, String d){
         this.id= x;
         this.name=a;
         this.usage=b;
         this.month=c;
+        this.water=d;
         
     }
     

@@ -330,13 +330,15 @@ public class Admin extends User {
         String b = Initializer.sc.nextLine();
         System.out.println("Month: ");
         String c = Initializer.sc.nextLine();
+        System.out.println("Water: ");
+        String d = Initializer.sc.nextLine();
         Initializer.cList = Arrays.copyOf(Initializer.cList, Initializer.cList.length + 1);
-        Initializer.cList[Initializer.cList.length - 1] = new Company(Initializer.cList.length, a, b, c);
+        Initializer.cList[Initializer.cList.length - 1] = new Company(Initializer.cList.length, a, b, c,d);
     }
 
-    public static void guiAddCompany(String companyName, String usage, String month) {
+    public static void guiAddCompany(String companyName, String usage, String month, String water) {
         Initializer.cList = Arrays.copyOf(Initializer.cList, Initializer.cList.length + 1);
-        Initializer.cList[Initializer.cList.length - 1] = new Company(Initializer.cList.length, companyName, usage, month);
+        Initializer.cList[Initializer.cList.length - 1] = new Company(Initializer.cList.length, companyName, usage, month, water);
     }
 
     public static void updateCompany() {
