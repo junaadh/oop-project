@@ -14,6 +14,7 @@ public class EnergyMonitor{
         String x = Initializer.sc.nextLine().toLowerCase();
         if (x.equals("q")){
             Initializer.appStatus=0;
+            System.exit(1);
         } else if (x.equals("a")){
             Helper.clearScreen();
             Admin.Func(Admin.Auth());

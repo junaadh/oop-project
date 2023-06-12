@@ -35,21 +35,30 @@ public class Helper {
         System.out.println("\n----------------------------------------------------------------------------------------------\n| Press \"A\" for admin, \"P\" for public guest, \"?\" for about, \"C\" for credits, or \"Q\" to quit. |\n----------------------------------------------------------------------------------------------");
     }
     
-    public static void funcPrompt(String a) {
+    public static void funcPrompt(String a, boolean b) {
+        if(b){
         if (a.equals("#")){
-            System.out.println("\n-----------------------------\n| Press\t\t\t    |\n| \"A\" to add data,\t    |\n| \"L\" to see list,\t    |\n| \"C\" to search by company, |\n| \"M\" to search by month,   |\n| \"!\" to check bad use,\t    |\n| \"#\" for SUPERADMIN mode,  |\n| or \"O\" to log out.\t    |\n-----------------------------");
+            System.out.println("\n-----------------------------\n| Energy Mode\t\t    |\n|\t\t\t    |\n| Press\t\t\t    |\n| \"A\" to add data,\t    |\n| \"U\" to update data,\t    |\n| \"D\" to delete data,\t    |\n| \"L\" to see list,\t    |\n| \"C\" to search by company, |\n| \"M\" to search by month,   |\n| \"!\" to check bad use,\t    |\n| \"T\" to toggle mode,\t    |\n| \"#\" for SUPERADMIN mode,  |\n| \"?\" for about,\t    |\n| or \"O\" to log out.\t    |\n-----------------------------");
         } else if (a.equals("$")){
-            System.out.println("\n-----------------------------\n| Press\t\t\t    |\n| \"A\" to add data,\t    |\n| \"L\" to see list,\t    |\n| \"C\" to search by company, |\n| \"M\" to search by month,   |\n| \"!\" to check bad use,\t    |\n| or \"O\" to log out.\t    |\n-----------------------------");
+            System.out.println("\n-----------------------------\n| Energy Mode\t\t    |\n|\t\t\t    |\n| Press\t\t\t    |\n| \"A\" to add data,\t    |\n| \"U\" to update data,\t    |\n| \"D\" to delete data,\t    |\n| \"L\" to see list,\t    |\n| \"C\" to search by company, |\n| \"M\" to search by month,   |\n| \"!\" to check bad use,\t    |\n| \"T\" to toggle mode,\t    |\n| \"?\" for about,\t    |\n| or \"O\" to log out.\t    |\n-----------------------------");
         } else if (a.equals("")){
-            System.out.println("\n-----------------------------\n| Press\t\t\t    |\n| \"L\" to see list,\t    |\n| \"C\" to search by company, |\n| \"M\" to search by month,   |\n| \"!\" to check bad use,\t    |\n| or \"O\" to log out.\t    |\n-----------------------------");
+            System.out.println("\n-----------------------------\n| Energy Mode\t\t    |\n|\t\t\t    |\n| Press\t\t\t    |\n| \"L\" to see list,\t    |\n| \"C\" to search by company, |\n| \"M\" to search by month,   |\n| \"!\" to check bad use,\t    |\n| \"T\" to toggle mode,\t    |\n| \"?\" for about,\t    |\n| or \"O\" to log out.\t    |\n-----------------------------");
+        }} else {
+            if (a.equals("#")){
+            System.out.println("\n-----------------------------\n| Water Mode\t\t    |\n|\t\t\t    |\n| Press\t\t\t    |\n| \"A\" to add data,\t    |\n| \"U\" to update data,\t    |\n| \"D\" to delete data,\t    |\n| \"L\" to see list,\t    |\n| \"C\" to search by company, |\n| \"M\" to search by month,   |\n| \"!\" to check bad use,\t    |\n| \"T\" to toggle mode,\t    |\n| \"#\" for SUPERADMIN mode,  |\n| \"?\" for about,\t    |\n| or \"O\" to log out.\t    |\n-----------------------------");
+        } else if (a.equals("$")){
+            System.out.println("\n-----------------------------\n| Water Mode\t\t    |\n|\t\t\t    |\n| Press\t\t\t    |\n| \"A\" to add data,\t    |\n| \"U\" to update data,\t    |\n| \"D\" to delete data,\t    |\n| \"L\" to see list,\t    |\n| \"C\" to search by company, |\n| \"M\" to search by month,   |\n| \"!\" to check bad use,\t    |\n| \"T\" to toggle mode,\t    |\n| \"?\" for about,\t    |\n| or \"O\" to log out.\t    |\n-----------------------------");
+        } else if (a.equals("")){
+            System.out.println("\n-----------------------------\n| Water Mode\t\t    |\n|\t\t\t    |\n| Press\t\t\t    |\n| \"L\" to see list,\t    |\n| \"C\" to search by company, |\n| \"M\" to search by month,   |\n| \"!\" to check bad use,\t    |\n| \"T\" to toggle mode,\t    |\n| \"?\" for about,\t    |\n| or \"O\" to log out.\t    |\n-----------------------------");
+        }
         }
     }
     
     public static void usageTitle(boolean a) {
         if (a) {
-            System.out.println("\n---------------------\n| Energy Usage |\n---------------------");
+            System.out.println("\n----------------\n| Energy Usage |\n----------------");
         } else {
-            System.out.println("\n-----------------\n| Water Usage |\n-----------------");
+            System.out.println("\n---------------\n| Water Usage |\n---------------");
         }
     }
     
@@ -92,7 +101,7 @@ public class Helper {
             usageTitle(a);
             tableLine(a);
             for(Company x:Initializer.cList){
-                if(x.getName().equals(b)){
+                if(x.getName().toLowerCase().equals(b.toLowerCase())){
                 x.usageInfo(a);
                 }
             }   
@@ -117,7 +126,7 @@ public class Helper {
             usageTitle(a);
             tableLine(a);
             for(Company x:Initializer.cList){
-                if(x.month.equals(b)){
+                if(x.month.toLowerCase().equals(b.toLowerCase())){
                 x.usageInfo(a);
                 }
             }
@@ -151,7 +160,11 @@ public class Helper {
     // }
     
     public static void exceedList(Company a, boolean b) {
+        if(b){
         System.out.printf("# Company %s has exceeded green energy limit on %s!\n", a.getName(),a.month);
+        } else {
+        System.out.printf("# Company %s has exceeded water consumption limit on %s!\n", a.getName(),a.month);
+        }
     }
     
     public static void noKey(String a) {

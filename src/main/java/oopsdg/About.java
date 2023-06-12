@@ -41,17 +41,20 @@ public class About {
     }
     
     private static void aboutClimateChange() {
-        System.out.println("Information about Climate Change:");
-        System.out.println("Climate change refers to long-term shifts in temperature and weather patterns on Earth. It is primarily caused by human activities such as burning fossil fuels, deforestation, and industrial processes. Climate change has significant impacts on ecosystems, weather events, sea levels which in turn cause more harm to the development of society especially at coastal regions and extreme climate locations.");
+        System.out.println("Information about Climate Change:\n");
+        System.out.println("Climate change refers to long-term shifts in temperature and weather patterns on Earth.\n\nIt is primarily caused by human activities such as burning fossil fuels, deforestation, and industrial processes.\n\nClimate change has significant impacts on ecosystems, weather events, sea levels which in turn cause more harm to the development of society especially at coastal regions and extreme climate locations.");
+        System.out.println("");
     }
     
     private static void aboutTheProgram() {
-        System.out.println("Information about the Program:");
-        System.out.println("Our program aims to raise awareness and educate people about the causes, effects, and solutions to climate change. By providing valuable insights and data, the program helps individuals understand the importance of taking action to mitigate climate change and work towards a sustainable future.");
+        System.out.println("Information about the Program:\n");
+        System.out.println("Our program aims to raise consciousness and educate people about the climate change.\n\nBy providing valuable insights and data, the program helps individuals understand the importance of taking action to mitigate climate change and work towards a sustainable future.\n\nFurthermore, the program allows for transparency of resource used by companies for the greater society.");
+        System.out.println("");
     }
     
     private static void aboutUs() {
-        System.out.println("Information about Us:");
-        System.out.println("We are a team of passionate individuals dedicated to addressing climate change. Our mission is to spread awareness, promote sustainable practices, and encourage collective action. Through this program, we strive to make a positive impact on the environment and inspire others to join the fight against climate change.");
+        System.out.println("Information about Us:\n");
+        System.out.println("We are a team of passionate Computer Science undergraduate individuals striving for the best.\n\nOur mission is to inspire, promote hardwork and ethical practices, and encourage initiative action and habits.\n\nThrough this program, we strive to make a positive impact on society and inspire others to join the fight against falsehood.");
+        System.out.println("");
     }
 }

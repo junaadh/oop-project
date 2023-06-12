@@ -56,6 +56,8 @@ public class Company {
         }else{
             if(name.length()<7 && month.equals("September")){
                 System.out.printf("| ID: %d \tCompany: %s\t\tUsage: %s\tMonth: %s |\n", id, name, usage, month);
+            } else if(name.length()>9 && month.equals("September")){
+                System.out.printf("| ID: %d \tCompany: %s\tUsage: %s\tMonth: %s |\n", id, name, usage, month);
             } else if(name.length()<7){
                 System.out.printf("| ID: %d \tCompany: %s\t\tUsage: %s\tMonth: %s\t |\n",id, name, usage, month);
             } else {
@@ -74,6 +76,8 @@ public class Company {
         }else{
             if(name.length()<7 && month.equals("September")){
                 System.out.printf("| ID: %d \tCompany: %s\t\tUsage: %s\tMonth: %s |\n", id, name, water, month);
+            } else if(name.length()>9 && month.equals("September")){
+                System.out.printf("| ID: %d \tCompany: %s\tUsage: %s\tMonth: %s |\n", id, name, usage, month);
             } else if(name.length()<7){
                 System.out.printf("| ID: %d \tCompany: %s\t\tUsage: %s\tMonth: %s\t |\n",id, name, water, month);
             } else {

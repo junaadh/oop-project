@@ -32,7 +32,7 @@ public class Admin extends User {
             int status = 1;
             while (status == 1) {
                 boolean mode = Initializer.isEnergy;
-                Helper.funcPrompt(level);
+                Helper.funcPrompt(level,mode);
                 String x = Initializer.sc.nextLine().toLowerCase();
                 if (x.equals("o")) {
                     status = 0;
@@ -61,14 +61,16 @@ public class Admin extends User {
                             double energyUsage = Double.parseDouble(a.usage.split(" ")[0]);
                             String wattUsed = a.usage.split(" ")[1];
                             if (energyUsage > 100 && wattUsed.equals("Gigawatt")) {
-                            } else {
-                                double waterUsage = Double.parseDouble(a.usage.split(" ")[0]);
-                                String gallonUsed = a.usage.split(" ")[1];
-                                if (waterUsage > 100 && gallonUsed.equals("Gallon")) {
+                                Helper.exceedList(a, mode);
+                            }
+                        } else {
+                                double waterUsage = Double.parseDouble(a.water.split(" ")[0]);
+                                String gallonUsed = a.water.split(" ")[1];
+                                if (waterUsage > 199 && gallonUsed.equals("Kiloton")) {
                                     Helper.exceedList(a, mode);
                                 }
-                            }
                         }
+                        
                     }
                 } else if (x.equals("#")) {
                     Helper.clearScreen();
@@ -87,7 +89,7 @@ public class Admin extends User {
             int status = 1;
             while (status == 1) {
                 boolean mode = Initializer.isEnergy;
-                Helper.funcPrompt(level);
+                Helper.funcPrompt(level,mode);
                 String x = Initializer.sc.nextLine().toLowerCase();
                 if (x.equals("o")) {
                     status = 0;
@@ -116,15 +118,16 @@ public class Admin extends User {
                             double energyUsage = Double.parseDouble(a.usage.split(" ")[0]);
                             String wattUsed = a.usage.split(" ")[1];
                             if (energyUsage > 100 && wattUsed.equals("Gigawatt")) {
-                            } else {
-                                double waterUsage = Double.parseDouble(a.usage.split(" ")[0]);
-                                String gallonUsed = a.usage.split(" ")[1];
-                                if (waterUsage > 100 && gallonUsed.equals("Gallon")) {
+                                Helper.exceedList(a, mode);
+                            }
+                        } else {
+                                double waterUsage = Double.parseDouble(a.water.split(" ")[0]);
+                                String gallonUsed = a.water.split(" ")[1];
+                                if (waterUsage > 199 && gallonUsed.equals("Kiloton")) {
                                     Helper.exceedList(a, mode);
                                 }
-
-                            }
                         }
+                        
                     }
                 } else if (x.equals("t")) {
                     Helper.toggleMode();
@@ -324,14 +327,14 @@ public class Admin extends User {
 
     public static void addCompany() {
         Helper.clearScreen();
-        System.out.println("\nCompany name: ");
+        System.out.println("\nCompany Name: ");
         String a = Initializer.sc.nextLine();
-        System.out.println("Usage: ");
+        System.out.println("Energy Usage: ");
         String b = Initializer.sc.nextLine();
+        System.out.println("Water Usage: ");
+        String d = Initializer.sc.nextLine();
         System.out.println("Month: ");
         String c = Initializer.sc.nextLine();
-        System.out.println("Water: ");
-        String d = Initializer.sc.nextLine();
         Initializer.cList = Arrays.copyOf(Initializer.cList, Initializer.cList.length + 1);
         Initializer.cList[Initializer.cList.length - 1] = new Company(Initializer.cList.length, a, b, c,d);
     }
