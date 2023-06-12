@@ -45,6 +45,9 @@ public class EditDataController implements Initializable {
     private TableColumn<Company, String> monthColumn;
 
     @FXML
+    private TableColumn<Company, String> waterColumn;
+
+    @FXML
     private TextField name;
 
     @FXML
@@ -55,6 +58,9 @@ public class EditDataController implements Initializable {
 
     @FXML
     private TextField month;
+
+    @FXML
+    private TextField water;
 
     @FXML
     private Button modify;
@@ -76,6 +82,8 @@ public class EditDataController implements Initializable {
 
         monthColumn.setCellValueFactory(new PropertyValueFactory<>("month"));
 
+        waterColumn.setCellValueFactory(new PropertyValueFactory<>("water"));
+
         list.getItems().addAll(companies);
 
     }
@@ -83,8 +91,8 @@ public class EditDataController implements Initializable {
     public void editData() {
         try {
             int ID = Integer.parseInt(id.getText());
-            Admin.guiUpdateCompany(ID, name.getText(), usage.getText(), month.getText());
-            Helper.showFloatingToast(stage, name.getText() + "with ID:" + ID + " has been updated successfully", null);
+            Admin.guiUpdateCompany(ID, name.getText(), usage.getText(), month.getText(), water.getText());
+            Helper.showFloatingToast(stage, name.getText() + " with ID:" + ID + " has been updated successfully", null);
             list.getItems().clear();
             list.getItems().addAll(companies);
             

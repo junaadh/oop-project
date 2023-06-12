@@ -49,6 +49,9 @@ public class CompanySearchController implements Initializable {
 
     @FXML
     private TableColumn<Company, String> monthColumn;
+
+    @FXML
+    private TableColumn<Company, String> waterColumn;
     
     private Company company[] = Initializer.cList;
 
@@ -70,7 +73,8 @@ public class CompanySearchController implements Initializable {
         usageColumn.setCellValueFactory(new PropertyValueFactory<>("usage"));
         
         monthColumn.setCellValueFactory(new PropertyValueFactory<>("month"));
-        
+
+        waterColumn.setCellValueFactory(new PropertyValueFactory<>("water"));
         
         selectCombo.setOnAction(event -> {
             String selectedValue = selectCombo.getValue();

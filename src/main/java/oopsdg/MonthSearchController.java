@@ -47,6 +47,9 @@ public class MonthSearchController implements Initializable {
     private TableColumn<Company, String> monthColumn;
 
     @FXML
+    private TableColumn<Company, String> waterColumn;
+
+    @FXML
     private DatePicker monthSelector;
 
     @FXML
@@ -66,6 +69,8 @@ public class MonthSearchController implements Initializable {
         usageColumn.setCellValueFactory(new PropertyValueFactory<>("usage"));
         
         monthColumn.setCellValueFactory(new PropertyValueFactory<>("month"));
+
+        waterColumn.setCellValueFactory(new PropertyValueFactory<>("water"));
         
         submitButton.setOnAction(event -> {
             // Get the selected month

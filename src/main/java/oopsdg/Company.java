@@ -9,7 +9,6 @@ public class Company {
     String usage;
     String month;
     String water;
-    String month2;
         
     
     Company(int x, String a, String b, String c, String d){
@@ -36,6 +35,10 @@ public class Company {
 
     public String getMonth() {
         return this.month;
+    }
+
+    public String getWater() {
+        return this.water;
     }
     
     public void setName(String a) {
@@ -64,17 +67,17 @@ public class Company {
         }else{
             if(Integer.toString(id).length()<2){
             if(name.length()<7){
-                System.out.printf("| ID: %d\t\tCompany: %s\t\tUsage: %s\tMonth: %s\t |\n", id, name, water, month2);
+                System.out.printf("| ID: %d\t\tCompany: %s\t\tUsage: %s\tMonth: %s\t |\n", id, name, water, month);
             } else {
-                System.out.printf("| ID: %d\t\tCompany: %s\tUsage: %s\tMonth: %s\t |\n", id, name, water, month2);
+                System.out.printf("| ID: %d\t\tCompany: %s\tUsage: %s\tMonth: %s\t |\n", id, name, water, month);
             }
         }else{
             if(name.length()<7 && month.equals("September")){
-                System.out.printf("| ID: %d \tCompany: %s\t\tUsage: %s\tMonth: %s |\n", id, name, water, month2);
+                System.out.printf("| ID: %d \tCompany: %s\t\tUsage: %s\tMonth: %s |\n", id, name, water, month);
             } else if(name.length()<7){
-                System.out.printf("| ID: %d \tCompany: %s\t\tUsage: %s\tMonth: %s\t |\n",id, name, water, month2);
+                System.out.printf("| ID: %d \tCompany: %s\t\tUsage: %s\tMonth: %s\t |\n",id, name, water, month);
             } else {
-                System.out.printf("| ID: %d\tCompany: %s\tUsage: %s\tMonth: %s\t |\n", id, name, water, month2);
+                System.out.printf("| ID: %d\tCompany: %s\tUsage: %s\tMonth: %s\t |\n", id, name, water, month);
             }
             
         }

@@ -44,6 +44,9 @@ public class AddDataController implements Initializable, Runnable {
     private TableColumn<Company, String> monthColumn;
 
     @FXML
+    private TableColumn<Company, String> waterColumn;
+
+    @FXML
     private TextField name;
 
     @FXML
@@ -51,6 +54,9 @@ public class AddDataController implements Initializable, Runnable {
 
     @FXML
     private TextField month;
+
+    @FXML
+    private TextField water;
 
     @FXML
     private Button add;
@@ -68,6 +74,8 @@ public class AddDataController implements Initializable, Runnable {
         usageColumn.setCellValueFactory(new PropertyValueFactory<>("usage"));
 
         monthColumn.setCellValueFactory(new PropertyValueFactory<>("month"));
+
+        waterColumn.setCellValueFactory(new PropertyValueFactory<>("water"));
 
         list.getItems().addAll(companies);
 

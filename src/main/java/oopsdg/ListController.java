@@ -42,6 +42,9 @@ public class ListController implements Initializable {
     @FXML
     private TableColumn<Company, String> monthColumn;
 
+    @FXML
+    private TableColumn<Company, String> waterColumn;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -54,6 +57,8 @@ public class ListController implements Initializable {
         usageColumn.setCellValueFactory(new PropertyValueFactory<>("usage"));
 
         monthColumn.setCellValueFactory(new PropertyValueFactory<>("month"));
+
+        waterColumn.setCellValueFactory(new PropertyValueFactory<>("water"));
 
         list.getItems().addAll(companies);
 

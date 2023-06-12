@@ -17,12 +17,13 @@
             <Font name="PT Mono Bold" size="35.0" />
          </font>
       </Text>
-      <TableView fx:id="list" layoutX="226.0" layoutY="352.0" prefHeight="270.0" prefWidth="742.0">
+      <TableView fx:id="list" layoutX="164.0" layoutY="354.0" prefHeight="307.0" prefWidth="898.0">
          <columns>
             <TableColumn fx:id="idColumn" editable="false" prefWidth="83.5" text="ID" />
-            <TableColumn fx:id="nameColumn" prefWidth="236.0" text="Company Name" />
-            <TableColumn fx:id="usageColumn" prefWidth="223.0" text="Usage" />
-            <TableColumn fx:id="monthColumn" prefWidth="170.5" text="Month" />
+            <TableColumn fx:id="nameColumn" prefWidth="209.0" text="Company Name" />
+            <TableColumn fx:id="monthColumn" prefWidth="211.7181396484375" text="Month" />
+            <TableColumn fx:id="usageColumn" prefWidth="198.78192138671875" text="Usage" />
+            <TableColumn fx:id="waterColumn" prefWidth="229.5" text="Water" />
          </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -48,14 +49,14 @@
             <TextField fx:id="id" layoutX="12.0" layoutY="17.0" prefHeight="26.0" prefWidth="464.0" style="-fx-background-color: transparent;" />
          </children>
       </Pane>
-      <Pane layoutX="357.0" layoutY="184.0" prefHeight="45.0" prefWidth="480.0" style="-fx-background-color: #54a1b2;">
+      <Pane layoutX="357.0" layoutY="184.0" prefHeight="45.0" prefWidth="235.0" style="-fx-background-color: #54a1b2;">
          <children>
             <Text layoutX="10.0" layoutY="15.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Usage">
                <font>
                   <Font size="12.0" />
                </font>
             </Text>
-            <TextField fx:id="usage" layoutX="12.0" layoutY="17.0" prefHeight="26.0" prefWidth="464.0" style="-fx-background-color: transparent;" />
+            <TextField fx:id="usage" layoutX="12.0" layoutY="17.0" prefHeight="26.0" prefWidth="222.0" style="-fx-background-color: transparent;" />
          </children>
       </Pane>
       <Pane layoutX="357.0" layoutY="234.0" prefHeight="45.0" prefWidth="480.0" style="-fx-background-color: #54a1b2;">
@@ -77,11 +78,21 @@
             </ImageView>
          </graphic>
       </Button>
-      <Text fx:id="warningMessage" fill="#861a1a" layoutX="357.0" layoutY="337.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="480.00000000000006">
+      <Text fx:id="warningMessage" fill="#861a1a" layoutX="357.0" layoutY="356.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="480.00000000000006">
          <font>
             <Font size="15.0" />
          </font>
       </Text>
-      <Button fx:id="modify" layoutX="506.0" layoutY="288.0" mnemonicParsing="false" onAction="#editData" prefHeight="26.0" prefWidth="182.0" style="-fx-background-color: #4169E1;" text="Update" />
+      <Button fx:id="modify" layoutX="501.0" layoutY="298.0" mnemonicParsing="false" onAction="#editData" prefHeight="26.0" prefWidth="182.0" style="-fx-background-color: #4169E1;" text="Update" />
+      <Pane layoutX="602.0" layoutY="184.0" prefHeight="45.0" prefWidth="235.0" style="-fx-background-color: #54a1b2;">
+         <children>
+            <Text layoutX="10.0" layoutY="15.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Water">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Text>
+            <TextField fx:id="water" layoutX="12.0" layoutY="17.0" prefHeight="26.0" prefWidth="225.0" style="-fx-background-color: transparent;" />
+         </children>
+      </Pane>
    </children>
 </Pane>

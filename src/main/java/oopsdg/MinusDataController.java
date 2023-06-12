@@ -45,6 +45,9 @@ public class MinusDataController implements Initializable {
     private TableColumn<Company, String> monthColumn;
 
     @FXML
+    private TableColumn<Company, String> waterColumn;
+
+    @FXML
     private TextField name;
 
     @FXML
@@ -65,6 +68,8 @@ public class MinusDataController implements Initializable {
         usageColumn.setCellValueFactory(new PropertyValueFactory<>("usage"));
 
         monthColumn.setCellValueFactory(new PropertyValueFactory<>("month"));
+                
+        waterColumn.setCellValueFactory(new PropertyValueFactory<>("water"));
 
         list.getItems().addAll(companies);
         
@@ -78,7 +83,7 @@ public class MinusDataController implements Initializable {
                 name.setPromptText("Enter Company ID");
                 ObservableList<Company> companies = FXCollections.observableArrayList(Initializer.cList); 
                 list.getItems().addAll(companies);
-                Helper.showFloatingToast(stage, "Company " + ID + " uccessfully deleted", null);
+                Helper.showFloatingToast(stage, "Company with ID:" + ID + " successfully deleted", null);
                            
             }
             

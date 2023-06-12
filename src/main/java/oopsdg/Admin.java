@@ -360,12 +360,13 @@ public class Admin extends User {
         }
     }
 
-    public static void guiUpdateCompany(int ID, String name, String usage, String month) {
+    public static void guiUpdateCompany(int ID, String name, String usage, String month, String water) {
         for (Company x : Initializer.cList) {
             if (ID == x.getID()) {
                 x.name = name;
                 x.usage = usage;
                 x.month = month;
+                x.water = water;
             }
         }
     }
