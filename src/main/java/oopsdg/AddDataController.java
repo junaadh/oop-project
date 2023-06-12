@@ -17,10 +17,9 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class EditDataController implements Initializable {
+public class AddDataController implements Initializable, Runnable {
 
     private Parent root;
     private Scene scene;
@@ -48,19 +47,13 @@ public class EditDataController implements Initializable {
     private TextField name;
 
     @FXML
-    private TextField id;
-
-    @FXML
     private TextField usage;
 
     @FXML
     private TextField month;
 
     @FXML
-    private Button modify;
-
-    @FXML
-    private Text warningMessage;
+    private Button add;
 
     ObservableList<Company> companies = FXCollections.observableArrayList(Initializer.cList);
 
@@ -80,17 +73,11 @@ public class EditDataController implements Initializable {
 
     }
 
-    public void editData() {
-        try {
-            int ID = Integer.parseInt(id.getText());
-            Admin.guiUpdateCompany(ID, name.getText(), usage.getText(), month.getText());
-            Helper.showFloatingToast(stage, name.getText() + "with ID:" + ID + " has been updated successfully", null);
-            list.getItems().clear();
-            list.getItems().addAll(companies);
-            
-        } catch (NumberFormatException e) {
-            warningMessage.setText("*ID can only be a number");
-        }
+    public void addData() {
+        Admin.guiAddCompany(name.getText(), usage.getText(), month.getText());
+        Helper.showFloatingToast(stage, name.getText() + " has been added as company", null);
+        // list.getItems().clear();
+        // list.getItems().addAll(companies);
     }
 
     public void switchBack(ActionEvent e) throws IOException {
@@ -111,6 +98,11 @@ public class EditDataController implements Initializable {
         stage.setScene(scene);
         stage.show();
 
+    }
+
+    @Override
+    public void run() {
+        
     }
     
 }

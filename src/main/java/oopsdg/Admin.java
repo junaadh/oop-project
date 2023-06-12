@@ -230,6 +230,22 @@ public class Admin extends User {
 
     }
 
+    public static void guiAddAdmin(String firstname, String lastname, String username, String password) {
+        String adminInfo;
+        String accessLevel = "$";
+
+        adminInfo = firstname + "," + lastname + "," + username + "," + password + "," + accessLevel;
+
+        try {
+            FileWriter fileWriter = new FileWriter("src/main/java/oopsdg/data/adminData.txt", true);
+            fileWriter.write(adminInfo + "\n");
+            fileWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
     public static void delUser() {
         Map<String, User> user_map = FileHandler.loadUser();
         String firstName, lastName, userName, password, userInfo;
@@ -316,6 +332,11 @@ public class Admin extends User {
         String c = Initializer.sc.nextLine();
         Initializer.cList = Arrays.copyOf(Initializer.cList, Initializer.cList.length + 1);
         Initializer.cList[Initializer.cList.length - 1] = new Company(Initializer.cList.length, a, b, c);
+    }
+
+    public static void guiAddCompany(String companyName, String usage, String month) {
+        Initializer.cList = Arrays.copyOf(Initializer.cList, Initializer.cList.length + 1);
+        Initializer.cList[Initializer.cList.length - 1] = new Company(Initializer.cList.length, companyName, usage, month);
     }
 
     public static void updateCompany() {

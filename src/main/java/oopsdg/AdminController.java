@@ -50,7 +50,13 @@ public class AdminController implements Initializable {
     private Button editDataButton;
 
     @FXML
-    private Button suButton;
+    private ToggleButton suButton;
+
+    @FXML
+    private Button addAdminButton;
+
+    @FXML
+    private Button delUserButton;
 
     @FXML
     private Button logoutButton;
@@ -82,8 +88,29 @@ public class AdminController implements Initializable {
         }
     }
 
+    public void suMode(ActionEvent e) throws IOException {
+        if (suButton.isSelected()) {
+            addAdminButton.setDisable(false);
+            delUserButton.setDisable(false);
+            
+            Helper.fadeAndTranslate(addAdminButton, 500, 500, 0.0, -70, 0.0, 1.0);
+            Helper.fadeAndTranslate(delUserButton, 500, 500, 0.0, 125, 0.0, 1.0);
+
+        } else {
+            addAdminButton.setDisable(true);
+            delUserButton.setDisable(true);
+            
+            Helper.translateAndFade(addAdminButton, 500, 500, 0.0, 70, 1.0, 0.0);
+            Helper.translateAndFade(delUserButton, 500, 500, 0.0, -125, 1.0, 0.0);
+        }
+    }
+
     public void addData(ActionEvent e) throws IOException {
-        System.out.println("add Data");
+        root = FXMLLoader.load(getClass().getResource("addData.fxml"));
+        stage = (Stage) ((Node)e.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
     public void minusData(ActionEvent e) throws IOException {

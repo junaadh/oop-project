@@ -53,7 +53,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="monthButton" alignment="BOTTOM_CENTER" contentDisplay="TOP" graphicTextGap="1.0" layoutX="420.0" layoutY="500.0" maxWidth="80.0" minWidth="80.0" mnemonicParsing="false" onAction="#switchToListByCompany" prefWidth="80.0" style="-fx-background-color: transparent;" text="Search By Month" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+      <Button fx:id="monthButton" alignment="BOTTOM_CENTER" contentDisplay="TOP" graphicTextGap="1.0" layoutX="420.0" layoutY="500.0" maxWidth="80.0" minWidth="80.0" mnemonicParsing="false" onAction="#switchToListByMonth" prefWidth="80.0" style="-fx-background-color: transparent;" text="Search By Month" textAlignment="CENTER" textFill="WHITE" wrapText="true">
          <graphic>
             <ImageView fitHeight="96.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -76,15 +76,6 @@
             <ImageView fitHeight="96.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/logout.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
-      <Button fx:id="suButton" alignment="BOTTOM_CENTER" contentDisplay="TOP" graphicTextGap="1.0" layoutX="870.0" layoutY="500.0" maxWidth="80.0" minWidth="80.0" mnemonicParsing="false" prefWidth="80.0" style="-fx-background-color: transparent;" text="Super User" textAlignment="CENTER" textFill="WHITE" wrapText="true">
-         <graphic>
-            <ImageView fitHeight="96.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@assets/su.png" />
                </image>
             </ImageView>
          </graphic>
@@ -130,6 +121,33 @@
             <ImageView fitHeight="80.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/editor.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </ToggleButton>
+      <Button fx:id="addAdminButton" alignment="TOP_CENTER" contentDisplay="TOP" disable="true" graphicTextGap="1.0" layoutX="870.0" layoutY="500.0" maxWidth="80.0" minWidth="80.0" mnemonicParsing="false" opacity="0.0" prefWidth="80.0" style="-fx-background-color: transparent;" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+         <graphic>
+            <ImageView fitHeight="96.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/addAdmin.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="delUserButton" alignment="TOP_CENTER" contentDisplay="TOP" disable="true" graphicTextGap="1.0" layoutX="870.0" layoutY="500.0" maxWidth="80.0" minWidth="80.0" mnemonicParsing="false" opacity="0.0" prefWidth="80.0" style="-fx-background-color: transparent;" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+         <graphic>
+            <ImageView fitHeight="96.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/delUser.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <ToggleButton fx:id="suButton" alignment="TOP_CENTER" contentDisplay="TOP" layoutX="870.0" layoutY="500.0" maxWidth="80.0" minWidth="80.0" mnemonicParsing="false" onAction="#suMode" prefWidth="80.0" style="-fx-background-color: transparent;" text="Super Admin Mode" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+         <graphic>
+            <ImageView fitHeight="150.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/su.png" />
                </image>
             </ImageView>
          </graphic>

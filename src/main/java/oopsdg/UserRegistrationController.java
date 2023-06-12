@@ -1,11 +1,15 @@
 package oopsdg;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.Map;
+import java.util.ResourceBundle;
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -13,10 +17,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class UserRegistrationController {
+public class UserRegistrationController implements Initializable{
 
     private Parent root;
     private Scene scene;
@@ -40,14 +45,56 @@ public class UserRegistrationController {
 
     @FXML
     private Button menuButton;
-
+    
     @FXML
     private Text errorMessage;
-
+    
     @FXML
     private Hyperlink login;
+    
+    @FXML
+    private ImageView correct;
+    
+    @FXML
+    private ImageView wrong;
+
+    private volatile boolean loopRun = true;
+    private volatile Map<String, User> usermap = FileHandler.loadUser();
+
+    
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        wrong.setVisible(true);
+        loopRun = true;
+        loopthread();
+    }
+
+    private void loopthread() {
+        Thread thread = new Thread(() -> {
+            while (loopRun) {
+                if (usermap.containsKey(username.getText())) {
+                    correct.setVisible(false);
+                    wrong.setVisible(true);
+                } else {
+                    wrong.setVisible(false);
+                    correct.setVisible(true);
+                }
+                if (Thread.currentThread().isInterrupted()) {
+                    loopRun = false;
+                }
+                try {
+                    Thread.sleep(300);
+                } catch (InterruptedException e) {
+                    loopRun = false;
+                    //Thread.currentThread().interrupt;
+                }
+            }
+        });
+        thread.start();
+    }
 
     public void switchToLogin(ActionEvent e) throws IOException {
+        loopRun = false;
         root = FXMLLoader.load(getClass().getResource("userLogin.fxml"));
         stage = (Stage) ((Node)e.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -56,6 +103,7 @@ public class UserRegistrationController {
     }
 
     public void switchToWelcome(ActionEvent e) throws IOException {
+        loopRun = false;
         root = FXMLLoader.load(getClass().getResource("welcome.fxml"));
         stage = (Stage) ((Node)e.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -123,6 +171,7 @@ public class UserRegistrationController {
                     registrationThread.join();
                     // Registration is complete, perform UI updates
                     Platform.runLater(() -> {
+                        loopRun = false;
                         try {
                             root = FXMLLoader.load(getClass().getResource("user.fxml"));
                             stage = (Stage)((Node) e.getSource()).getScene().getWindow();
@@ -146,5 +195,6 @@ public class UserRegistrationController {
         }
     }
 }
+
 
 }
