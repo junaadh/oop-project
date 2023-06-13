@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.web.WebView?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1220.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oopsdg.SdgController">
+   <center>
+      <WebView fx:id="webview" prefHeight="-1.0" prefWidth="-1.0" BorderPane.alignment="CENTER" />
+   </center>
+   <bottom>
+      <ButtonBar prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: linear-gradient(from 63.1829% 21.8527% to 73.3967% 84.323%, #4aa7be 0.0%, #7400e9 100.0%);" BorderPane.alignment="CENTER">
+        <buttons>
+          <Button fx:id="backButton" mnemonicParsing="false" onAction="#goBack" text="Back" />
+            <Button fx:id="aboutButton" alignment="CENTER" mnemonicParsing="false" onAction="#switchToWelcome" text="About Us" />
+        </buttons>
+      </ButtonBar>
+   </bottom>
+</BorderPane>
