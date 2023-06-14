@@ -2,12 +2,12 @@ package oopsdg;
 
 import javafx.application.Platform;
 
-public class EnergyMonitor{
-    // made by zameer
+public class ConsoleMonitor{
+    // @made by zameer
 
  
 
-    public static void StartEngine() {
+    public static void Launch() {
     Helper.BigWelcome();
     do {
         Helper.mainPrompt();

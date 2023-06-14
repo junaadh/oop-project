@@ -6,6 +6,17 @@ import java.io.IOException;
 import java.util.Map;
 
 //@author LIO WEI XIANG
+
+/*
+ * This User file contains the User class. The User class
+ * is an integral part of the program, since it defines
+ * the attributes and functions that is accessible for the
+ * public people account. There are several important methods
+ * here. Func() is used for console logic of public user, 
+ * which slightly differ with Admin Func(). The Admin in
+ * the Func() can edit data, while public people as User 
+ * cannot edit data.
+ */
 public class User {
 
     public static int version = 1;
@@ -157,7 +168,6 @@ public class User {
     }
 
     public static void Func() {
-        // Initializer.status = 0;
         int status = 1;
         while (status == 1) {
             Helper.funcPrompt("");

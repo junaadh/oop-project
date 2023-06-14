@@ -70,10 +70,6 @@ public class Helper {
     }
 
     public static void BigWelcome() {
-    //Initializer.adminMap.put("Admin", "Admin");
-    //Initializer.adminMap.put("Arell", "IsCool");
-    //Initializer.adminMap.put("Ahmad", "IsNotCool");
-    // System.out.println("\n-------------------------------------------------\n|\tWelcome to Climate Change Monitor\t|\n-------------------------------------------------");
     System.out.println("\n\n\n\n#################################################\n#                                               #\n#\tWelcome to Climate Change Monitor\t#\n#                                               #\n#################################################\n\n\n");
     }
     

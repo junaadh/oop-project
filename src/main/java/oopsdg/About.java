@@ -1,6 +1,12 @@
 package oopsdg;
 
 //@author leron
+
+/*This is the about class file, which contain methods to run the about page in console
+when you press "?". It will prompt for an input, and depending on the input,
+it will show you informations about climate change itself, or the program,
+or information about us, the team who made this program.
+*/
 public class About {
     public static void Func() {
         Helper.clearScreen();

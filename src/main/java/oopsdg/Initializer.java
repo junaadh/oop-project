@@ -1,11 +1,18 @@
 package oopsdg;
 
 //import java.util.HashMap;
+/* This is the Initializer file, which help initialize several
+key variables that will be used alot in the program, so that
+we don't need to do extra work or repeat codes. It also fill
+the cList array with company datas. This cList is an integral 
+part of the program, since all the company data is derived from
+this cList if it wants to be displayed in table console or GUI.
+ * 
+ */
 import java.util.Scanner;
 
 public class Initializer {
     public static int appStatus = 1;
-    // public static HashMap<String,String> adminMap = new HashMap<String,String>();
     public static Scanner sc = new Scanner(System.in);
     public static boolean isEnergy = true;
 

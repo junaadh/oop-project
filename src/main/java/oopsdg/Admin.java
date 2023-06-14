@@ -15,7 +15,7 @@ import java.util.Scanner;
  * @author Sheridan Sai
  */
 public class Admin extends User {
-    private String accessLevel; // # for superuser and $ for normal admin
+    private String accessLevel; // # for super admin and $ for normal admin
 
     public Admin(String[] parts) {
         super(parts);
@@ -62,8 +62,8 @@ public class Admin extends User {
                             String wattUsed = a.usage.split(" ")[1];
                             if (energyUsage > 100 && wattUsed.equals("Gigawatt")) {
                             } else {
-                                double waterUsage = Double.parseDouble(a.usage.split(" ")[0]);
-                                String gallonUsed = a.usage.split(" ")[1];
+                                double waterUsage = Double.parseDouble(a.water.split(" ")[0]);
+                                String gallonUsed = a.water.split(" ")[1];
                                 if (waterUsage > 100 && gallonUsed.equals("Gallon")) {
                                     Helper.exceedList(a, mode);
                                 }
@@ -117,8 +117,8 @@ public class Admin extends User {
                             String wattUsed = a.usage.split(" ")[1];
                             if (energyUsage > 100 && wattUsed.equals("Gigawatt")) {
                             } else {
-                                double waterUsage = Double.parseDouble(a.usage.split(" ")[0]);
-                                String gallonUsed = a.usage.split(" ")[1];
+                                double waterUsage = Double.parseDouble(a.water.split(" ")[0]);
+                                String gallonUsed = a.water.split(" ")[1];
                                 if (waterUsage > 100 && gallonUsed.equals("Gallon")) {
                                     Helper.exceedList(a, mode);
                                 }
@@ -209,11 +209,6 @@ public class Admin extends User {
         if (in.equals("n")) {
             return;
         }
-        // switch (accessLevel) {
-        // case "$":
-        // case "#":
-        // break;
-        // }
 
         adminInfo = firstName + "," + lastName + "," + userName + "," + password + "," + accessLevel;
         Helper.clearScreen();
@@ -365,12 +360,12 @@ public class Admin extends User {
         Helper.clearScreen();
         System.out.println("\nCompany name: ");
         String a = Initializer.sc.nextLine();
-        System.out.println("Usage: ");
+        System.out.println("Energy: ");
         String b = Initializer.sc.nextLine();
-        System.out.println("Month: ");
-        String c = Initializer.sc.nextLine();
         System.out.println("Water: ");
         String d = Initializer.sc.nextLine();
+        System.out.println("Month: ");
+        String c = Initializer.sc.nextLine();
         Initializer.cList = Arrays.copyOf(Initializer.cList, Initializer.cList.length + 1);
         Initializer.cList[Initializer.cList.length - 1] = new Company(Initializer.cList.length, a, b, c, d);
     }
@@ -389,13 +384,16 @@ public class Admin extends User {
         y = Initializer.sc.nextLine();
         System.out.println("\nEnergy usage:");
         String c = Initializer.sc.nextLine();
-        System.out.println("\nMonth:");
+        System.out.println("\nWater usage:");
         String d = Initializer.sc.nextLine();
+        System.out.println("\nMonth:");
+        String e = Initializer.sc.nextLine();
         for (Company x : Initializer.cList) {
             if (a == x.getID()) {
                 x.name = y;
                 x.usage = c;
-                x.month = d;
+                x.water = d;
+                x.month = e;
             }
         }
     }

@@ -1,7 +1,14 @@
 package oopsdg;
 
 //@author leron
-//lerons part part file handler//
+//lerons part part file handler
+
+/*
+ * This is the filehandler, which has methods that helps
+ * the program in retrieving data from respective txt file
+ * that contain credentials.
+ */
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.HashMap;

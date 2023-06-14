@@ -2,6 +2,11 @@ package oopsdg;
 /**
  *
  * @author Sheridan Sai
+ * 
+ * This is the company class file. It defines the attributes of company
+  which data we store and process in this program. It has several attributes,
+  and several method. The company is then constructed in Initializer file inside
+  the cList, and the data will be loaded in several places.
  */
 public class Company {
     int id;
