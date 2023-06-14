@@ -5,7 +5,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Map;
 
-
 //@author LIO WEI XIANG
 public class User {
 
@@ -13,7 +12,7 @@ public class User {
     public String firstName, lastName, userName, password;
     public String name = "Public Civilians";
     public static String desc = "The class USER represent all kinds of public user of the system, however, specifically for general people.";
-    
+
     public User(String[] parts) {
         firstName = parts[0];
         lastName = parts[1];
@@ -103,7 +102,7 @@ public class User {
 
         System.out.println("\nDo you agree with the Terms and Condition Agreement? (Y/N)");
         String in = Initializer.sc.nextLine().toLowerCase();
-        if (in.equals("n")){
+        if (in.equals("n")) {
             return;
         }
 
@@ -127,7 +126,7 @@ public class User {
     public static void guiRegister(String firstName, String lastName, String username, String password) {
         String userInfo = firstName + "," + lastName + "," + username + "," + password + "\n";
         try {
-            FileWriter fileWriter = new FileWriter("src/main/java/oopsdg/data/userData.txt", true);
+            FileWriter fileWriter = new FileWriter("src/main/resources/oopsdg/data/userData.txt", true);
             fileWriter.write(userInfo);
             fileWriter.close();
 
@@ -183,13 +182,13 @@ public class User {
                     Helper.displaySortedByMonth(mode);
                     break;
                 case "!":
-                Helper.clearScreen();
+                    Helper.clearScreen();
                     System.out.println("\n-------------------\n<  !!!WARNING!!!  >\n-------------------");
                     for (Company a : Initializer.cList) {
                         double energyUsage = Double.parseDouble(a.usage.split(" ")[0]);
                         String wattUsed = a.usage.split(" ")[1];
                         if (energyUsage > 100 && wattUsed.equals("Gigawatt")) {
-                            Helper.exceedList(a,mode);
+                            Helper.exceedList(a, mode);
                         }
                     }
                     break;
@@ -199,11 +198,11 @@ public class User {
                     About.Func();
                     break;
                 case "t":
-                Helper.toggleMode();
+                    Helper.toggleMode();
                     break;
-                default :
-                Helper.noKey(x);
-                }
+                default:
+                    Helper.noKey(x);
+            }
 
         }
     }
@@ -248,7 +247,7 @@ public class User {
         return desc;
     }
 
-    public static void Welcome( String firstName, String lastName ){
+    public static void Welcome(String firstName, String lastName) {
         System.out.println("\nSuccessful login.\nWelcome, " + firstName + " " + lastName + ".");
     }
 

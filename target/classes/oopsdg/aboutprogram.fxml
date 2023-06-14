@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1220.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oopsdg.AboutProgramController">
+   <children>
+      <Button fx:id="backButton" layoutX="35.0" layoutY="35.0" mnemonicParsing="false" onAction="#goBack" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: transparent;">
+         <graphic>
+            <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/back.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Text layoutX="539.0" layoutY="686.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Created Using JavaFX">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text fill="#755050" layoutX="2.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" text="About Our Program" textAlignment="CENTER" underline="true" wrappingWidth="1218.2132568359375">
+         <font>
+            <Font name="Arial Bold" size="30.0" />
+         </font>
+      </Text>
+      <Text layoutX="455.0" layoutY="234.0" strokeType="OUTSIDE" strokeWidth="0.0" text="We designed an application that is able to display the electricity usage of companies and the water usage. We believe that information transparency plays a huge role in our fight to protect the climate and to do so we built this platform to provide a medium for governmental agencies to distribute information." textAlignment="CENTER" wrappingWidth="333.21630859375">
+         <font>
+            <Font name="Comic Sans MS" size="20.0" />
+         </font>
+      </Text>
+      <Text layoutX="415.0" layoutY="545.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Our application is built ground up using Java and JavaFX and the runtime versions are 20.0.1 for both. GUI was coded using an open source version of Java Runtime known as Temurin" textAlignment="CENTER" wrappingWidth="406.21630859375">
+         <font>
+            <Font name="Comic Sans MS" size="17.0" />
+         </font>
+      </Text>
+   </children>
+</Pane>

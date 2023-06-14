@@ -128,7 +128,7 @@ public class Admin extends User {
                     }
                 } else if (x.equals("t")) {
                     Helper.toggleMode();
-                }else if (x.equals("?")) {
+                } else if (x.equals("?")) {
                     About.Func();
                 } else {
                     Helper.clearScreen();
@@ -220,7 +220,7 @@ public class Admin extends User {
         System.out.println(firstName + " " + lastName + " has successfully become admin.");
 
         try {
-            FileWriter fileWriter = new FileWriter("src/main/java/oopsdg/data/adminData.txt", true);
+            FileWriter fileWriter = new FileWriter("src/main/resources/oopsdg/data/adminData.txt", true);
             fileWriter.write(adminInfo + "\n");
             fileWriter.close();
         } catch (IOException e) {
@@ -237,7 +237,7 @@ public class Admin extends User {
         adminInfo = firstname + "," + lastname + "," + username + "," + password + "," + accessLevel;
 
         try {
-            FileWriter fileWriter = new FileWriter("src/main/java/oopsdg/data/adminData.txt", true);
+            FileWriter fileWriter = new FileWriter("src/main/resources/oopsdg/data/adminData.txt", true);
             fileWriter.write(adminInfo + "\n");
             fileWriter.close();
         } catch (IOException e) {
@@ -266,10 +266,10 @@ public class Admin extends User {
         userInfo = firstName + "," + lastName + "," + userName + "," + password;
 
         try {
-            Path inputPath = Path.of("src/main/java/oopsdg/data/userData.txt");
+            Path inputPath = Path.of("src/main/resources/oopsdg/data/userData.txt");
             Path tempPath = Path.of("src/main/java/oopsdg/data/temp.txt");
 
-            Scanner reader = new Scanner(new File("src/main/java/oopsdg/data/userData.txt"));
+            Scanner reader = new Scanner(new File("src/main/resources/oopsdg/data/userData.txt"));
             FileWriter writer = new FileWriter("src/main/java/oopsdg/data/temp.txt");
             String line;
 
@@ -295,7 +295,7 @@ public class Admin extends User {
 
     }
 
-    public static void guiDelUser( String username ) {
+    public static void guiDelUser(String username) {
         Map<String, User> user_map = FileHandler.loadUser();
         String userInfo;
 
@@ -307,10 +307,10 @@ public class Admin extends User {
         userInfo = un.firstName + "," + un.lastName + "," + username + "," + un.password;
 
         try {
-            Path inputPath = Path.of("src/main/java/oopsdg/data/userData.txt");
+            Path inputPath = Path.of("src/main/resources/oopsdg/data/userData.txt");
             Path tempPath = Path.of("src/main/java/oopsdg/data/temp.txt");
 
-            Scanner reader = new Scanner(new File("src/main/java/oopsdg/data/userData.txt"));
+            Scanner reader = new Scanner(new File("src/main/resources/oopsdg/data/userData.txt"));
             FileWriter writer = new FileWriter("src/main/java/oopsdg/data/temp.txt");
             String line;
 
@@ -372,12 +372,13 @@ public class Admin extends User {
         System.out.println("Water: ");
         String d = Initializer.sc.nextLine();
         Initializer.cList = Arrays.copyOf(Initializer.cList, Initializer.cList.length + 1);
-        Initializer.cList[Initializer.cList.length - 1] = new Company(Initializer.cList.length, a, b, c,d);
+        Initializer.cList[Initializer.cList.length - 1] = new Company(Initializer.cList.length, a, b, c, d);
     }
 
     public static void guiAddCompany(String companyName, String usage, String month, String water) {
         Initializer.cList = Arrays.copyOf(Initializer.cList, Initializer.cList.length + 1);
-        Initializer.cList[Initializer.cList.length - 1] = new Company(Initializer.cList.length, companyName, usage, month, water);
+        Initializer.cList[Initializer.cList.length - 1] = new Company(Initializer.cList.length, companyName, usage,
+                month, water);
     }
 
     public static void updateCompany() {

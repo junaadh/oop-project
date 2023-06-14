@@ -43,7 +43,7 @@ public class SdgController implements Initializable {
     }
     
     public void switchToWelcome(ActionEvent e) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("welcome.fxml"));
+        root = FXMLLoader.load(getClass().getResource("credits.fxml"));
         stage = (Stage)((Node) e.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

@@ -13,7 +13,7 @@ public class FileHandler {
     public static Map<String, User> loadUser() {
         Map<String, User> user_map = new HashMap<String, User>();
         try {
-            Scanner data_store = new Scanner(new File("src/main/java/oopsdg/data/userData.txt"));
+            Scanner data_store = new Scanner(new File("src/main/resources/oopsdg/data/userData.txt"));
 
             while (data_store.hasNextLine()) {
                 String[] splitString = data_store.nextLine().split(",");
@@ -29,7 +29,7 @@ public class FileHandler {
     public static Map<String, Admin> loadAdmin() {
         Map<String, Admin> mod_map = new HashMap<String, Admin>();
         try {
-            Scanner mod_list = new Scanner(new File("src/main/java/oopsdg/data/adminData.txt"));
+            Scanner mod_list = new Scanner(new File("src/main/resources/oopsdg/data/adminData.txt"));
 
             while (mod_list.hasNextLine()) {
                 String[] modString = mod_list.nextLine().split(",");

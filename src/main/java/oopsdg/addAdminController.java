@@ -91,9 +91,13 @@ public class AddAdminController implements Initializable {
     }
 
     public void addAdmin(ActionEvent e) throws IOException {
-        Admin.guiAddAdmin(firstname.getText(), lastname.getText(), username.getText(), password.getText());
-        Helper.showFloatingToast(stage, firstname.getText() + " " + lastname.getText() + " has been added", null);
-        switchBack(e);
+        if (password.getText().length() >= 6) {
+            Admin.guiAddAdmin(firstname.getText(), lastname.getText(), username.getText(), password.getText());
+            Helper.showFloatingToast(stage, firstname.getText() + " " + lastname.getText() + " has been added", null);
+            switchBack(e);
+        } else {
+            Helper.showFloatingToast(stage, "*password cannot be less than 6 digits", null);
+        }
     }
 
     public void switchBack(ActionEvent e) throws IOException {

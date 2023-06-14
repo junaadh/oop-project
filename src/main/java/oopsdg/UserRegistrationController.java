@@ -63,6 +63,7 @@ public class UserRegistrationController implements Initializable{
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        registerButton.setDisable(true);
         loopRun = true;
         loopthread();
     }
@@ -74,9 +75,11 @@ public class UserRegistrationController implements Initializable{
                     if (usermap.containsKey(username.getText())) {
                         correct.setVisible(false);
                         wrong.setVisible(true);
+                        registerButton.setDisable(true);
                     } else {
                         wrong.setVisible(false);
                         correct.setVisible(true);
+                        registerButton.setDisable(false);
                     }
                 }
                 if (Thread.currentThread().isInterrupted()) {

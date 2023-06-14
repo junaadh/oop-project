@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1220.0" style="-fx-background-color: linear-gradient(from 63.1829% 21.8527% to 73.3967% 84.323%, #4aa7be 0.0%, #7400e9 100.0%);" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oopsdg.CreditsController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1220.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oopsdg.CreditsController">
    <children>
       <Button fx:id="backButton" layoutX="35.0" layoutY="35.0" mnemonicParsing="false" onAction="#switchToWelcome" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: transparent;">
          <graphic>
@@ -23,13 +23,35 @@
             <Font size="16.0" />
          </font>
       </Text>
-      <Button fx:id="teamButton" layoutX="243.0" layoutY="522.0" mnemonicParsing="false" style="-fx-background-color: purple;" text="Our Team" textFill="WHITE" />
-      <Button fx:id="programButton" layoutX="896.0" layoutY="521.0" mnemonicParsing="false" style="-fx-background-color: purple;" text="About The program" textFill="WHITE" />
-      <Button fx:id="sdgButton" layoutX="563.0" layoutY="522.0" mnemonicParsing="false" onAction="#switchToSdg" style="-fx-background-color: purple;" text="About SDG13" textFill="WHITE" />
-      <ImageView fitHeight="401.0" fitWidth="722.0" layoutX="284.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@assets/about.png" />
-         </image>
-      </ImageView>
+      <Button fx:id="teamButton" layoutX="184.0" layoutY="455.0" mnemonicParsing="false" onAction="#switchToTeam" style="-fx-background-color: transparent;" textFill="WHITE">
+         <graphic>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/team.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="programButton" layoutX="914.0" layoutY="456.0" mnemonicParsing="false" onAction="#switchToProgram" style="-fx-background-color: transparent;" textFill="WHITE">
+         <graphic>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/program.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="sdgButton" layoutX="539.0" layoutY="451.0" mnemonicParsing="false" onAction="#switchToSdg" style="-fx-background-color: transparent;" textFill="WHITE">
+         <graphic>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/climate.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Text fill="#755050" layoutX="2.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to Information Page" textAlignment="CENTER" underline="true" wrappingWidth="1218.2132568359375">
+         <font>
+            <Font name="Arial Bold" size="30.0" />
+         </font>
+      </Text>
+      <Text layoutX="-4.0" layoutY="292.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="1222.2813720703125" />
    </children>
 </Pane>
