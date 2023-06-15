@@ -5,11 +5,13 @@ package oopsdg;
  */
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 public class GUIMonitor extends Application {
 
@@ -20,6 +22,10 @@ public class GUIMonitor extends Application {
         Scene welcomeScene = new Scene(welcomeRoot, 1220, 720);
 
         Image icon = new Image(getClass().getResource("assets/world.png").toExternalForm());
+        stage.setOnCloseRequest((WindowEvent w) -> {
+            Platform.exit();
+            System.exit(0);
+        });
         stage.setResizable(false);
         stage.setTitle("EcoWatcher");
         stage.setScene(welcomeScene);
