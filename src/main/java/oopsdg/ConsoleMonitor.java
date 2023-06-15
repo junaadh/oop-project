@@ -5,7 +5,13 @@ import javafx.application.Platform;
 public class ConsoleMonitor{
     // @made by zameer
 
- 
+ /*
+  * This is the ConsoleMonitor, the crucial module that is played
+  out when you want to run the monitor in console mode. It has a
+  while loop that let the process run indefinitely until user 
+  input q for quit. A version of this is played out in GUIMonitor,
+  for the GUI version that used JavaFX
+  */
 
     public static void Launch() {
     Helper.BigWelcome();

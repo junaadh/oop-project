@@ -170,8 +170,8 @@ public class User {
     public static void Func() {
         int status = 1;
         while (status == 1) {
-            Helper.funcPrompt("");
             boolean mode = Initializer.isEnergy;
+            Helper.funcPrompt("",mode);
             String x = Initializer.sc.nextLine().toLowerCase();
             switch (x) {
                 case "o":
@@ -208,6 +208,7 @@ public class User {
                     About.Func();
                     break;
                 case "t":
+                    Helper.clearScreen();
                     Helper.toggleMode();
                     break;
                 default:

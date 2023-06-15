@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 /**
@@ -19,9 +20,11 @@ public class GUIMonitor extends Application {
         // WelcomeController welcome = loader.getController();
         // welcome.initialize();
         
+        // Image icon = new Image("src/main/resources/oopsdg/assets/world.png");
         stage.setResizable(false);
-        stage.setTitle("JavaApp");
+        stage.setTitle("EcoWatch");
         stage.setScene(welcomeScene);
+        // stage.getIcons().add(icon);
         stage.show();
 
     }

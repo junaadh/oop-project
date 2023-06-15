@@ -13,6 +13,13 @@ import java.util.Scanner;
 /**
  *
  * @author Sheridan Sai
+ * 
+ * This is the Admin file which contain one of the most important part of
+ * the program. The Admin type in program can do all the things public user
+  type can do, but also editing the files. Furthermore, the Super Admin 
+  type can also access Super Admin mode which can add normal admin. Depending
+  on the access level of the admin when logging in, it will have different
+  function played out.
  */
 public class Admin extends User {
     private String accessLevel; // # for super admin and $ for normal admin
@@ -32,7 +39,7 @@ public class Admin extends User {
             int status = 1;
             while (status == 1) {
                 boolean mode = Initializer.isEnergy;
-                Helper.funcPrompt(level);
+                Helper.funcPrompt(level,mode);
                 String x = Initializer.sc.nextLine().toLowerCase();
                 if (x.equals("o")) {
                     status = 0;
@@ -61,12 +68,13 @@ public class Admin extends User {
                             double energyUsage = Double.parseDouble(a.usage.split(" ")[0]);
                             String wattUsed = a.usage.split(" ")[1];
                             if (energyUsage > 100 && wattUsed.equals("Gigawatt")) {
-                            } else {
-                                double waterUsage = Double.parseDouble(a.water.split(" ")[0]);
-                                String gallonUsed = a.water.split(" ")[1];
-                                if (waterUsage > 100 && gallonUsed.equals("Gallon")) {
-                                    Helper.exceedList(a, mode);
-                                }
+                                Helper.exceedList(a, mode);
+                            }
+                        } else {
+                            double waterUsage = Double.parseDouble(a.water.split(" ")[0]);
+                            String KilotonUsed = a.water.split(" ")[1];
+                            if (waterUsage > 100 && KilotonUsed.equals("Kiloton")) {
+                                Helper.exceedList(a, mode);
                             }
                         }
                     }
@@ -74,6 +82,7 @@ public class Admin extends User {
                     Helper.clearScreen();
                     Admin.suAdminFunc();
                 } else if (x.equals("t")) {
+                    Helper.clearScreen();
                     Helper.toggleMode();
                 } else if (x.equals("?")) {
                     About.Func();
@@ -87,7 +96,7 @@ public class Admin extends User {
             int status = 1;
             while (status == 1) {
                 boolean mode = Initializer.isEnergy;
-                Helper.funcPrompt(level);
+                Helper.funcPrompt(level,mode);
                 String x = Initializer.sc.nextLine().toLowerCase();
                 if (x.equals("o")) {
                     status = 0;
@@ -116,17 +125,19 @@ public class Admin extends User {
                             double energyUsage = Double.parseDouble(a.usage.split(" ")[0]);
                             String wattUsed = a.usage.split(" ")[1];
                             if (energyUsage > 100 && wattUsed.equals("Gigawatt")) {
-                            } else {
-                                double waterUsage = Double.parseDouble(a.water.split(" ")[0]);
-                                String gallonUsed = a.water.split(" ")[1];
-                                if (waterUsage > 100 && gallonUsed.equals("Gallon")) {
-                                    Helper.exceedList(a, mode);
-                                }
-
+                                Helper.exceedList(a, mode);
                             }
+                        } else {
+                            double waterUsage = Double.parseDouble(a.water.split(" ")[0]);
+                            String KilotonUsed = a.water.split(" ")[1];
+                            if (waterUsage > 100 && KilotonUsed.equals("Kiloton")) {
+                                Helper.exceedList(a, mode);
+                            }
+                            
                         }
                     }
                 } else if (x.equals("t")) {
+                    Helper.clearScreen();
                     Helper.toggleMode();
                 } else if (x.equals("?")) {
                     About.Func();
@@ -415,7 +426,8 @@ public class Admin extends User {
         System.out.println("Input ID to delete company:");
         Scanner scanner = new Scanner(System.in);
         int x = scanner.nextInt();
-        scanner.close();
+        // int x = Initializer.sc.nextInt();
+        // scanner.close();
         for (Company c : Initializer.cList) {
             if (x == c.id) {
                 Company[] temp = new Company[Initializer.cList.length - 1];
@@ -437,6 +449,7 @@ public class Admin extends User {
                 return;
             }
         }
+        scanner.close();
         System.out.println("No matching ID!");
     }
 
