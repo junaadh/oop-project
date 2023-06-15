@@ -1,5 +1,9 @@
 package oopsdg;
 
+/**
+ * @author Junaadh
+ */
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -20,10 +24,12 @@ import javafx.stage.Stage;
 
 public class ListController implements Initializable {
 
+    // Initialize root, scene and node to be used to change between GUI scenes
     private Parent root;
     private Scene scene;
     private Stage stage;
 
+    //Inject FXML components to be able to use them in methods
     @FXML
     private TableView<Company> list;
 
@@ -45,11 +51,13 @@ public class ListController implements Initializable {
     @FXML
     private TableColumn<Company, String> waterColumn;
 
+    // Method which runs by default when the scene loads, part of the Initializable interface
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
         ObservableList<Company> companies = FXCollections.observableArrayList(Initializer.cList);
 
+        // Set the column names in the TableView TableColumn element using CellValueFactory
         idColumn.setCellValueFactory(new PropertyValueFactory<>("ID"));
 
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -64,10 +72,12 @@ public class ListController implements Initializable {
 
     }
 
+    //Method which listens to an Event/ click on the button to which its linked to and changes scene
     public void switchBack(ActionEvent e) throws IOException {
         String text[] = Helper.tempLoginCreds().split(",");
         String fxml = " ";
         
+        // If loop which checks the logged in user type based on the created tmp file and decides which scene to load
         if (text[1].equals("u")) {
             fxml = "user.fxml";
         } else if (text[1].equals("#")) {

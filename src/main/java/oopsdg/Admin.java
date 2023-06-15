@@ -449,7 +449,7 @@ public class Admin extends User {
                 return;
             }
         }
-        scanner.close();
+        // scanner.close();
         System.out.println("No matching ID!");
     }
 

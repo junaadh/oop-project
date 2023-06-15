@@ -54,7 +54,7 @@
             </LinearGradient>
          </fill>
       </Text>
-      <Button fx:id="creditsButton" contentDisplay="GRAPHIC_ONLY" layoutX="585.0" layoutY="500.0" mnemonicParsing="false" onAction="#switchToCredits" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: transparent;">
+      <Button fx:id="creditsButton" contentDisplay="GRAPHIC_ONLY" layoutX="785.0" layoutY="500.0" mnemonicParsing="false" onAction="#switchToCredits" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: transparent;">
          <graphic>
             <ImageView fx:id="creditsIcon" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -62,7 +62,7 @@
                </image></ImageView>
          </graphic>
       </Button>
-      <Button fx:id="adminButton" contentDisplay="GRAPHIC_ONLY" layoutX="785.0" layoutY="500.0" mnemonicParsing="false" onAction="#switchToAdminLogin" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: transparent;">
+      <Button fx:id="adminButton" contentDisplay="GRAPHIC_ONLY" layoutX="585.0" layoutY="500.0" mnemonicParsing="false" onAction="#switchToAdminLogin" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: transparent;">
          <graphic>
             <ImageView fx:id="adminIcon" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                <image>

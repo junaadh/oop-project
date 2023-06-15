@@ -116,18 +116,6 @@ public class Helper {
             tableLine(a);
     }
 
-    // public static DefaultTableModel guiDisplaySortedByComp( String companyName ) {
-    //     Company companies[] = Initializer.cList;
-    //     cTable.setRowCount(0);
-
-    //     for (Company company : companies) {
-    //         if(company.getName().equalsIgnoreCase(companyName)) {
-    //             cTable.addRow(new Object[] {company.getID(), company.getName(), company.getUsage(), company.getMonth()});
-    //         }
-    //     }
-    //     return cTable;
-    // }
-    
     public static void displaySortedByMonth(boolean a) {
         System.out.println("\nMonth: ");
             String b = Initializer.sc.nextLine();
@@ -140,32 +128,6 @@ public class Helper {
             }
             tableLine(a);
     }
-
-    // public static DefaultTableModel guiDisplaySortedByMonth( String month ) {
-    //     Company companies[] = Initializer.cList;
-    //     cTable.setRowCount(0);
-
-    //     for (Company company : companies) {
-    //         if(company.getMonth().equalsIgnoreCase(month)) {
-    //             cTable.addRow(new Object[] {company.getID(), company.getName(), company.getUsage(), company.getMonth()});
-    //         }
-    //     }
-    //     return cTable;
-    // }
-
-    // public static DefaultTableModel guiDisplayMisuse() {
-    //     Company companies[] = Initializer.cList;
-    //     cTable.setRowCount(0);
-
-    //     for (Company company : companies) {
-    //         double energyUsage = Double.parseDouble(company.usage.split(" ")[0]);
-    //         String wattUsed = company.usage.split(" ")[1];
-    //         if (energyUsage > 100 && wattUsed.equals("Gigawatt")) {
-    //             cTable.addRow(new Object[] {company.getID(), company.getName(), company.getUsage(), company.getMonth()});
-    //         }
-    //     }
-    //     return cTable;
-    // }
     
     public static void exceedList(Company a, boolean b) {
         if(b){
@@ -196,6 +158,7 @@ public class Helper {
         }
     }   
 
+    // method which creates a tmp file in system tmp files to stoer user and admin lgin sessions
     public static String tempLoginCreds() {
             try {
                 FileReader fileReader = new FileReader(Helper.tempFile);
@@ -209,6 +172,7 @@ public class Helper {
         return "err";
     }
 
+    // method which gets users full name from adminData.txt
     public static String getFullName( String username ) {
         Map<String, User> user_map = FileHandler.loadUser();
 
@@ -217,6 +181,7 @@ public class Helper {
         return fullname;
     }
 
+    // method which gets admins full name from adminData.txt
     public static String getAdminName( String username ) {
         Map<String, Admin> admin_map = FileHandler.loadAdmin();
 
@@ -226,19 +191,9 @@ public class Helper {
         
     }
 
-    // public static void storeTempLogin( String username ) {
-    //     try {
-    //         Helper.tempFile = File.createTempFile("temp", "txt");
-    //         FileWriter fileWriter = new FileWriter(Helper.tempFile);
-    //         fileWriter.write(username);
-    //         fileWriter.close();
-    //     } catch (IOException e) {
-    //         System.err.println(e.getMessage());
-    //     }
-    // }
-
     private static final int TOAST_DURATION = 3000;
 
+    // method which creates a floating toast message
     public static void showFloatingToast(Stage ownerStage, String message, String cssStyle) {
         Stage toastStage = new Stage();
     
@@ -286,6 +241,7 @@ public class Helper {
         toastStage.show();
     }
 
+    // method which fades and translates object in javafx
     public static void fadeAndTranslate(Button button, double fadeInDuration, double translateDuration,
             double translateX, double translateY, double startOpacity, double endOpacity) {
         // Fade-in animation
@@ -303,6 +259,7 @@ public class Helper {
         fadeTransition.play();
     }
 
+    // method which translates and fades object in javafx
     public static void translateAndFade(Button button, double fadeInDuration, double translateDuration,
             double translateX, double translateY, double startOpacity, double endOpacity) {
         // Fade-in animation
@@ -320,6 +277,7 @@ public class Helper {
         translateTransition.play();
     }
 
+    // creates list filtered by company name 
     public static Company[] filterArrayByColumnName(Company[] array, String selectedValue) {
         List<Company> filteredList = new ArrayList<>();
         for (Company company : array) {
@@ -331,8 +289,7 @@ public class Helper {
         return filteredList.toArray(new Company[0]);
     }
 
-    // private static String[] months = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
-
+    // creates list filtered by month 
     public static Company[] filteredArrayByMonth( Company[] array, String selectedMonth ) {
         List<Company> filteredList = new ArrayList<>();
         for (Company company : array) {
@@ -343,6 +300,7 @@ public class Helper {
         return filteredList.toArray(new Company[0]);
     }   
 
+    // creates list filtered by usage 
     public static Company[] filteredArrayByUsage(Company[] array) {
         List<Company> filteredList = new ArrayList<>();
         for (Company company : array) {

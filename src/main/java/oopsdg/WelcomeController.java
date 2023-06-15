@@ -1,13 +1,13 @@
 package oopsdg;
 
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
+/**
+ * @author Junaadh
+ */
 
+import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -15,12 +15,14 @@ import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
-public class WelcomeController implements Initializable{
+public class WelcomeController {
 
+    // Initialize root, scene and node to be used to change between GUI scenes
     private Stage stage;
     private Scene scene;
     private Parent root;
 
+    //Inject FXML components to be able to use them in methods
     @FXML
     private ImageView userIcon;
 
@@ -39,11 +41,7 @@ public class WelcomeController implements Initializable{
     @FXML
     private Button adminButton;
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-       // Done as per JavaFX Documentation
-    }
-
+    // method to switch to user login scene mapped to button
     public void switchToUserLogin(ActionEvent e) throws IOException {
         root = FXMLLoader.load(getClass().getResource("userLogin.fxml"));
         stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
@@ -52,6 +50,7 @@ public class WelcomeController implements Initializable{
         stage.show();
     }
 
+    // method to switch to about scene mapped to button
     public void switchToCredits(ActionEvent e) throws IOException {
         root = FXMLLoader.load(getClass().getResource("credits.fxml"));
         stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
@@ -60,6 +59,7 @@ public class WelcomeController implements Initializable{
         stage.show();
     }
 
+    // method to switch to admin login scene mapped to button
     public void switchToAdminLogin(ActionEvent e) throws IOException {
         root = FXMLLoader.load(getClass().getResource("adminLogin.fxml"));
         stage = (Stage) ((Node) e.getSource()).getScene().getWindow();

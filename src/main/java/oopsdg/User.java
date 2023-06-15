@@ -59,6 +59,7 @@ public class User {
         }
     }
 
+    // Login method used in GUI
     public static String guiLogin(String username, String password) {
         Map<String, User> user_map = FileHandler.loadUser();
         if (!user_map.containsKey(username)) {
@@ -69,6 +70,7 @@ public class User {
         User un = user_map.get(username);
 
         if ((un.password).equals(password)) {
+            // try catch block which create tml file containing username upon login
             try {
                 Helper.tempFile = File.createTempFile("temp", "txt");
                 FileWriter fileWriter = new FileWriter(Helper.tempFile);
@@ -134,8 +136,11 @@ public class User {
 
     }
 
+    // Method used to register user in GUI
     public static void guiRegister(String firstName, String lastName, String username, String password) {
         String userInfo = firstName + "," + lastName + "," + username + "," + password + "\n";
+
+        //adds user info into userData.txt
         try {
             FileWriter fileWriter = new FileWriter("src/main/resources/oopsdg/data/userData.txt", true);
             fileWriter.write(userInfo);
@@ -145,6 +150,8 @@ public class User {
             System.err.println("An error occured while writing to this file");
             e.printStackTrace();
         }
+
+        // creates tmp file upon registration and login
         try {
             Helper.tempFile = File.createTempFile("temp", "txt");
             FileWriter fileWriter = new FileWriter(Helper.tempFile);

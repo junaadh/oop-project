@@ -23,7 +23,7 @@ import javafx.stage.Stage;
 
 public class AddAdminController implements Initializable {
 
-     // Initialize root, scene and node to be used to change between GUI scenes
+    // Initialize root, scene and node to be used to change between GUI scenes
     private Parent root;
     private Scene scene;
     private Stage stage;
@@ -80,14 +80,14 @@ public class AddAdminController implements Initializable {
                         addButton.setDisable(false);
                     }
                 }
-                if (Thread.currentThread().isInterrupted()) { // if loop which if thread is interuppted ends it
+                if (Thread.currentThread().isInterrupted()) {   // if loop which if thread is interuppted ends it
                     loopRun = false;
                     break;
                 }
 
                 // try catch block to Handle exceptions
                 try {
-                    Thread.sleep(300);
+                    Thread.sleep(300);                  // makes the loop sleep for 300ms to prevent cpu overload
                 } catch (Exception e) {
                     loopRun = false;
                     Thread.currentThread().interrupt();

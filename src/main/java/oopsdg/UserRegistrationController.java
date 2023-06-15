@@ -1,10 +1,13 @@
 package oopsdg;
 
+/**
+ * @author Junaadh
+ */
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.Map;
 import java.util.ResourceBundle;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -22,11 +25,12 @@ import javafx.stage.Stage;
 
 public class UserRegistrationController implements Initializable{
 
+    // Initialize root, scene and node to be used to change between GUI scenes
     private Parent root;
     private Scene scene;
     private Stage stage;
 
-    
+    //Inject FXML components to be able to use them in methods
     @FXML
     private TextField firstName;
 
@@ -57,18 +61,20 @@ public class UserRegistrationController implements Initializable{
     @FXML
     private ImageView wrong;
 
+    // volatile variables which can be accessed by different threads
     private volatile boolean loopRun = true;
     private volatile Map<String, User> usermap = FileHandler.loadUser();
 
-    
+    // Method which runs by default when the scene loads, part of the Initializable interface
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         registerButton.setDisable(true);
         loopRun = true;
-        loopthread();
+        usernameAvilaibiltyChecker();
     }
 
-    private void loopthread() {
+    // Method to create a seperate thread which run in parallel to main thread, which checks username availability in realtime
+    private void usernameAvilaibiltyChecker() {
         Thread thread = new Thread(() -> {
             while (loopRun) {
                 if (!username.getText().isEmpty()) {
@@ -82,20 +88,22 @@ public class UserRegistrationController implements Initializable{
                         registerButton.setDisable(false);
                     }
                 }
-                if (Thread.currentThread().isInterrupted()) {
+                if (Thread.currentThread().isInterrupted()) {       // if loop which if thread is interuppted ends it
                     loopRun = false;
                 }
+                // try catch block to Handle exceptions
                 try {
-                    Thread.sleep(300);
+                    Thread.sleep(300);                       // makes the loop sleep for 300ms to prevent cpu overload
                 } catch (InterruptedException e) {
                     loopRun = false;
-                    //Thread.currentThread().interrupt;
                 }
             }
         });
+        // starts the thread
         thread.start();
     }
 
+    // method to switch to logi scene mapped to a button
     public void switchToLogin(ActionEvent e) throws IOException {
         loopRun = false;
         root = FXMLLoader.load(getClass().getResource("userLogin.fxml"));
@@ -105,6 +113,7 @@ public class UserRegistrationController implements Initializable{
         stage.show();
     }
 
+    // method to switch to welcome scene mapped to a button
     public void switchToWelcome(ActionEvent e) throws IOException {
         loopRun = false;
         root = FXMLLoader.load(getClass().getResource("welcome.fxml"));
@@ -115,8 +124,10 @@ public class UserRegistrationController implements Initializable{
 
     }
 
+    // method which registers user mapped to a button
     public void reegister(ActionEvent e) throws IOException {
 
+        // checks that no fileds are empty and sets warning if empty
         if (firstName.getText().isEmpty()) {
             errorMessage.setText("*First name cannot be left blank");
             Helper.showFloatingToast(stage, "First name cannot be left blank", null);
@@ -131,7 +142,7 @@ public class UserRegistrationController implements Initializable{
             Helper.showFloatingToast(stage, "password cannot be left blank", null);
         } else {
             if (User.guiLogin(username.getText(), null).equals("!username")) {
-                if (password.getText().length() >= 6) {
+                if (password.getText().length() >= 6) {                                                                         // sets password length min 6
                         loopRun = false;
                         User.guiRegister(firstName.getText(), lastName.getText(), username.getText(), password.getText());
                         root = FXMLLoader.load(getClass().getResource("user.fxml"));

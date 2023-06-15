@@ -1,10 +1,10 @@
 package oopsdg;
 
-import java.io.IOException;
 /**
  * @author Junaadh
  */
 
+import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,10 +20,12 @@ import javafx.stage.Stage;
 
 public class userLoginController {
 
+    // Initialize root, scene and node to be used to change between GUI scenes
     private Stage stage;
     private Parent root;
     private Scene scene;
 
+    //Inject FXML components to be able to use them in methods
     @FXML
     private Button loginButton;
 
@@ -42,7 +44,7 @@ public class userLoginController {
     @FXML
     private Hyperlink register;
 
-
+    // method to log user in mapped to a button
     public void switchToUser(ActionEvent e) throws IOException{
         if (username.getText().isEmpty()) {
             errorMessage.setText("*Username field cannot be empty");
@@ -71,6 +73,7 @@ public class userLoginController {
         }
     }
 
+    // method to go back to welcome page mapped to a button
     public void switchToWelcome(ActionEvent e) throws IOException {
         root = FXMLLoader.load(getClass().getResource("welcome.fxml"));
         stage = (Stage)((Node) e.getSource()).getScene().getWindow();
@@ -79,6 +82,7 @@ public class userLoginController {
         stage.show();
     }
 
+    // method to go to user registration scene mapped to a button
     public void switchToRegistration(ActionEvent e) throws IOException {
         root = FXMLLoader.load(getClass().getResource("userRegistration.fxml"));
         stage = (Stage)((Node) e.getSource()).getScene().getWindow();
