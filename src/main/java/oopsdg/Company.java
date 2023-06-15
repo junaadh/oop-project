@@ -11,7 +11,7 @@ package oopsdg;
 public class Company {
     int id;
     String name;
-    String usage;
+    String energy;
     String month;
     String water;
         
@@ -19,7 +19,7 @@ public class Company {
     Company(int x, String a, String b, String c, String d){
         this.id= x;
         this.name=a;
-        this.usage=b;
+        this.energy=b;
         this.month=c;
         this.water=d;
         
@@ -34,8 +34,8 @@ public class Company {
         return this.id;
     }
 
-    public String getUsage() {
-        return this.usage;
+    public String getEnergy() {
+        return this.energy;
     }
 
     public String getMonth() {
@@ -54,19 +54,19 @@ public class Company {
         if (a){
         if(Integer.toString(id).length()<2){
             if(name.length()<7){
-                System.out.printf("| ID: %d\t\tCompany: %s\t\tUsage: %s\tMonth: %s\t |\n", id, name, usage, month);
+                System.out.printf("| ID: %d\t\tCompany: %s\t\tUsage: %s\tMonth: %s\t |\n", id, name, energy, month);
             } else {
-                System.out.printf("| ID: %d\t\tCompany: %s\tUsage: %s\tMonth: %s\t |\n", id, name, usage, month);
+                System.out.printf("| ID: %d\t\tCompany: %s\tUsage: %s\tMonth: %s\t |\n", id, name, energy, month);
             }
         }else{
             if(name.length()<7 && month.equals("September")){
-                System.out.printf("| ID: %d \tCompany: %s\t\tUsage: %s\tMonth: %s |\n", id, name, usage, month);
+                System.out.printf("| ID: %d \tCompany: %s\t\tUsage: %s\tMonth: %s |\n", id, name, energy, month);
             } else if(name.length()>7 && month.equals("September")){
                 System.out.printf("| ID: %d \tCompany: %s\tUsage: %s\tMonth: %s |\n", id, name, water, month);
             } else if(name.length()<7){
-                System.out.printf("| ID: %d \tCompany: %s\t\tUsage: %s\tMonth: %s\t |\n",id, name, usage, month);
+                System.out.printf("| ID: %d \tCompany: %s\t\tUsage: %s\tMonth: %s\t |\n",id, name, energy, month);
             } else {
-                System.out.printf("| ID: %d\tCompany: %s\tUsage: %s\tMonth: %s\t |\n", id, name, usage, month);
+                System.out.printf("| ID: %d\tCompany: %s\tUsage: %s\tMonth: %s\t |\n", id, name, energy, month);
             }
                 
                 

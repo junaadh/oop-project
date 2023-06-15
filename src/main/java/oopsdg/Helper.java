@@ -304,8 +304,8 @@ public class Helper {
     public static Company[] filteredArrayByUsage(Company[] array) {
         List<Company> filteredList = new ArrayList<>();
         for (Company company : array) {
-            double usage = Double.parseDouble(company.getUsage().split(" ")[0]);
-            String watt = company.getUsage().split(" ")[1];
+            double usage = Double.parseDouble(company.getEnergy().split(" ")[0]);
+            String watt = company.getEnergy().split(" ")[1];
             if (usage > 100 && watt.equals("Gigawatt")) {
                 filteredList.add(company);
             }

@@ -23,7 +23,7 @@
             <Font size="16.0" />
          </font>
       </Text>
-      <Text fill="#755050" layoutX="2.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" text="About Our Program" textAlignment="CENTER" underline="true" wrappingWidth="1218.2132568359375">
+      <Text fill="#755050" layoutX="2.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" text="About The Program" textAlignment="CENTER" underline="true" wrappingWidth="1218.2132568359375">
          <font>
             <Font name="Arial Bold" size="30.0" />
          </font>

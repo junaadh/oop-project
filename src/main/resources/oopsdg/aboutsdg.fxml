@@ -10,10 +10,10 @@
       <WebView fx:id="webview" prefHeight="-1.0" prefWidth="-1.0" BorderPane.alignment="CENTER" />
    </center>
    <bottom>
-      <ButtonBar prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: linear-gradient(from 63.1829% 21.8527% to 73.3967% 84.323%, #4aa7be 0.0%, #7400e9 100.0%);" BorderPane.alignment="CENTER">
+      <ButtonBar prefHeight="40.0" prefWidth="200.0"  style="-fx-background-color: linear-gradient(from 63.1829% 21.8527% to 73.3967% 84.323%, #4aa7be 0.0%, #7400e9 100.0%);" BorderPane.alignment="CENTER">
         <buttons>
-          <Button fx:id="backButton" mnemonicParsing="false" onAction="#goBack" text="Back" />
-            <Button fx:id="aboutButton" alignment="CENTER" mnemonicParsing="false" onAction="#switchToWelcome" text="About Us" />
+          <Button fx:id="backButton" layoutX="100" alignment="CENTER" mnemonicParsing="false" onAction="#goBack" text="Previous" />
+            <Button fx:id="aboutButton" alignment="CENTER" mnemonicParsing="false" onAction="#switchToWelcome" text="Exit" />
         </buttons>
       </ButtonBar>
    </bottom>

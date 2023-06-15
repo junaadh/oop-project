@@ -12,7 +12,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1220.0" style="-fx-background-color: linear-gradient(from 63.1829% 21.8527% to 73.3967% 84.323%, #4aa7be 0.0%, #7400e9 100.0%);" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oopsdg.MonthSearchController">
    <children>
-      <Text layoutX="-1.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Usage Based on Selected Company" textAlignment="CENTER" underline="true" wrappingWidth="1218.1686401367188">
+      <Text layoutX="-1.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Usage Based on Selected Month" textAlignment="CENTER" underline="true" wrappingWidth="1218.1686401367188">
          <font>
             <Font name="PT Mono Bold" size="35.0" />
          </font>
@@ -32,8 +32,8 @@
          <columns>
             <TableColumn fx:id="idColumn" editable="false" prefWidth="83.5" text="ID" />
             <TableColumn fx:id="nameColumn" prefWidth="209.0" text="Company Name" />
-            <TableColumn fx:id="usageColumn" prefWidth="198.78192138671875" text="Usage" />
             <TableColumn fx:id="monthColumn" prefWidth="211.7181396484375" text="Month" />
+            <TableColumn fx:id="usageColumn" prefWidth="198.78192138671875" text="Energy" />
             <TableColumn fx:id="waterColumn" prefWidth="229.5" text="Water" />
          </columns>
          <columnResizePolicy>

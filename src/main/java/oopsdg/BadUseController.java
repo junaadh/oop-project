@@ -67,7 +67,7 @@ public class BadUseController implements Initializable {
 
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
 
-        usageColumn.setCellValueFactory(new PropertyValueFactory<>("usage"));
+        usageColumn.setCellValueFactory(new PropertyValueFactory<>("energy"));
 
         monthColumn.setCellValueFactory(new PropertyValueFactory<>("month"));
 

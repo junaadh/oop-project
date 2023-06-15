@@ -26,13 +26,13 @@
             </ImageView>
          </graphic>
       </Button>
-      <ComboBox fx:id="selectCombo" layoutX="479.0" layoutY="104.0" prefHeight="26.0" prefWidth="262.0" promptText="choose company name" style="-fx-background-color: #87CEEB;" />
+      <ComboBox fx:id="selectCombo" layoutX="479.0" layoutY="104.0" prefHeight="26.0" prefWidth="262.0" promptText="Choose company name" style="-fx-background-color: #87CEEB;" />
       <TableView fx:id="list" layoutX="161.0" layoutY="193.0" prefHeight="488.0" prefWidth="898.0">
          <columns>
             <TableColumn fx:id="idColumn" editable="false" prefWidth="83.5" text="ID" />
             <TableColumn fx:id="nameColumn" prefWidth="209.0" text="Company Name" />
             <TableColumn fx:id="monthColumn" prefWidth="211.7181396484375" text="Month" />
-            <TableColumn fx:id="usageColumn" prefWidth="198.78192138671875" text="Usage" />
+            <TableColumn fx:id="usageColumn" prefWidth="198.78192138671875" text="Energy" />
             <TableColumn fx:id="waterColumn" prefWidth="229.5" text="Water" />
          </columns>
          <columnResizePolicy>

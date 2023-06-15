@@ -27,7 +27,7 @@ public class GUIMonitor extends Application {
             System.exit(0);
         });
         stage.setResizable(false);
-        stage.setTitle("EcoWatcher");
+        stage.setTitle("EcoWatch");
         stage.setScene(welcomeScene);
         stage.getIcons().add(icon);
         stage.show();

@@ -26,7 +26,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <TextField fx:id="name" alignment="CENTER" layoutX="456.0" layoutY="108.0" prefHeight="26.0" prefWidth="251.0" promptText="Enter Company Name To Delete" style="-fx-background-color: #87CEEB;" />
+      <TextField fx:id="name" alignment="CENTER" layoutX="456.0" layoutY="108.0" prefHeight="26.0" prefWidth="251.0" promptText="Enter Company ID To Delete" style="-fx-background-color: #87CEEB;" />
       <Button fx:id="submitButton" layoutX="725.0" layoutY="108.0" mnemonicParsing="false" onAction="#submit" style="-fx-background-color: #FF8080;" text="Delete" />
       <Text fx:id="warningMessage" fill="#941616" layoutX="395.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="405.1765240476201">
          <font>
@@ -38,7 +38,7 @@
             <TableColumn fx:id="idColumn" editable="false" prefWidth="83.5" text="ID" />
             <TableColumn fx:id="nameColumn" prefWidth="209.0" text="Company Name" />
             <TableColumn fx:id="monthColumn" prefWidth="211.7181396484375" text="Month" />
-            <TableColumn fx:id="usageColumn" prefWidth="198.78192138671875" text="Usage" />
+            <TableColumn fx:id="usageColumn" prefWidth="198.78192138671875" text="Energy" />
             <TableColumn fx:id="waterColumn" prefWidth="229.5" text="Water" />
          </columns>
          <columnResizePolicy>

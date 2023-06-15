@@ -202,8 +202,8 @@ public class User {
                     Helper.clearScreen();
                     System.out.println("\n-------------------\n<  !!!WARNING!!!  >\n-------------------");
                     for (Company a : Initializer.cList) {
-                        double energyUsage = Double.parseDouble(a.usage.split(" ")[0]);
-                        String wattUsed = a.usage.split(" ")[1];
+                        double energyUsage = Double.parseDouble(a.energy.split(" ")[0]);
+                        String wattUsed = a.energy.split(" ")[1];
                         if (energyUsage > 100 && wattUsed.equals("Gigawatt")) {
                             Helper.exceedList(a, mode);
                         }
@@ -247,8 +247,8 @@ public class User {
                     return;
                 case "!":
                     for (Company a : Initializer.cList) {
-                        double energyUsage = Double.parseDouble(a.usage.split(" ")[0]);
-                        String wattUsed = a.usage.split(" ")[1];
+                        double energyUsage = Double.parseDouble(a.energy.split(" ")[0]);
+                        String wattUsed = a.energy.split(" ")[1];
                         if (energyUsage > 100 && wattUsed.equals("Gigawatt")) {
                             Helper.exceedList(a, mode);
                         }

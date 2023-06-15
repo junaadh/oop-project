@@ -12,7 +12,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1220.0" style="-fx-background-color: #F5F5F5;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oopsdg.WelcomeController">
    <children>
-      <Text fontSmoothingType="LCD" layoutX="472.0" layoutY="303.0" smooth="false" stroke="#a32727" strokeWidth="0.0" style="-fx-font-weight: Bold;" text="Hello" textAlignment="CENTER" wrappingWidth="315.72711181640625">
+      <Text fontSmoothingType="LCD" layoutX="464.0" layoutY="303.0" smooth="false" stroke="#a32727" strokeWidth="0.0" style="-fx-font-weight: Bold;" text="Hello" textAlignment="CENTER" wrappingWidth="315.72711181640625">
          <font>
             <Font name="Arial" size="100.0" />
          </font>
@@ -33,7 +33,7 @@
             </LinearGradient>
          </fill>
       </Text>
-      <Text layoutX="521.0" layoutY="362.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to our OOP Project">
+      <Text layoutX="515.0" layoutY="362.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to our OOP Project">
          <font>
             <Font name="AppleGothic Regular" size="16.0" />
          </font>
@@ -62,7 +62,7 @@
                </image></ImageView>
          </graphic>
       </Button>
-      <Button fx:id="adminButton" contentDisplay="GRAPHIC_ONLY" layoutX="585.0" layoutY="500.0" mnemonicParsing="false" onAction="#switchToAdminLogin" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: transparent;">
+      <Button fx:id="adminButton" contentDisplay="GRAPHIC_ONLY" layoutX="385.0" layoutY="500.0" mnemonicParsing="false" onAction="#switchToAdminLogin" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: transparent;">
          <graphic>
             <ImageView fx:id="adminIcon" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -70,7 +70,7 @@
                </image></ImageView>
          </graphic>
       </Button>
-      <Button fx:id="userButton" contentDisplay="GRAPHIC_ONLY" layoutX="385.0" layoutY="500.0" mnemonicParsing="false" onAction="#switchToUserLogin" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: transparent;">
+      <Button fx:id="userButton" contentDisplay="GRAPHIC_ONLY" layoutX="585.0" layoutY="500.0" mnemonicParsing="false" onAction="#switchToUserLogin" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: transparent;">
          <graphic>
             <ImageView fx:id="userIcon" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                <image>

@@ -65,8 +65,8 @@ public class Admin extends User {
                     System.out.println("\n-------------------\n<  !!!WARNING!!!  >\n-------------------");
                     for (Company a : Initializer.cList) {
                         if (mode) {
-                            double energyUsage = Double.parseDouble(a.usage.split(" ")[0]);
-                            String wattUsed = a.usage.split(" ")[1];
+                            double energyUsage = Double.parseDouble(a.energy.split(" ")[0]);
+                            String wattUsed = a.energy.split(" ")[1];
                             if (energyUsage > 100 && wattUsed.equals("Gigawatt")) {
                                 Helper.exceedList(a, mode);
                             }
@@ -122,8 +122,8 @@ public class Admin extends User {
                     System.out.println("\n-------------------\n<  !!!WARNING!!!  >\n-------------------");
                     for (Company a : Initializer.cList) {
                         if (mode) {
-                            double energyUsage = Double.parseDouble(a.usage.split(" ")[0]);
-                            String wattUsed = a.usage.split(" ")[1];
+                            double energyUsage = Double.parseDouble(a.energy.split(" ")[0]);
+                            String wattUsed = a.energy.split(" ")[1];
                             if (energyUsage > 100 && wattUsed.equals("Gigawatt")) {
                                 Helper.exceedList(a, mode);
                             }
@@ -402,7 +402,7 @@ public class Admin extends User {
         for (Company x : Initializer.cList) {
             if (a == x.getID()) {
                 x.name = y;
-                x.usage = c;
+                x.energy = c;
                 x.water = d;
                 x.month = e;
             }
@@ -413,7 +413,7 @@ public class Admin extends User {
         for (Company x : Initializer.cList) {
             if (ID == x.getID()) {
                 x.name = name;
-                x.usage = usage;
+                x.energy = usage;
                 x.month = month;
                 x.water = water;
             }
@@ -446,11 +446,15 @@ public class Admin extends User {
                     Initializer.cList[a] = temp[a];
                 }
                 System.out.println("Successfully deleted.");
+                String y = scanner.nextLine();
+                scanner.close();
+
                 return;
-            }
+            } 
         }
-        // scanner.close();
         System.out.println("No matching ID!");
+        scanner.close();
+
     }
 
     public static int guiDeleteCompany(int ID) {
