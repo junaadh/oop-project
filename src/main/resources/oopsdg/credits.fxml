@@ -23,45 +23,39 @@
             <Font size="16.0" />
          </font>
       </Text>
-      <Text layoutX="215.0" layoutY="556.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Our Team">
-         <font>
-            <Font size="25.0" />
-         </font>
-      </Text>
-      <Text layoutX="540" layoutY="556.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Climate Change">
-         <font>
-            <Font size="25.0" />
-         </font>
-      </Text>
-      <Text layoutX="932" layoutY="556.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The Program">
-         <font>
-            <Font size="25.0" />
-         </font>
-      </Text>
-      <Button fx:id="teamButton" layoutX="184.0" layoutY="355.0" mnemonicParsing="false" onAction="#switchToTeam" style="-fx-background-color: transparent;" textFill="WHITE">
+      <Button fx:id="teamButton" contentDisplay="TOP" layoutX="184.0" layoutY="355.0" mnemonicParsing="false" onAction="#switchToTeam" style="-fx-background-color: transparent;" text="Our Team" textAlignment="CENTER">
          <graphic>
             <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/team.png" />
                </image>
             </ImageView>
-         </graphic></Button>
-      <Button fx:id="programButton" layoutX="914.0" layoutY="352.0" mnemonicParsing="false" onAction="#switchToProgram" style="-fx-background-color: transparent;" textFill="WHITE">
+         </graphic>
+         <font>
+            <Font size="25.0" />
+         </font></Button>
+      <Button fx:id="programButton" contentDisplay="TOP" layoutX="914.0" layoutY="352.0" mnemonicParsing="false" onAction="#switchToProgram" style="-fx-background-color: transparent;" text="The Program" textAlignment="CENTER">
          <graphic>
             <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/program.png" />
                </image>
             </ImageView>
-         </graphic></Button>
-      <Button fx:id="sdgButton" layoutX="539.0" layoutY="356.0" mnemonicParsing="false" onAction="#switchToSdg" style="-fx-background-color: transparent;" textFill="WHITE">
+         </graphic>
+         <font>
+            <Font size="25.0" />
+         </font></Button>
+      <Button fx:id="sdgButton" contentDisplay="TOP" layoutX="539.0" layoutY="356.0" mnemonicParsing="false" onAction="#switchToSdg" style="-fx-background-color: transparent;" text="Climate Change" textAlignment="CENTER">
          <graphic>
             <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/climate.png" />
                </image>
             </ImageView>
-         </graphic></Button>
+         </graphic>
+         <font>
+            <Font size="25.0" />
+         </font></Button>
       <Text fill="#755050" layoutX="2.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to Information Page" textAlignment="CENTER" underline="true" wrappingWidth="1218.2132568359375">
          <font>
             <Font name="Arial Bold" size="30.0" />
