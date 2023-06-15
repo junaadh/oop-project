@@ -18,7 +18,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class userLoginController {
+public class UserLoginController {
 
     // Initialize root, scene and node to be used to change between GUI scenes
     private Stage stage;
