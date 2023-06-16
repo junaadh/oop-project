@@ -420,6 +420,7 @@ public class Admin extends User {
         }
     }
 
+    @SuppressWarnings("resource")
     public static void deleteCompany() {
         Helper.clearScreen();
         int inc = 0;
@@ -446,9 +447,6 @@ public class Admin extends User {
                     Initializer.cList[a] = temp[a];
                 }
                 System.out.println("Successfully deleted.");
-                String y = scanner.nextLine();
-                scanner.close();
-
                 return;
             } 
         }
