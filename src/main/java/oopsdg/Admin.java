@@ -152,7 +152,7 @@ public class Admin extends User {
     public static String Auth() {
         String isOK = "";
         System.out.println("\nEnter Username:");
-        String userName = Initializer.sc.nextLine();
+        String userName = Initializer.sc.nextLine().trim();
         Map<String, Admin> mod_map = FileHandler.loadAdmin();
 
         if (!mod_map.containsKey(userName)) {

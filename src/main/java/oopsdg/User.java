@@ -37,7 +37,7 @@ public class User {
         String username, password;
 
         System.out.println("\nEnter Username:");
-        username = Initializer.sc.nextLine();
+        username = Initializer.sc.nextLine().trim();
 
         if (!user_map.containsKey(username)) {
             System.out.println("\nThat username doesn't exist!");
@@ -91,13 +91,21 @@ public class User {
         String firstName, lastName, userName, password, confirmation, userInfo;
 
         System.out.println("\nWelcome to registration. \n\nEnter first name:");
-        firstName = Initializer.sc.nextLine();
+        firstName = Initializer.sc.nextLine().trim();
 
         System.out.println("\nEnter last name:");
-        lastName = Initializer.sc.nextLine();
+        lastName = Initializer.sc.nextLine().trim();
 
-        System.out.println("\nEnter username:");
-        userName = Initializer.sc.nextLine();
+        Map<String, User> userMap = FileHandler.loadUser();
+        do {
+            int count = 0;
+            System.out.println("\nEnter username:");
+            userName = Initializer.sc.nextLine().trim();
+            count++;
+            if (count > 0) {
+                System.out.println("Username already taken, please choose another username");
+            }
+        } while (userMap.containsKey(userName));
 
         System.out.println("\nEnter password:");
         password = Initializer.sc.nextLine();
@@ -125,7 +133,7 @@ public class User {
                 + ". \nYou may continue to login as a user now.");
 
         try {
-            FileWriter fileWriter = new FileWriter("src/main/java/oopits/userData.txt", true);
+            FileWriter fileWriter = new FileWriter("src/main/resources/oopsdg/data/userData.txt", true);
             fileWriter.write(userInfo + "\n");
             fileWriter.close();
 

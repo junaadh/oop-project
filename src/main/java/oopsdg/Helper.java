@@ -138,6 +138,7 @@ public class Helper {
     }
     
     public static void noKey(String a) {
+        Helper.clearScreen();
         if (a.equals("")){
             System.out.println("\nKeyword" + a + " doesn't exist!");
             return ;
