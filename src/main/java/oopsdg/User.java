@@ -102,7 +102,7 @@ public class User {
             System.out.println("\nEnter username:");
             userName = Initializer.sc.nextLine().trim();
             count++;
-            if (count > 0) {
+            if (count > 0 && userMap.containsKey(userName)) {
                 System.out.println("Username already taken, please choose another username");
             }
         } while (userMap.containsKey(userName));
